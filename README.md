@@ -30,3 +30,26 @@ Additional notes:
 
 Happy Friday!
 If you have any additional questions let me know!  So far all I have to work with is vague information from a 30 minute meeting, but the situation will probably be different next week.
+
+Member Roles:
+Backend: Alejandro Pineda
+ID/Doc - Project Manager: Christopher O’Neill
+Scrum Master: Matthew Hannan
+UX Designer: Irene Polo
+UI Frontend: Kyler Ferrell-Clegg
+Full Stack: Andres Pineda
+
+Contact Information:
+Andres - (954) 670-7795 - andrespineda97@ufl.edu
+Alejandro - (954) 670-7793 - alepineda97@ufl.edu
+Christopher - (561) 685-5625 - cjoneill@ufl.edu
+Irene - (786) 461-3641 - ipolo1969@ufl.edu
+Kyler - (407) 868-1596 - kferrellclegg@ufl.edu
+Matthew - (727) 415-1027 - matthewh2@ufl.edu
+
+Weekly Meeting Session:
+Tuesdays (11:15am - 11:45am) in Marston Science Library Basement - Directly before our
+weekly discussion/lab period
+
+Collaborative Working Sessions:
+During discussion section at 11:45 on Tuesdays and if needed, on weekend mornings.
