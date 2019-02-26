@@ -48,3 +48,4 @@ Collaborative Working Sessions:
 During discussion section at 11:45 on Tuesdays and if needed, on weekend mornings.
 
 We’re using Github for remote repository (codebase), Google Drive and Documents for communication, storage, and collaborative administrative resources. We will also be using Slack or direct communication.
+Andres Pineda
