@@ -51,3 +51,4 @@ We’re using Github for remote repository (codebase), Google Drive and Document
 Irene Polo
 Andres Pineda
 Alejandro Pineda 
+Chris O'Neill
