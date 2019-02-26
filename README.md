@@ -50,5 +50,6 @@ We’re using Github for remote repository (codebase), Google Drive and Document
 
 Irene Polo
 Andres Pineda
-Alejandro Pineda 
+Alejandro Pineda
 Chris O'Neill
+Kyler Ferrell-Clegg
