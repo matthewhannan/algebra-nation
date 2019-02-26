@@ -26,7 +26,6 @@ of:
 
 As multiple groups in different sections will be working with the client, our priorities may change per request of the client. Though this is unlikely, we should try to keep ideas more abstract than concrete.
 
-
 Member Roles:
 Backend: Alejandro Pineda
 ID/Doc - Project Manager: Christopher O’Neill Scrum Master: Matthew Hannan
