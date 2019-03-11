@@ -26,30 +26,30 @@ of:
 
 As multiple groups in different sections will be working with the client, our priorities may change per request of the client. Though this is unlikely, we should try to keep ideas more abstract than concrete.
 
-Member Roles:
-Backend: Alejandro Pineda
-ID/Doc - Project Manager: Christopher O’Neill Scrum Master: Matthew Hannan
-UX Designer: Irene Polo
-UI Frontend: Kyler Ferrell-Clegg Full Stack: Andres Pineda
+Member Roles:<br>
+Backend: Alejandro Pineda<br>
+ID/Doc - Project Manager: Christopher O’Neill Scrum Master: Matthew Hannan<br>
+UX Designer: Irene Polo<br>
+UI Frontend: Kyler Ferrell-Clegg Full Stack: Andres Pineda<br>
 
-Contact Information:
-Andres - (954) 670-7795 - andrespineda97@ufl.edu
-Alejandro - (954) 670-7793 - alepineda97@ufl.edu
-Christopher - (561) 685-5625 - cjoneill@ufl.edu
-Irene - (786) 461-3641 - ipolo1969@ufl.edu
-Kyler - (407) 868-1596 - kferrellclegg@ufl.edu
-Matthew - (727) 415-1027 - matthewh2@ufl.edu
+Contact Information:<br>
+Andres - (954) 670-7795 - andrespineda97@ufl.edu<br>
+Alejandro - (954) 670-7793 - alepineda97@ufl.edu<br>
+Christopher - (561) 685-5625 - cjoneill@ufl.edu<br>
+Irene - (786) 461-3641 - ipolo1969@ufl.edu<br>
+Kyler - (407) 868-1596 - kferrellclegg@ufl.edu<br>
+Matthew - (727) 415-1027 - matthewh2@ufl.edu<br>
 
-Weekly Meeting Session:
+Weekly Meeting Session:<br>
 Tuesdays (11:15am - 11:45am) in Marston Science Library Basement - Directly before our weekly discussion/lab period
 
-Collaborative Working Sessions:
+Collaborative Working Sessions:<br>
 During discussion section at 11:45 on Tuesdays and if needed, on weekend mornings.
 
 We’re using Github for remote repository (codebase), Google Drive and Documents for communication, storage, and collaborative administrative resources. We will also be using Slack or direct communication.
 
-Irene Polo
-Andres Pineda
-Alejandro Pineda
-Chris O'Neill
+Irene Polo<br>
+Andres Pineda<br>
+Alejandro Pineda<br>
+Chris O'Neill<br>
 Kyler Ferrell-Clegg
