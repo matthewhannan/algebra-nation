@@ -1,0 +1,188 @@
+<html>
+
+  <head>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    <link rel="stylesheet" href="styles/main.css">
+  </head>
+
+  <body ng-app="directoryApp">
+
+    <div class="container">
+
+        <!--NAVBAR-->
+        <div class="row">
+          <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <div class="navbar-brand">
+              <a  href="/index.html">
+                <img src="/images/twitter_icon.png" width="30" height="30" class="d-inline-block align-top" alt="">
+                <b>Twitter Data</b>
+              </a>
+            </div>
+            <div>
+              <h1 class="navbar-header">User Metrics</h1>
+            </div>
+          </nav>
+        </div>
+
+        <!--BREADCRUMBS-->
+        <div class="row">
+                <nav aria-label="breadcrumb">
+                        <ol class="breadcrumb">
+                          <li class="breadcrumb-item"><a href="/index.html">Dashboard</a></li>
+                          <li class="breadcrumb-item active" aria-current="page">User Metrics</li>
+                        </ol>
+                </nav>
+        </div>
+    
+      <!--SITE BODY-->
+      <div class="row">
+          
+          <div class="col">
+              <!--PROFILE CARD-->
+              <div class="twPc-div">
+                  <a class="twPc-bg twPc-block"></a>
+              
+                <div>
+                  <!-- <div class="twPc-button">
+                          <!-- Twitter Button | you can get from: https://about.twitter.com/tr/resources/buttons#follow 
+                          <a href="https://twitter.com/mertskaplan" class="twitter-follow-button" data-show-count="false" data-size="large" data-show-screen-name="false" data-dnt="true">Follow @mertskaplan</a>
+                          <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+                          <!-- Twitter Button    
+                  </div>-->
+              
+                  <a title="Mert S. Kaplan" href="https://twitter.com/mertskaplan" class="twPc-avatarLink">
+                    <img alt="Mert S. Kaplan" src="https://mertskaplan.com/wp-content/plugins/msk-twprofilecard/img/mertskaplan.jpg" class="twPc-avatarImg">
+                  </a>
+              
+                  <div class="twPc-divUser">
+                    <div class="twPc-divName">
+                      <a href="https://twitter.com/mertskaplan">Mert S. Kaplan</a>
+                    </div>
+                    <span>
+                      <a href="https://twitter.com/mertskaplan">@<span>mertskaplan</span></a>
+                    </span>
+                  </div>
+              
+                  <div class="twPc-divStats">
+                    <ul class="twPc-Arrange">
+                      <li class="twPc-ArrangeSizeFit">
+                        <a href="https://twitter.com/mertskaplan" title="9.840 Tweet">
+                          <span class="twPc-StatLabel twPc-block">Tweets</span>
+                          <span class="twPc-StatValue">9.840</span>
+                        </a>
+                      </li>
+                      <li class="twPc-ArrangeSizeFit">
+                        <a href="https://twitter.com/mertskaplan/following" title="885 Following">
+                          <span class="twPc-StatLabel twPc-block">Following</span>
+                          <span class="twPc-StatValue">885</span>
+                        </a>
+                      </li>
+                      <li class="twPc-ArrangeSizeFit">
+                        <a href="https://twitter.com/mertskaplan/followers" title="1.810 Followers">
+                          <span class="twPc-StatLabel twPc-block">Followers</span>
+                          <span class="twPc-StatValue">1.810</span>
+                        </a>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+
+              <!--STATS CARDS-->
+                <div>
+                    <div class="card text-center" style="width: 90%;">
+                        <div class="card-body">
+                        <h5 class="card-title">Tweets</h5>
+                        <p class="card-text">1,055</p>
+                        </div>
+                    </div>
+                    <div class="card text-center" style="width: 90%;">
+                            <div class="card-body">
+                            <h5 class="card-title">Posts Liked</h5>
+                            <p class="card-text">3,563</p>
+                            </div>
+                    </div>
+                    <div class="card text-center" style="width: 90%;">
+                            <div class="card-body">
+                            <h5 class="card-title">Posts Retweeted</h5>
+                            <p class="card-text">666</p>
+                            </div>
+                    </div>
+                    <div class="card text-center" style="width: 90%;">
+                            <div class="card-body">
+                            <h5 class="card-title">Replies</h5>
+                            <p class="card-text">9,000</p>
+                            </div>
+                    </div>
+                </div>
+          </div>
+
+
+          <!--CENTER SECTION-->
+          <div class="col">
+
+            <!--FOLLOWERS/FRIENDS-->
+            <div>
+                    <ul class="list-group">
+                            <li class="list-group-item d-flex justify-content-between align-items-center">
+                              Followers
+                              <span class="badge badge-primary badge-pill">1810</span>
+                            </li>
+                            <li class="list-group-item d-flex justify-content-between align-items-center">
+                              You don't follow back
+                              <span class="badge badge-primary badge-pill">1200</span>
+                            </li>
+                            <li class="list-group-item d-flex justify-content-between align-items-center">
+                              Friends
+                              <span class="badge badge-primary badge-pill">885</span>
+                            </li>
+                            <li class="list-group-item d-flex justify-content-between align-items-center">
+                                Don't follow you back
+                                <span class="badge badge-primary badge-pill">450</span>
+                            </li>
+                    </ul>
+            </div>
+            
+
+            <!--USER ACTIVITY PIE CHART-->
+            <div>
+                <h2>User Activity Breakdown</h2>
+                <img src="/images/pie.png" alt="">
+
+            </div>
+             
+          </div>
+
+
+          <!--RIGHT SECTION-->
+          <div class="col">
+            <!--POPULAR TWEETS BAR GRAPH-->
+            <div>
+                <h2>Popular Tweets</h2>
+                <img src="/images/bar_horizontal.png" width=100% height=30% alt="">
+            </div>
+
+            <!--TWITTER ACTIVITY LINE GRAPH-->
+            <div>
+                <h2>Twitter Activity</h2>
+                <img src="/images/line.png" width=100% height=30% alt="">
+            </div>
+
+          </div>
+      </div>
+
+    </div>
+      
+      
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js" integrity="sha512-K1qjQ+NcF2TYO/eI3M6v8EiNYZfA95pQumfvcVrTHtwQVDG+aHRqLi/ETn2uB+1JqwYqVG3LIvdm9lj6imS/pQ==" crossorigin="anonymous"></script>
+    <script src="https://code.angularjs.org/1.4.3/angular.js"></script>
+    <script src="js/app.js"></script>
+    <script src="js/factories/listingFactory.js"></script>
+    <script src="js/controllers/listingController.js"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+  </body>
+</html>

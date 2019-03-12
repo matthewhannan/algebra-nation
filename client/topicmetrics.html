@@ -1,0 +1,360 @@
+<html>
+
+  <head>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    <link rel="stylesheet" href="styles/main.css">
+  </head>
+
+  <body ng-app="directoryApp">
+
+    <div class="container">
+
+        <!--NAVBAR-->
+        <div class="row">
+          <nav class="navbar navbar-expand-lg navbar-dark blue lighten-2 mb-4">
+                <div class="navbar-brand">
+                    <a  href="/index.html">
+                        <img src="/images/twitter_icon.png" width="30" height="30" class="d-inline-block align-top" alt="">
+                        <b>Twitter Data</b>
+                    </a>
+                </div>
+
+                <div>
+                    <h1 class="navbar-header">Topic Metrics</h1>
+                </div>
+
+                <div id="custom-search-input" >
+                        <div class="input-group col-md-12">
+                            <input type="text" class="  search-query form-control" placeholder="Search" />
+                            <span class="input-group-btn">
+                                <button class="btn btn-primary" type="button">
+                                    <span class=" glyphicon glyphicon-search"></span>
+                                </button>
+                            </span>
+                        </div>
+                </div>
+          </nav>
+        </div>
+
+        <!--BREADCRUMBS-->
+        <div class ="row">
+                <nav aria-label="breadcrumb">
+                        <ol class="breadcrumb">
+                          <li class="breadcrumb-item"><a href="/index.html">Dashboard</a></li>
+                          <li class="breadcrumb-item active" aria-current="page">Topic Metrics</li>
+                        </ol>
+                </nav>
+        </div>
+
+        <!--QUERY-->
+        <div>
+            <h1 style="display:inline">Query</h1> <p style="display:inline"></p><i> in City, State</i> </p>
+        </div>
+    
+      <!--SITE BODY-->
+      <div class="row">
+          
+          <div class="col">
+
+              <!--POPULAR USERS-->
+                <h2>Popular Users</h2>
+                <div>
+                    <ul class="list-group">
+                            <li class="list-group-item">
+                                <div class="twPc-div">
+                        <a class="twPc-bg twPc-block"></a>
+                    
+                        <div>
+                        <!-- <div class="twPc-button">
+                                <!-- Twitter Button | you can get from: https://about.twitter.com/tr/resources/buttons#follow 
+                                <a href="https://twitter.com/mertskaplan" class="twitter-follow-button" data-show-count="false" data-size="large" data-show-screen-name="false" data-dnt="true">Follow @mertskaplan</a>
+                                <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+                                <!-- Twitter Button    
+                        </div>-->
+                    
+                        <a title="Mert S. Kaplan" href="https://twitter.com/mertskaplan" class="twPc-avatarLink">
+                            <img alt="Mert S. Kaplan" src="https://mertskaplan.com/wp-content/plugins/msk-twprofilecard/img/mertskaplan.jpg" class="twPc-avatarImg">
+                        </a>
+                    
+                        <div class="twPc-divUser">
+                            <div class="twPc-divName">
+                            <a href="https://twitter.com/mertskaplan">Mert S. Kaplan</a>
+                            </div>
+                            <span>
+                            <a href="https://twitter.com/mertskaplan">@<span>mertskaplan</span></a>
+                            </span>
+                        </div>
+                    
+                        <div class="twPc-divStats">
+                            <ul class="twPc-Arrange">
+                            <li class="twPc-ArrangeSizeFit">
+                                <a href="https://twitter.com/mertskaplan" title="9.840 Tweet">
+                                <span class="twPc-StatLabel twPc-block">Tweets</span>
+                                <span class="twPc-StatValue">9.840</span>
+                                </a>
+                            </li>
+                            <li class="twPc-ArrangeSizeFit">
+                                <a href="https://twitter.com/mertskaplan/following" title="885 Following">
+                                <span class="twPc-StatLabel twPc-block">Following</span>
+                                <span class="twPc-StatValue">885</span>
+                                </a>
+                            </li>
+                            <li class="twPc-ArrangeSizeFit">
+                                <a href="https://twitter.com/mertskaplan/followers" title="1.810 Followers">
+                                <span class="twPc-StatLabel twPc-block">Followers</span>
+                                <span class="twPc-StatValue">1.810</span>
+                                </a>
+                            </li>
+                            </ul>
+                        </div>
+                        </div>
+                                </div>
+                            </li>
+                            <li class="list-group-item">
+                                    <div class="twPc-div">
+                                        <a class="twPc-bg twPc-block"></a>
+                                    
+                                        <div>
+                                        <!-- <div class="twPc-button">
+                                                <!-- Twitter Button | you can get from: https://about.twitter.com/tr/resources/buttons#follow 
+                                                <a href="https://twitter.com/mertskaplan" class="twitter-follow-button" data-show-count="false" data-size="large" data-show-screen-name="false" data-dnt="true">Follow @mertskaplan</a>
+                                                <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+                                                <!-- Twitter Button    
+                                        </div>-->
+                                    
+                                        <a title="Mert S. Kaplan" href="https://twitter.com/mertskaplan" class="twPc-avatarLink">
+                                            <img alt="Mert S. Kaplan" src="https://mertskaplan.com/wp-content/plugins/msk-twprofilecard/img/mertskaplan.jpg" class="twPc-avatarImg">
+                                        </a>
+                                    
+                                        <div class="twPc-divUser">
+                                            <div class="twPc-divName">
+                                            <a href="https://twitter.com/mertskaplan">Mert S. Kaplan</a>
+                                            </div>
+                                            <span>
+                                            <a href="https://twitter.com/mertskaplan">@<span>mertskaplan</span></a>
+                                            </span>
+                                        </div>
+                                    
+                                        <div class="twPc-divStats">
+                                            <ul class="twPc-Arrange">
+                                            <li class="twPc-ArrangeSizeFit">
+                                                <a href="https://twitter.com/mertskaplan" title="9.840 Tweet">
+                                                <span class="twPc-StatLabel twPc-block">Tweets</span>
+                                                <span class="twPc-StatValue">9.840</span>
+                                                </a>
+                                            </li>
+                                            <li class="twPc-ArrangeSizeFit">
+                                                <a href="https://twitter.com/mertskaplan/following" title="885 Following">
+                                                <span class="twPc-StatLabel twPc-block">Following</span>
+                                                <span class="twPc-StatValue">885</span>
+                                                </a>
+                                            </li>
+                                            <li class="twPc-ArrangeSizeFit">
+                                                <a href="https://twitter.com/mertskaplan/followers" title="1.810 Followers">
+                                                <span class="twPc-StatLabel twPc-block">Followers</span>
+                                                <span class="twPc-StatValue">1.810</span>
+                                                </a>
+                                            </li>
+                                            </ul>
+                                        </div>
+                                        </div>
+                                    </div>
+                            </li>
+                            <li class="list-group-item">
+                                    <div class="twPc-div">
+                            <a class="twPc-bg twPc-block"></a>
+                        
+                            <div>
+                            <!-- <div class="twPc-button">
+                                    <!-- Twitter Button | you can get from: https://about.twitter.com/tr/resources/buttons#follow 
+                                    <a href="https://twitter.com/mertskaplan" class="twitter-follow-button" data-show-count="false" data-size="large" data-show-screen-name="false" data-dnt="true">Follow @mertskaplan</a>
+                                    <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+                                    <!-- Twitter Button    
+                            </div>-->
+                        
+                            <a title="Mert S. Kaplan" href="https://twitter.com/mertskaplan" class="twPc-avatarLink">
+                                <img alt="Mert S. Kaplan" src="https://mertskaplan.com/wp-content/plugins/msk-twprofilecard/img/mertskaplan.jpg" class="twPc-avatarImg">
+                            </a>
+                        
+                            <div class="twPc-divUser">
+                                <div class="twPc-divName">
+                                <a href="https://twitter.com/mertskaplan">Mert S. Kaplan</a>
+                                </div>
+                                <span>
+                                <a href="https://twitter.com/mertskaplan">@<span>mertskaplan</span></a>
+                                </span>
+                            </div>
+                        
+                            <div class="twPc-divStats">
+                                <ul class="twPc-Arrange">
+                                <li class="twPc-ArrangeSizeFit">
+                                    <a href="https://twitter.com/mertskaplan" title="9.840 Tweet">
+                                    <span class="twPc-StatLabel twPc-block">Tweets</span>
+                                    <span class="twPc-StatValue">9.840</span>
+                                    </a>
+                                </li>
+                                <li class="twPc-ArrangeSizeFit">
+                                    <a href="https://twitter.com/mertskaplan/following" title="885 Following">
+                                    <span class="twPc-StatLabel twPc-block">Following</span>
+                                    <span class="twPc-StatValue">885</span>
+                                    </a>
+                                </li>
+                                <li class="twPc-ArrangeSizeFit">
+                                    <a href="https://twitter.com/mertskaplan/followers" title="1.810 Followers">
+                                    <span class="twPc-StatLabel twPc-block">Followers</span>
+                                    <span class="twPc-StatValue">1.810</span>
+                                    </a>
+                                </li>
+                                </ul>
+                            </div>
+                            </div>
+                                    </div>
+                            </li>
+                            <li class="list-group-item">
+                                        <div class="twPc-div">
+                                            <a class="twPc-bg twPc-block"></a>
+                                        
+                                            <div>
+                                            <!-- <div class="twPc-button">
+                                                    <!-- Twitter Button | you can get from: https://about.twitter.com/tr/resources/buttons#follow 
+                                                    <a href="https://twitter.com/mertskaplan" class="twitter-follow-button" data-show-count="false" data-size="large" data-show-screen-name="false" data-dnt="true">Follow @mertskaplan</a>
+                                                    <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+                                                    <!-- Twitter Button    
+                                            </div>-->
+                                        
+                                            <a title="Mert S. Kaplan" href="https://twitter.com/mertskaplan" class="twPc-avatarLink">
+                                                <img alt="Mert S. Kaplan" src="https://mertskaplan.com/wp-content/plugins/msk-twprofilecard/img/mertskaplan.jpg" class="twPc-avatarImg">
+                                            </a>
+                                        
+                                            <div class="twPc-divUser">
+                                                <div class="twPc-divName">
+                                                <a href="https://twitter.com/mertskaplan">Mert S. Kaplan</a>
+                                                </div>
+                                                <span>
+                                                <a href="https://twitter.com/mertskaplan">@<span>mertskaplan</span></a>
+                                                </span>
+                                            </div>
+                                        
+                                            <div class="twPc-divStats">
+                                                <ul class="twPc-Arrange">
+                                                <li class="twPc-ArrangeSizeFit">
+                                                    <a href="https://twitter.com/mertskaplan" title="9.840 Tweet">
+                                                    <span class="twPc-StatLabel twPc-block">Tweets</span>
+                                                    <span class="twPc-StatValue">9.840</span>
+                                                    </a>
+                                                </li>
+                                                <li class="twPc-ArrangeSizeFit">
+                                                    <a href="https://twitter.com/mertskaplan/following" title="885 Following">
+                                                    <span class="twPc-StatLabel twPc-block">Following</span>
+                                                    <span class="twPc-StatValue">885</span>
+                                                    </a>
+                                                </li>
+                                                <li class="twPc-ArrangeSizeFit">
+                                                    <a href="https://twitter.com/mertskaplan/followers" title="1.810 Followers">
+                                                    <span class="twPc-StatLabel twPc-block">Followers</span>
+                                                    <span class="twPc-StatValue">1.810</span>
+                                                    </a>
+                                                </li>
+                                                </ul>
+                                            </div>
+                                            </div>
+                                        </div>
+                            </li>
+                    </ul>
+                </div>
+          </div>
+
+
+          <!--CENTER SECTION-->
+          <div class="col-6">
+
+            <!--POPULAR TWEETS-->
+            <h2>Popular Tweets</h2>
+            <div class = "topic-list">
+                    <ul class="list-unstyled">
+                            <li class="media">
+                              <img src="/images/bugs.jpeg" width = 15% height = 12% class="mr-3" alt="">
+                              <div class="media-body">
+                                <h5 class="mt-0 mb-1">Bugs Bunny</h5>
+                                <p>I'm tired...</p>
+                                <button type="button" class="btn btn-primary">
+                                        Likes <span class="badge badge-light">37</span>
+                                </button>
+                                <button type="button" class="btn btn-primary">
+                                        Retweets <span class="badge badge-light">666</span>
+                                </button>
+                                <button type="button" class="btn btn-primary">
+                                        Replies <span class="badge badge-light">0</span>
+                                </button>
+                              </div>
+                            </li>
+                            <li class="media my-4">
+                              <img src="/images/bugs.jpeg" width = 15% height = 12% class="mr-3" alt="">
+                              <div class="media-body">
+                                <h5 class="mt-0 mb-1">Bugs Bunny</h5>
+                                <p>Craving some carrots right about now</p>
+                                <button type="button" class="btn btn-primary">
+                                        Likes <span class="badge badge-light">1,457</span>
+                                </button>
+                                <button type="button" class="btn btn-primary">
+                                        Retweets <span class="badge badge-light">350</span>
+                                </button>
+                                <button type="button" class="btn btn-primary">
+                                        Replies <span class="badge badge-light">2</span>
+                                </button>
+                              </div>
+                            </li>
+                            <li class="media">
+                              <img src="/images/bugs.jpeg" width = 15% height = 12% class="mr-3" alt="">
+                              <div class="media-body">
+                                <h5 class="mt-0 mb-1">Bugs Bunny</h5>
+                                <p>Has anyone seen Elmer Fudd recently, hate that guy...</p>
+                                <button type="button" class="btn btn-primary">
+                                        Likes <span class="badge badge-light">150</span>
+                                </button>
+                                <button type="button" class="btn btn-primary">
+                                        Retweets <span class="badge badge-light">2</span>
+                                </button>
+                                <button type="button" class="btn btn-primary">
+                                        Replies <span class="badge badge-light">20</span>
+                                </button>
+                              </div>
+                            </li>
+                    </ul>
+            </div>  
+             
+          </div>
+
+
+          <!--RIGHT SECTION-->
+          <div class="col">
+            <!--POPULAR TWEETS BAR GRAPH-->
+            <div>
+                <h2>Top Posts</h2>
+                <img src="/images/bar.png" width=100% height=30% alt="">
+            </div>
+
+            <!--TWITTER ACTIVITY LINE GRAPH-->
+            <div>
+                <h2>Tweet Engagement</h2>
+                <img src="/images/line.png" width=100% height=30% alt="">
+            </div>
+
+          </div>
+      </div>
+
+    </div>
+      
+      
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js" integrity="sha512-K1qjQ+NcF2TYO/eI3M6v8EiNYZfA95pQumfvcVrTHtwQVDG+aHRqLi/ETn2uB+1JqwYqVG3LIvdm9lj6imS/pQ==" crossorigin="anonymous"></script>
+    <script src="https://code.angularjs.org/1.4.3/angular.js"></script>
+    <script src="js/app.js"></script>
+    <script src="js/factories/listingFactory.js"></script>
+    <script src="js/controllers/listingController.js"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+  </body>
+</html>
