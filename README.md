@@ -1,4 +1,4 @@
-# algebra-nation-project
+# twitter-app
 Software Engineering Class Project for Algebra Nation
 
 Alright team, based on today's meeting, here's the gist of our situation:
@@ -28,9 +28,11 @@ As multiple groups in different sections will be working with the client, our pr
 
 Member Roles:<br>
 Backend: Alejandro Pineda<br>
-ID/Doc - Project Manager: Christopher O’Neill Scrum Master: Matthew Hannan<br>
+ID/Doc - Project Manager: Christopher O’Neill <br>
+Scrum Master: Matthew Hannan<br>
 UX Designer: Irene Polo<br>
-UI Frontend: Kyler Ferrell-Clegg Full Stack: Andres Pineda<br>
+UI Frontend: Kyler Ferrell-Clegg <br>
+Full Stack: Andres Pineda<br>
 
 Contact Information:<br>
 Andres - (954) 670-7795 - andrespineda97@ufl.edu<br>
