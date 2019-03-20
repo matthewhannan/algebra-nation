@@ -8,18 +8,13 @@
 		<link rel="stylesheet" href="https://abs.twimg.com/a/1552443372/css/t1/twitter_core.bundle.css" class="coreCSSBundles">
 		<link rel="stylesheet" class="moreCSSBundles" href="https://abs.twimg.com/a/1552443372/css/t1/twitter_more_1.bundle.css">
 		<link rel="stylesheet" class="moreCSSBundles" href="https://abs.twimg.com/a/1552443372/css/t1/twitter_more_2.bundle.css">
-		<style id="user-style-droidxcurve-header-img" class="js-user-style-header-img">
-			.DashboardProfileCard-bg {
-			  background-image: url(https://pbs.twimg.com/profile_banners/34743251/1552071544/600x200);
-			}
-		</style>
 	</head>
 	<body>
 		<div id="page-outer">
-			<div id="page-container" class="AppContent wrapper wrapper-home">
+			<div id="page-container" class="AppContent wrapper-home" style="display: flex; justify-content: center">
 				<div class="dashboard dashboard-left">
 					<div class="DashboardProfileCard  module">
-						<a class="DashboardProfileCard-bg u-bgUserColor u-block" href="/SpaceX" tabindex="-1" aria-hidden="true" rel="noopener">
+						<a class="DashboardProfileCard-bg u-bgUserColor u-block" style="background-image: url(https://pbs.twimg.com/profile_banners/34743251/1552071544/600x200);" href="/SpaceX" tabindex="-1" aria-hidden="true" rel="noopener">
 						</a>
 						<div class="DashboardProfileCard-content">
 							<a class="DashboardProfileCard-avatarLink u-inlineBlock" href="/SpaceX" title="SpaceX" tabindex="-1" aria-hidden="true" rel="noopener">
@@ -142,9 +137,84 @@
 						</div>
 					</div>
 				</div>
-				<div class="dashboard" style="background: white; width: 550px; height: 629px; margin-left: 20px; padding: 25px; display: flex; justify-content: space-around">
-					<div class="flex-module-header"><h3 style="font-size: 25px"><span>Trending Topics</span></h3></div>
-					<div class="flex-module-header"><h3 style="font-size: 25px"><span>Search Trends</span></h3></div>
+				<div class="dashboard" style="background: white; width: 450px; height: 629px; margin-left: 20px;">
+					<div class="flex-module-header" style="padding: 25px;">
+						<h3 style="font-size: 25px"><span>Trending Topics</span></h3>
+					</div>
+					<div style="margin-top: 20px;">
+						<div style="margin-top: 5px; border-style: solid; border-color: #e6ecf0; border-bottom: white; margin: -3px; padding: 5px;">Whatever man</div>
+						<div style="margin-top: 5px; border-style: solid; border-color: #e6ecf0; border-bottom: white; margin: -3px; padding: 5px;">Whatever man</div>
+						<div style="margin-top: 5px; border-style: solid; border-color: #e6ecf0; border-bottom: white; margin: -3px; padding: 5px;">Whatever man</div>						
+						<div style="margin-top: 5px; border-style: solid; border-color: #e6ecf0; border-bottom: white; margin: -3px; padding: 5px;">Whatever man</div>
+						<div style="margin-top: 5px; border-style: solid; border-color: #e6ecf0; border-bottom: white; margin: -3px; padding: 5px;">Whatever man</div>
+						<div style="margin-top: 5px; border-style: solid; border-color: #e6ecf0; margin: -3px; padding: 5px;">Whatever man</div>						
+					</div>
+				</div>
+				<div class="dashboard" style="background: white; height: 629px; margin-left: 20px; padding: 25px;">
+					<div class="flex-module-header">
+						<h3 style="font-size: 25px"><span>Search Trends</span></h3>
+					</div>
+					<!--SELECT CITY-->
+					<select class="form-control" style="margin-top: 20px">
+						<option value="" selected="selected">Select a State</option>
+						<option value="AL">Alabama</option>
+						<option value="AK">Alaska</option>
+						<option value="AZ">Arizona</option>
+						<option value="AR">Arkansas</option>
+						<option value="CA">California</option>
+						<option value="CO">Colorado</option>
+						<option value="CT">Connecticut</option>
+						<option value="DE">Delaware</option>
+						<option value="DC">District Of Columbia</option>
+						<option value="FL">Florida</option>
+						<option value="GA">Georgia</option>
+						<option value="HI">Hawaii</option>
+						<option value="ID">Idaho</option>
+						<option value="IL">Illinois</option>
+						<option value="IN">Indiana</option>
+						<option value="IA">Iowa</option>
+						<option value="KS">Kansas</option>
+						<option value="KY">Kentucky</option>
+						<option value="LA">Louisiana</option>
+						<option value="ME">Maine</option>
+						<option value="MD">Maryland</option>
+						<option value="MA">Massachusetts</option>
+						<option value="MI">Michigan</option>
+						<option value="MN">Minnesota</option>
+						<option value="MS">Mississippi</option>
+						<option value="MO">Missouri</option>
+						<option value="MT">Montana</option>
+						<option value="NE">Nebraska</option>
+						<option value="NV">Nevada</option>
+						<option value="NH">New Hampshire</option>
+						<option value="NJ">New Jersey</option>
+						<option value="NM">New Mexico</option>
+						<option value="NY">New York</option>
+						<option value="NC">North Carolina</option>
+						<option value="ND">North Dakota</option>
+						<option value="OH">Ohio</option>
+						<option value="OK">Oklahoma</option>
+						<option value="OR">Oregon</option>
+						<option value="PA">Pennsylvania</option>
+						<option value="RI">Rhode Island</option>
+						<option value="SC">South Carolina</option>
+						<option value="SD">South Dakota</option>
+						<option value="TN">Tennessee</option>
+						<option value="TX">Texas</option>
+						<option value="UT">Utah</option>
+						<option value="VT">Vermont</option>
+						<option value="VA">Virginia</option>
+						<option value="WA">Washington</option>
+						<option value="WV">West Virginia</option>
+						<option value="WI">Wisconsin</option>
+						<option value="WY">Wyoming</option>
+					</select>
+					
+					<!--SELECT CITY-->
+					<select class="form-control" style="margin-top: 15px">
+						<option>City</option>
+					</select>
+					<input id="search_button" type="submit" value="Search" style="color: white; background-color: #0062cc; border-color: 005cbf; margin-top: 15px">
 				</div>
 			</div>
 		</div>
