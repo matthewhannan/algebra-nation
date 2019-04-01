@@ -8,22 +8,28 @@
 
   <body ng-app="directoryApp">
 
-    <div class="container">
+    <div class="container-fluid">
 
         <!--NAVBAR-->
-        <div class="row">
-          <nav class="navbar navbar-expand-lg navbar-light bg-light">
-            <div class="navbar-brand">
-              <a  href="/index.html">
-                <img src="/images/twitter_icon.png" width="30" height="30" class="d-inline-block align-top" alt="">
-                <b>Twitter Data</b>
-              </a>
+      <div class="row">
+          <nav class="navbar navbar-expand-lg navbar-light" style="background-color: #e3f2fd;"">
+            <span class="sr-only">Toggle Navigation</span>
+            <!--NAVBAR BRAND-->
+            <a class="navbar-brand" href="/index.html">
+                  <img src="/images/twitter_icon.png" width="30" height="30" class="d-inline-block align-top" alt="">
+                  <b>Twitter Data</b>
+            </a>
+            <!--NAVBAR TOGGLE BUTTON-->
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+              
+            <div class="navbar-header">
+              <h1>User Metrics</h1>
             </div>
-            <div>
-              <h1 class="navbar-header">User Metrics</h1>
-            </div>
+
           </nav>
-        </div>
+      </div>
 
         <!--BREADCRUMBS-->
         <div class="row">
