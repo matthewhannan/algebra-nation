@@ -46,7 +46,7 @@
       </div>
     
       <!--SITE BODY-->
-      <div class="row">
+      <div class="row" ng-controller="TopicsController">
           <!--PROFILE CARD-->
           <div class="col">
               <a href="/usermetrics.html" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">GO TO User Metrics PAGE</a>
@@ -54,26 +54,26 @@
 
 
           <!--TRENDING TOPICS SECTION-->
-          <div class="col" ng-controller="TopicsController">
+          <div class="col" >
             <!--HEADER-->
             <h2>Trending Topics</h2>
 
             <!--LOCATION FORM-->
             <div class="location" style="width: 100%; float:center">
-              <select name="country" class="countries order-alpha" id="countryId">
+              <select name="country" class="countries order-alpha" id="countryId" ng-model="location.country">
                 <option value="">Select Country</option>
               </select>
-              <select name="state" class="states order-alpha" id="stateId">
+              <select name="state" class="states order-alpha" id="stateId" ng-model="location.state">
                   <option value="">Select State</option>
               </select>
-              <select name="city" class="cities order-alpha" id="cityId">
+              <select name="city" class="cities order-alpha" id="cityId" ng-model="location.city">
                   <option value="">Select City</option>
               </select>
             </div>
             
             <!--LOCATION STATEMENT-->
             <div>
-              <p>Trending Topics in <i>City, State</i></p>
+              <p>Trending Topics in <i>{{location.city}}, {{location.state}}</i></p>
             </div>
 
             <!--SEARCH TRENDING TOPICS BUTTON-->

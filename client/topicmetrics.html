@@ -46,8 +46,8 @@
         </div>
 
         <!--QUERY-->
-        <div>
-            <h1 style="display:inline">Query</h1> <p style="display:inline"></p><i> in City, State</i> </p>
+        <div> 
+            <h1 style="display:inline">Query</h1> <p style="display:inline"></p><i> in {{location.city}} , {{location.state}} </i> </p>
         </div>
     
       <!--SITE BODY-->
@@ -82,17 +82,17 @@
                                                     <ul class="twPc-Arrange">
                                                     <li class="twPc-ArrangeSizeFit">
                                                         <span class="twPc-StatLabel twPc-block">Tweets</span>
-                                                        <span class="twPc-StatValue">9.840</span>
+                                                        <span class="twPc-StatValue">{{user.statuses_count}}</span>
                                                         </a>
                                                     </li>
                                                     <li class="twPc-ArrangeSizeFit">
                                                         <span class="twPc-StatLabel twPc-block">Following</span>
-                                                        <span class="twPc-StatValue">885</span>
+                                                        <span class="twPc-StatValue">{{user.friends_count}}</span>
                                                         </a>
                                                     </li>
                                                     <li class="twPc-ArrangeSizeFit">
                                                         <span class="twPc-StatLabel twPc-block">Followers</span>
-                                                        <span class="twPc-StatValue">1.810</span>
+                                                        <span class="twPc-StatValue">{{user.followers_count}}</span>
                                                         </a>
                                                     </li>
                                                     </ul>
@@ -122,7 +122,7 @@
                                     </a>
 
                                     <div class="media-body">
-                                      <h5 class="mt-0 mb-1">{{status.user.name}}</h5>
+                                      <h5 class="mt-0 mb-1" >{{status.user.name}}</h5>
                                       <p>{{status.text}}</p>
                                       <button type="button" class="btn btn-primary">
                                               Likes <span class="badge badge-light">{{status.favorite_count}}</span>
