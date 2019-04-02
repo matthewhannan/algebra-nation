@@ -18,6 +18,9 @@
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script> 
     <script src="//geodata.solutions/includes/countrystatecity.js"></script>
     <meta name="viewport" content="width=device-width, initial-scale=1">
+	<!--Load JSON scripts-->
+    <script type="text/javascript" src="woeid.json"></script>
+    <script type="text/javascript" src="loadjson.js"></script>
   </head>
 
   <body ng-app="directoryApp">
@@ -78,7 +81,7 @@
 
             <!--SEARCH TRENDING TOPICS BUTTON-->
             <div>
-              <a href="" class="btn btn-primary btn-lg active" role="button" aria-pressed="true" ng-click="updateTrendList()">View Trending Topics</a>
+              <a onclick="loadjson()" class="btn btn-primary btn-lg active" role="button" aria-pressed="true" ng-click="updateTrendList()">View Trending Topics</a>
             </div>
 
             
@@ -148,7 +151,7 @@
 
             <!--SEARCH BAR-->
             <div class="search-container">
-                <form >
+                <form>
                   <input type="text" placeholder="Search.." name="search" ng-model="query">
                 </form>
             </div>
@@ -176,8 +179,6 @@
       </div>
 
     </div>
-      
-     
-    
+
   </body>
 </html>
