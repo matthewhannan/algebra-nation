@@ -8,22 +8,28 @@
 
   <body ng-app="directoryApp">
 
-    <div class="container">
+    <div class="container-fluid" ng-controller="UserController">
 
         <!--NAVBAR-->
-        <div class="row">
-          <nav class="navbar navbar-expand-lg navbar-light bg-light">
-            <div class="navbar-brand">
-              <a  href="/index.html">
-                <img src="/images/twitter_icon.png" width="30" height="30" class="d-inline-block align-top" alt="">
-                <b>Twitter Data</b>
-              </a>
+      <div class="row">
+          <nav class="navbar navbar-expand-lg navbar-light" style="background-color: #e3f2fd;"">
+            <span class="sr-only">Toggle Navigation</span>
+            <!--NAVBAR BRAND-->
+            <a class="navbar-brand" href="/index.html">
+                  <img src="/images/twitter_icon.png" width="30" height="30" class="d-inline-block align-top" alt="">
+                  <b>Twitter Data</b>
+            </a>
+            <!--NAVBAR TOGGLE BUTTON-->
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+              
+            <div class="navbar-header">
+              <h1>User Metrics</h1>
             </div>
-            <div>
-              <h1 class="navbar-header">User Metrics</h1>
-            </div>
+
           </nav>
-        </div>
+      </div>
 
         <!--BREADCRUMBS-->
         <div class="row">
@@ -40,16 +46,10 @@
           
           <div class="col">
               <!--PROFILE CARD-->
-              <div class="twPc-div">
+              <div class="twPc-div" style= "word-wrap:break-word">
                   <a class="twPc-bg twPc-block"></a>
               
                 <div>
-                  <!-- <div class="twPc-button">
-                          <!-- Twitter Button | you can get from: https://about.twitter.com/tr/resources/buttons#follow 
-                          <a href="https://twitter.com/mertskaplan" class="twitter-follow-button" data-show-count="false" data-size="large" data-show-screen-name="false" data-dnt="true">Follow @mertskaplan</a>
-                          <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
-                          <!-- Twitter Button    
-                  </div>-->
               
                   <a title="Mert S. Kaplan" href="https://twitter.com/mertskaplan" class="twPc-avatarLink">
                     <img alt="Mert S. Kaplan" src="https://mertskaplan.com/wp-content/plugins/msk-twprofilecard/img/mertskaplan.jpg" class="twPc-avatarImg">
@@ -64,24 +64,24 @@
                     </span>
                   </div>
               
-                  <div class="twPc-divStats">
+                  <div class="twPc-divStats" >
                     <ul class="twPc-Arrange">
                       <li class="twPc-ArrangeSizeFit">
                         <a href="https://twitter.com/mertskaplan" title="9.840 Tweet">
                           <span class="twPc-StatLabel twPc-block">Tweets</span>
-                          <span class="twPc-StatValue">9.840</span>
+                          <span class="twPc-StatValue">{{user.statuses_count}}</span>
                         </a>
                       </li>
                       <li class="twPc-ArrangeSizeFit">
                         <a href="https://twitter.com/mertskaplan/following" title="885 Following">
                           <span class="twPc-StatLabel twPc-block">Following</span>
-                          <span class="twPc-StatValue">885</span>
+                          <span class="twPc-StatValue ">{{user.friends_count}}</span>
                         </a>
                       </li>
                       <li class="twPc-ArrangeSizeFit">
                         <a href="https://twitter.com/mertskaplan/followers" title="1.810 Followers">
                           <span class="twPc-StatLabel twPc-block">Followers</span>
-                          <span class="twPc-StatValue">1.810</span>
+                          <span class="twPc-StatValue">{{user.followers_count}}</span>
                         </a>
                       </li>
                     </ul>
@@ -94,13 +94,13 @@
                     <div class="card text-center" style="width: 90%;">
                         <div class="card-body">
                         <h5 class="card-title">Tweets</h5>
-                        <p class="card-text">1,055</p>
+                        <p class="card-text">{{user.statuses_count}}</p>
                         </div>
                     </div>
                     <div class="card text-center" style="width: 90%;">
                             <div class="card-body">
                             <h5 class="card-title">Posts Liked</h5>
-                            <p class="card-text">3,563</p>
+                            <p class="card-text">{{user.favourites_count}}</p>
                             </div>
                     </div>
                     <div class="card text-center" style="width: 90%;">
@@ -127,7 +127,7 @@
                     <ul class="list-group">
                             <li class="list-group-item d-flex justify-content-between align-items-center">
                               Followers
-                              <span class="badge badge-primary badge-pill">1810</span>
+                              <span class="badge badge-primary badge-pill">{{user.followers_count}}</span>
                             </li>
                             <li class="list-group-item d-flex justify-content-between align-items-center">
                               You don't follow back
@@ -135,7 +135,7 @@
                             </li>
                             <li class="list-group-item d-flex justify-content-between align-items-center">
                               Friends
-                              <span class="badge badge-primary badge-pill">885</span>
+                              <span class="badge badge-primary badge-pill">{{user.friends_count}}</span>
                             </li>
                             <li class="list-group-item d-flex justify-content-between align-items-center">
                                 Don't follow you back

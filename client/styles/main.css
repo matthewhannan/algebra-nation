@@ -22,7 +22,10 @@
 }
 
 .navbar-header{
- float:center;
+  float: left;
+  padding: 15px;
+  text-align: center;
+  width: 100%;
 }
 
 .twPc-div {
@@ -30,7 +33,7 @@
   border: 1px solid #e1e8ed;
   border-radius: 6px;
   height: 200px;
-  max-width: 340px; // orginal twitter width: 290px;
+  max-width: 340px; /* orginal twitter width: 290px;*/
 }
 .twPc-bg {
   background-image: url("https://pbs.twimg.com/profile_banners/50988711/1384539792/600x200");

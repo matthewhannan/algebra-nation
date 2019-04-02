@@ -7,35 +7,33 @@
   </head>
 
   <body ng-app="directoryApp">
+ <!--NAVBAR-->
+    <div class="container-fluid">
+    <div class="row">
+        <nav class="navbar navbar-expand-lg navbar-light" style="background-color: #e3f2fd;"">
+          <span class="sr-only">Toggle Navigation</span>
+          <!--NAVBAR BRAND-->
+          <a class="navbar-brand" href="/index.html">
+                <img src="/images/twitter_icon.png" width="30" height="30" class="d-inline-block align-top" alt="">
+                <b>Twitter Data</b>
+          </a>
+          <!--NAVBAR TOGGLE BUTTON-->
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+          </button>
+            
+          <div class="navbar-header">
+            <h1>Topic Metrics</h1>
+          </div>
 
-    <div class="container">
+          <form class="form-inline my-2 my-lg-0">
+                <input class="form-control mr-sm-2" type="search" placeholder="Search Topic..." aria-label="Search" ng-model="query">
+                <button class="btn btn-outline-primary my-2 my-sm-0" type="submit">Search</button>
+            </form>
 
-        <!--NAVBAR-->
-        <div class="row">
-          <nav class="navbar navbar-expand-lg navbar-dark blue lighten-2 mb-4">
-                <div class="navbar-brand">
-                    <a href="/index.html">
-                        <img src="/images/twitter_icon.png" width="30" height="30" class="d-inline-block align-top" alt="">
-                        <b>Twitter Data</b>
-                    </a>
-                </div>
+        </nav>
+    </div>
 
-                <div>
-                    <h1 class="navbar-header">Topic Metrics</h1>
-                </div>
-
-                <div id="custom-search-input" >
-                        <div class="input-group col-md-12">
-                            <input type="text" class="  search-query form-control" placeholder="Search" />
-                            <span class="input-group-btn">
-                                <button class="btn btn-primary" type="button">
-                                    <span class=" glyphicon glyphicon-search"></span>
-                                </button>
-                            </span>
-                        </div>
-                </div>
-          </nav>
-        </div>
 
         <!--BREADCRUMBS-->
         <div class ="row">
@@ -48,8 +46,8 @@
         </div>
 
         <!--QUERY-->
-        <div>
-            <h1 style="display:inline">Query</h1> <p style="display:inline"></p><i> in City, State</i> </p>
+        <div> 
+            <h1 style="display:inline">Query</h1> <p style="display:inline"></p><i> in {{location.city}} , {{location.state}} </i> </p>
         </div>
     
       <!--SITE BODY-->
@@ -84,17 +82,17 @@
                                                     <ul class="twPc-Arrange">
                                                     <li class="twPc-ArrangeSizeFit">
                                                         <span class="twPc-StatLabel twPc-block">Tweets</span>
-                                                        <span class="twPc-StatValue">9.840</span>
+                                                        <span class="twPc-StatValue">{{user.statuses_count}}</span>
                                                         </a>
                                                     </li>
                                                     <li class="twPc-ArrangeSizeFit">
                                                         <span class="twPc-StatLabel twPc-block">Following</span>
-                                                        <span class="twPc-StatValue">885</span>
+                                                        <span class="twPc-StatValue">{{user.friends_count}}</span>
                                                         </a>
                                                     </li>
                                                     <li class="twPc-ArrangeSizeFit">
                                                         <span class="twPc-StatLabel twPc-block">Followers</span>
-                                                        <span class="twPc-StatValue">1.810</span>
+                                                        <span class="twPc-StatValue">{{user.followers_count}}</span>
                                                         </a>
                                                     </li>
                                                     </ul>
@@ -124,7 +122,7 @@
                                     </a>
 
                                     <div class="media-body">
-                                      <h5 class="mt-0 mb-1">{{status.user.name}}</h5>
+                                      <h5 class="mt-0 mb-1" >{{status.user.name}}</h5>
                                       <p>{{status.text}}</p>
                                       <button type="button" class="btn btn-primary">
                                               Likes <span class="badge badge-light">{{status.favorite_count}}</span>
@@ -258,5 +256,6 @@
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-  </body>
+    
+</body>
 </html>
