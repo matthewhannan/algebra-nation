@@ -2,6 +2,7 @@
 <html>
 
   <head>
+    <title>Algebra Nation | Home Page</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
     <link rel="stylesheet" href="styles/main.css">
@@ -18,6 +19,19 @@
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script> 
     <script src="//geodata.solutions/includes/countrystatecity.js"></script>
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!--Display dropdown information-->
+    <script>
+        function getState(that) {
+          var obj = document.getElementById("stateId");
+          document.getElementById("state").innerHTML = 
+          obj.options[obj.selectedIndex].text;
+        }
+        function getCity() {
+          var obj = document.getElementById("cityId");
+          document.getElementById("city").innerHTML = 
+          obj.options[obj.selectedIndex].text;
+        }
+    </script>
   </head>
 
   <body ng-app="directoryApp">
@@ -30,7 +44,7 @@
             <span class="sr-only">Toggle Navigation</span>
             <!--NAVBAR BRAND-->
             <a class="navbar-brand" href="#">
-                  <img src="/images/twitter_icon.png" width="30" height="30" class="d-inline-block align-top" alt="">
+                  <img src="/images/twitter_icon.png" width="30" height="30" class="d-inline-block align-top" alt="Twitter Icon">
                   <b>Twitter Data</b>
             </a>
             <!--NAVBAR TOGGLE BUTTON-->
@@ -59,21 +73,22 @@
             <h2>Trending Topics</h2>
 
             <!--LOCATION FORM-->
-            <div class="location" style="width: 100%; float:center">
+            <form class="location" style="width: 100%; float:center">
               <select name="country" class="countries order-alpha" id="countryId" ng-model="location.country">
                 <option value="">Select Country</option>
               </select>
-              <select name="state" class="states order-alpha" id="stateId" ng-model="location.state">
+              <select onchange="getState(this);" name="state" class="states order-alpha" id="stateId" ng-model="location.state">
                   <option value="">Select State</option>
               </select>
-              <select name="city" class="cities order-alpha" id="cityId" ng-model="location.city">
+              <select onchange="getCity(this);" name="city" class="cities order-alpha" id="cityId" ng-model="location.city">
                   <option value="">Select City</option>
               </select>
-            </div>
+            </form>
             
             <!--LOCATION STATEMENT-->
             <div>
-              <p>Trending Topics in <i>{{location.city}}, {{location.state}}</i></p>
+              <p></p>
+              <p style="display: inline-block">Trending Topics in</p> <p style="display: inline-block"id="city"></p>, <p style="display: inline-block" id="state"></p>
             </div>
 
             <!--SEARCH TRENDING TOPICS BUTTON-->
@@ -154,18 +169,23 @@
             </div>
 
             <!--LOCATION FORM-->
-            <div class="location" style="width: 100%; float:center">
-              <select name="country" class="countries order-alpha" id="countryId" ng-model="location.country">
-                <option value="">Select Country</option>
-              </select>
-              <select name="state" class="states order-alpha" id="stateId" ng-model="location.state">
-                  <option value="">Select State</option>
-              </select>
-              <select name="city" class="cities order-alpha" id="cityId" ng-model="location.city">
-                  <option value="">Select City</option>
-              </select>
+            <form class="location" style="width: 100%; float:center">
+                <select name="country" class="countries order-alpha" id="countryId" ng-model="location.country">
+                  <option value="">Select Country</option>
+                </select>
+                <select onchange="getState(this);" name="state" class="states order-alpha" id="stateId" ng-model="location.state">
+                    <option value="">Select State</option>
+                </select>
+                <select onchange="getCity(this);" name="city" class="cities order-alpha" id="cityId" ng-model="location.city">
+                    <option value="">Select City</option>
+                </select>
+              </form>
               
-            </div>
+              <!--LOCATION STATEMENT-->
+              <div>
+                <p></p>
+                <p style="display: inline-block">Trending Topics in</p> <p style="display: inline-block"id="city"></p>, <p style="display: inline-block" id="state"></p>
+              </div>
 
             <!--SEARCH BUTTON-->
             <div>

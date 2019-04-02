@@ -1,6 +1,7 @@
 <html>
 
   <head>
+    <title>Algebra Nation | User Metrics</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
     <link rel="stylesheet" href="styles/main.css">
@@ -16,7 +17,7 @@
             <span class="sr-only">Toggle Navigation</span>
             <!--NAVBAR BRAND-->
             <a class="navbar-brand" href="/index.html">
-                  <img src="/images/twitter_icon.png" width="30" height="30" class="d-inline-block align-top" alt="">
+                  <img src="/images/twitter_icon.png" width="30" height="30" class="d-inline-block align-top" alt="Twitter Icon">
                   <b>Twitter Data</b>
             </a>
             <!--NAVBAR TOGGLE BUTTON-->
@@ -46,18 +47,18 @@
           
           <div class="col">
               <!--PROFILE CARD-->
-              <div class="twPc-div" style= "word-wrap:break-word">
+              <div class="twPc-div">
                   <a class="twPc-bg twPc-block"></a>
               
                 <div>
               
                   <a title="Mert S. Kaplan" href="https://twitter.com/mertskaplan" class="twPc-avatarLink">
-                    <img alt="Mert S. Kaplan" src="https://mertskaplan.com/wp-content/plugins/msk-twprofilecard/img/mertskaplan.jpg" class="twPc-avatarImg">
+                    <img alt="User Profile Image" src="https://mertskaplan.com/wp-content/plugins/msk-twprofilecard/img/mertskaplan.jpg" class="twPc-avatarImg">
                   </a>
               
                   <div class="twPc-divUser">
                     <div class="twPc-divName">
-                      <a href="https://twitter.com/mertskaplan">Mert S. Kaplan</a>
+                      <a href="https://twitter.com/mertskaplan">{{user.name}}</a>
                     </div>
                     <span>
                       <a href="https://twitter.com/mertskaplan">@<span>mertskaplan</span></a>
@@ -65,23 +66,23 @@
                   </div>
               
                   <div class="twPc-divStats" >
-                    <ul class="twPc-Arrange">
+                    <ul class="twPc-Arrange" style="width: 10em; word-wrap: break-word;">
                       <li class="twPc-ArrangeSizeFit">
-                        <a href="https://twitter.com/mertskaplan" title="9.840 Tweet">
-                          <span class="twPc-StatLabel twPc-block">Tweets</span>
-                          <span class="twPc-StatValue">{{user.statuses_count}}</span>
+                        <a href="https://twitter.com/mertskaplan" title="9.840 Tweet" >
+                          <span class="twPc-StatLabel twPc-block" >Tweets</span>
+                          <span class="twPc-StatValue" style=" overflow-y: hidden; width: 10em; word-wrap: break-word;">{{user.statuses_count}}</span>
                         </a>
                       </li>
                       <li class="twPc-ArrangeSizeFit">
-                        <a href="https://twitter.com/mertskaplan/following" title="885 Following">
+                        <a href="https://twitter.com/mertskaplan/following" title="885 Following" >
                           <span class="twPc-StatLabel twPc-block">Following</span>
-                          <span class="twPc-StatValue ">{{user.friends_count}}</span>
+                          <span class="twPc-StatValue " style="overflow-y: hidden ;width: 10em; word-wrap: break-word;">{{user.friends_count}}</span>
                         </a>
                       </li>
                       <li class="twPc-ArrangeSizeFit">
                         <a href="https://twitter.com/mertskaplan/followers" title="1.810 Followers">
                           <span class="twPc-StatLabel twPc-block">Followers</span>
-                          <span class="twPc-StatValue">{{user.followers_count}}</span>
+                          <span class="twPc-StatValue" style="overflow-y: hidden;width: 10em; word-wrap: break-word;">{{user.followers_count}}</span>
                         </a>
                       </li>
                     </ul>
