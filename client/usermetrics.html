@@ -1,0 +1,291 @@
+<html>
+
+  <head>
+    <title>Algebra Nation | User Metrics</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    <link rel="stylesheet" href="styles/main.css">
+  </head>
+
+  <body ng-app="directoryApp">
+
+    <div class="container-fluid" ng-controller="UserController">
+
+        <!--NAVBAR-->
+      <div class="row">
+          <nav class="navbar navbar-expand-lg navbar-light" style="background-color: #e3f2fd;"">
+            <span class="sr-only">Toggle Navigation</span>
+            <!--NAVBAR BRAND-->
+            <a class="navbar-brand" href="/index.html">
+                  <img src="/images/twitter_icon.png" width="30" height="30" class="d-inline-block align-top" alt="Twitter Icon">
+                  <b>Twitter Data</b>
+            </a>
+            <!--NAVBAR TOGGLE BUTTON-->
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="navbar-header">
+              <h1>User Metrics</h1>
+            </div>
+
+          </nav>
+      </div>
+
+        <!--BREADCRUMBS-->
+        <div class="row">
+                <nav aria-label="breadcrumb">
+                        <ol class="breadcrumb">
+                          <li class="breadcrumb-item"><a href="/index.html">Dashboard</a></li>
+                          <li class="breadcrumb-item active" aria-current="page">User Metrics</li>
+                        </ol>
+                </nav>
+        </div>
+
+      <!--SITE BODY-->
+      <div class="row">
+
+          <div class="col">
+              <!--PROFILE CARD-->
+              <div class="twPc-div">
+                  <a class="twPc-bg twPc-block"></a>
+
+                <div>
+
+                  <a title="Mert S. Kaplan" href="https://twitter.com/mertskaplan" class="twPc-avatarLink">
+                    <img alt="User Profile Image" src="https://mertskaplan.com/wp-content/plugins/msk-twprofilecard/img/mertskaplan.jpg" class="twPc-avatarImg">
+                  </a>
+
+                  <div class="twPc-divUser">
+                    <div class="twPc-divName">
+                      <a href="https://twitter.com/mertskaplan">{{user.name}}</a>
+                    </div>
+                    <span>
+                      <a href="https://twitter.com/mertskaplan">@<span>mertskaplan</span></a>
+                    </span>
+                  </div>
+
+                  <div class="twPc-divStats" >
+                    <ul class="twPc-Arrange" style="width: 10em; word-wrap: break-word;">
+                      <li class="twPc-ArrangeSizeFit">
+                        <a href="https://twitter.com/mertskaplan" title="9.840 Tweet" >
+                          <span class="twPc-StatLabel twPc-block" >Tweets</span>
+                          <span class="twPc-StatValue" style=" overflow-y: hidden; width: 10em; word-wrap: break-word;">{{user.statuses_count}}</span>
+                        </a>
+                      </li>
+                      <li class="twPc-ArrangeSizeFit">
+                        <a href="https://twitter.com/mertskaplan/following" title="885 Following" >
+                          <span class="twPc-StatLabel twPc-block">Following</span>
+                          <span class="twPc-StatValue " style="overflow-y: hidden ;width: 10em; word-wrap: break-word;">{{user.friends_count}}</span>
+                        </a>
+                      </li>
+                      <li class="twPc-ArrangeSizeFit">
+                        <a href="https://twitter.com/mertskaplan/followers" title="1.810 Followers">
+                          <span class="twPc-StatLabel twPc-block">Followers</span>
+                          <span class="twPc-StatValue" style="overflow-y: hidden;width: 10em; word-wrap: break-word;">{{user.followers_count}}</span>
+                        </a>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+
+              <!--STATS CARDS-->
+                <div>
+                    <div class="card text-center" style="width: 90%;">
+                        <div class="card-body">
+                        <h5 class="card-title">Tweets</h5>
+                        <p class="card-text">{{user.statuses_count}}</p>
+                        </div>
+                    </div>
+                    <div class="card text-center" style="width: 90%;">
+                            <div class="card-body">
+                            <h5 class="card-title">Posts Liked</h5>
+                            <p class="card-text">{{user.favourites_count}}</p>
+                            </div>
+                    </div>
+                    <div class="card text-center" style="width: 90%;">
+                            <div class="card-body">
+                            <h5 class="card-title">Posts Retweeted</h5>
+                            <p class="card-text">666</p>
+                            </div>
+                    </div>
+                    <div class="card text-center" style="width: 90%;">
+                            <div class="card-body">
+                            <h5 class="card-title">Replies</h5>
+                            <p class="card-text">9,000</p>
+                            </div>
+                    </div>
+                </div>
+          </div>
+
+
+          <!--CENTER SECTION-->
+          <div class="col-6">
+
+            <!--FOLLOWERS/FRIENDS-->
+            <div>
+                    <ul class="list-group">
+                            <li class="list-group-item d-flex justify-content-between align-items-center">
+                              Followers
+                              <span class="badge badge-primary badge-pill">{{user.followers_count}}</span>
+                            </li>
+                            <li class="list-group-item d-flex justify-content-between align-items-center">
+                              You don't follow back
+                              <span class="badge badge-primary badge-pill">1200</span>
+                            </li>
+                            <li class="list-group-item d-flex justify-content-between align-items-center">
+                              Friends
+                              <span class="badge badge-primary badge-pill">{{user.friends_count}}</span>
+                            </li>
+                            <li class="list-group-item d-flex justify-content-between align-items-center">
+                                Don't follow you back
+                                <span class="badge badge-primary badge-pill">450</span>
+                            </li>
+                    </ul>
+            </div>
+
+
+            <!--USER ACTIVITY PIE CHART-->
+            <div id="piechart">
+                <h2>User Activity Breakdown</h2>
+            </div>
+            <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+            <script type="text/javascript">
+            // Load google charts
+            google.charts.load('current', {'packages':['corechart']});
+            google.charts.setOnLoadCallback(drawChart);
+
+            // Draw the chart and set the chart values
+            function drawChart() {
+              var data = google.visualization.arrayToDataTable([
+              ['Task', 'Hours per Day'],
+              ['Work', 8],
+              ['Eat', 2],
+              ['TV', 4],
+              ['Gym', 2],
+              ['Sleep', 8]
+            ]);
+
+              // Optional; add a title and set the width and height of the chart
+              var options = {'title':'My Average Day', 'width':550, 'height':400};
+
+              // Display the chart inside the <div> element with id="piechart"
+              var chart = new google.visualization.PieChart(document.getElementById('piechart'));
+              chart.draw(data, options);
+            }
+            </script>
+
+          </div>
+
+
+          <!--RIGHT SECTION-->
+          <div class="col">
+
+            <!--POPULAR TWEETS BAR GRAPH-->
+            <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+            <div id="chart_div">
+                <h2>Popular Tweets</h2>
+            </div>
+            <script type="text/javascript">
+              google.charts.load('current', {packages: ['corechart', 'bar']});
+              google.charts.setOnLoadCallback(drawBasic);
+
+              function drawBasic() {
+
+                    var data = google.visualization.arrayToDataTable([
+                      ['City', '2010 Population',],
+                      ['New York City, NY', 8175000],
+                      ['Los Angeles, CA', 3792000],
+                      ['Chicago, IL', 2695000],
+                      ['Houston, TX', 2099000],
+                      ['Philadelphia, PA', 1526000]
+                    ]);
+
+                    var options = {
+                      title: 'Population of Largest U.S. Cities',
+                      width:300,
+                      height:200,
+                      hAxis: {
+                        title: 'Total Population',
+                        minValue: 0
+                      },
+                      vAxis: {
+                        title: 'City'
+                      }
+                    };
+
+                    var chart = new google.visualization.BarChart(document.getElementById('chart_div'));
+
+                    chart.draw(data, options);
+                  }
+            </script>
+
+
+
+
+            <!--TWITTER ACTIVITY LINE GRAPH-->
+            <div>
+                <h2>Tweet Freqeuncy</h2>
+                <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+                <div id="linechart_div">
+                </div>
+                <script>
+                    google.charts.load('current', {packages: ['corechart', 'line']});
+                    google.charts.setOnLoadCallback(drawBasic);
+
+                    function drawBasic() {
+
+                        var data = new google.visualization.DataTable();
+                        data.addColumn('number', 'X');
+                        data.addColumn('number', 'Dogs');
+
+                        data.addRows([
+                            [0, 0],   [1, 10],  [2, 23],  [3, 17],  [4, 18],  [5, 9],
+                            [6, 11],  [7, 27],  [8, 33],  [9, 40],  [10, 32], [11, 35],
+                            [12, 30], [13, 40], [14, 42], [15, 47], [16, 44], [17, 48],
+                            [18, 52], [19, 54], [20, 42], [21, 55], [22, 56], [23, 57],
+                            [24, 60], [25, 50], [26, 52], [27, 51], [28, 49], [29, 53],
+                            [30, 55], [31, 60], [32, 61], [33, 59], [34, 62], [35, 65],
+                            [36, 62], [37, 58], [38, 55], [39, 61], [40, 64], [41, 65],
+                            [42, 63], [43, 66], [44, 67], [45, 69], [46, 69], [47, 70],
+                            [48, 72], [49, 68], [50, 66], [51, 65], [52, 67], [53, 70],
+                            [54, 71], [55, 72], [56, 73], [57, 75], [58, 70], [59, 68],
+                            [60, 64], [61, 60], [62, 65], [63, 67], [64, 68], [65, 69],
+                            [66, 70], [67, 72], [68, 75], [69, 80]
+                        ]);
+
+                        var options = {
+                            hAxis: {
+                            title: 'Time'
+                            },
+                            width: '250',
+                            height: '300',
+                            vAxis: {
+                            title: 'Popularity'
+                            }
+                        };
+
+                        var chart = new google.visualization.LineChart(document.getElementById('linechart_div'));
+
+                        chart.draw(data, options);
+                        }
+                </script>
+            </div>
+          </div>
+      </div>
+
+    </div>
+
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js" integrity="sha512-K1qjQ+NcF2TYO/eI3M6v8EiNYZfA95pQumfvcVrTHtwQVDG+aHRqLi/ETn2uB+1JqwYqVG3LIvdm9lj6imS/pQ==" crossorigin="anonymous"></script>
+    <script src="https://code.angularjs.org/1.4.3/angular.js"></script>
+    <script src="js/app.js"></script>
+    <script src="js/factories/listingFactory.js"></script>
+    <script src="js/controllers/listingController.js"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+  </body>
+</html>
