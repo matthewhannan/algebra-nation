@@ -5,6 +5,13 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
     <link rel="stylesheet" href="styles/main.css">
+    <script>
+        function getState(that) {
+          var obj = document.getElementById("stateId");
+          document.getElementById("state").innerHTML = 
+          obj.options[obj.selectedIndex].text;
+        }
+    </script>
   </head>
 
   <body ng-app="directoryApp">
@@ -29,7 +36,7 @@
 
           <form class="form-inline my-2 my-lg-0">
                 <input class="form-control mr-sm-2" type="search" placeholder="Search Topic..." aria-label="Search" ng-model="query">
-                <button class="btn btn-outline-primary my-2 my-sm-0" type="submit">Search</button>
+                <button onclick="submitForm(this);" class="btn btn-outline-primary my-2 my-sm-0" type="submit">Search</button>
             </form>
 
         </nav>
@@ -47,9 +54,13 @@
         </div>
 
         <!--QUERY-->
+    
+        
         <div> 
-            <h1 style="display:inline">Query</h1> <p style="display:inline"></p><i> in {{location.city}} , {{location.state}} </i> </p>
+
+            <h1 style="display:inline" id="searchQuery"></h1> <p style="display:inline"></p><i> in {{location.city}} , {{location.state}} </i> </p>
         </div>
+
     
       <!--SITE BODY-->
       <div class="row">

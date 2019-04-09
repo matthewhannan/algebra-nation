@@ -163,13 +163,13 @@
 
             <!--SEARCH BAR-->
             <div class="search-container">
-                <form >
-                  <input type="text" placeholder="Search.." name="search" ng-model="query">
+                <form id="searchForm">
+                  <input type="text" placeholder="Search.." name="dashSearch" ng-model="query">
                 </form>
             </div>
 
             <!--LOCATION FORM-->
-            <form class="location" style="width: 100%; float:center">
+            <form class="location" style="width: 100%; float:center" >
                 <select name="country" class="countries order-alpha" id="countryId" ng-model="location.country">
                   <option value="">Select Country</option>
                 </select>
@@ -189,7 +189,7 @@
 
             <!--SEARCH BUTTON-->
             <div>
-                <a href="/topicmetrics.html"  class="btn btn-primary btn-lg active" role="button" aria-pressed="true" ng-click="searchQuery()">Search</a>
+                <a href="/topicmetrics.html"  form="searchForm" class="btn btn-primary btn-lg active" role="button" aria-pressed="true" ng-click="searchQuery()">Search</a>
             </div>
 
           </div>
