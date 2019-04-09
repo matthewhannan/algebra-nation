@@ -21,6 +21,19 @@
 	<!--Load JSON scripts-->
     <script type="text/javascript" src="woeid.json"></script>
     <script type="text/javascript" src="loadjson.js"></script>
+  <!--Location script update-->
+    <script>
+      function getState(that) {
+        var obj = document.getElementById("stateId");
+        document.getElementById("state").innerHTML = 
+        obj.options[obj.selectedIndex].text;
+      }
+      function getCity() {
+        var obj = document.getElementById("cityId");
+        document.getElementById("city").innerHTML = 
+        obj.options[obj.selectedIndex].text;
+      }
+    </script> 
   </head>
 
   <body ng-app="directoryApp">
@@ -62,76 +75,30 @@
             <h2>Trending Topics</h2>
 
             <!--LOCATION FORM-->
-            <div class="location" style="width: 100%; float:center">
+            <form class="location" style="width: 100%; float:center">
               <select name="country" class="countries order-alpha" id="countryId" ng-model="location.country">
                 <option value="">Select Country</option>
               </select>
-              <select name="state" class="states order-alpha" id="stateId" ng-model="location.state">
+              <select onchange="getState(this);" name="state" class="states order-alpha" id="stateId" ng-model="location.state">
                   <option value="">Select State</option>
               </select>
-              <select name="city" class="cities order-alpha" id="cityId" ng-model="location.city">
+              <select onchange="getCity(this);" name="city" class="cities order-alpha" id="cityId" ng-model="location.city">
                   <option value="">Select City</option>
               </select>
-            </div>
+            </form>
             
             <!--LOCATION STATEMENT-->
             <div>
-              <p>Trending Topics in <i>{{location.city}}, {{location.state}}</i></p>
+              <p></p>
+              <p style="display: inline-block">Trending Topics in</p> <p style="display: inline-block"id="city"></p>, <p style="display: inline-block" id="state"></p>
             </div>
 
             <!--SEARCH TRENDING TOPICS BUTTON-->
             <div>
               <a onclick="loadjson()" class="btn btn-primary btn-lg active" role="button" aria-pressed="true" ng-click="updateTrendList()">View Trending Topics</a>
             </div>
+            
 
-            
-            <!--COMMENTED OUT PREVIOUS TOPIC TREND LIST PLACEHOLDER <div class = "topic-list">
-              <ul class="list-group">
-                  <li class="list-group-item">
-                      <div class="card" style="width: 100%;">
-                          <div class="card-body">
-                              <a href="#" class="card-link"><h5 class="card-title">Connor McGregor</h5></a>
-                            <h6 class="card-subtitle mb-2 text-muted">69.7K Tweets</h6>
-                            <p class="card-text">Connor McGregor arrested after assaulting fan's phone</p>
-                          </div>
-                        </div>
-                  </li>
-                  <li class="list-group-item">
-                      <div class="card" style="width: 100%;">
-                          <div class="card-body">
-                              <a href="#" class="card-link"><h5 class="card-title">#Cats</h5></a>
-                            <h6 class="card-subtitle mb-2 text-muted">69.7K Tweets</h6>
-                          </div>
-                        </div>
-                  </li>
-                  <li class="list-group-item">
-                      <div class="card" style="width: 100%;">
-                          <div class="card-body">
-                              <a href="#" class="card-link"><h5 class="card-title">#TheBachelorFinale</h5></a>
-                            <h6 class="card-subtitle mb-2 text-muted">38K Tweets</h6>
-                          </div>
-                        </div>
-                  </li>
-                  <li class="list-group-item">
-                      <div class="card" style="width: 100%;">
-                          <div class="card-body">
-                              <a href="#" class="card-link"><h5 class="card-title">#TrumpBudget</h5></a>
-                            <h6 class="card-subtitle mb-2 text-muted">45.4K Tweets</h6>
-                          </div>
-                        </div>
-                  </li>
-                  <li class="list-group-item">
-                      <div class="card" style="width: 100%;">
-                          <div class="card-body">
-                              <a href="#" class="card-link"><h5 class="card-title">Ibaka</h5></a>
-                            <h6 class="card-subtitle mb-2 text-muted">69.7K Tweets</h6>
-                            <p class="card-text">Serge Ibaka and Marquese Chriss ejected for fighting during Cavs-Raptors game</p>
-                          </div>
-                        </div>
-                  </li>
-              </ul>
-            </div> -->
-            
             <!--TRENDS LIST
                 needs get trends request-->
             <div>
@@ -152,7 +119,7 @@
             <!--SEARCH BAR-->
             <div class="search-container">
                 <form>
-                  <input type="text" placeholder="Search.." name="search" ng-model="query">
+                  <input type="text" placeholder="Type search query here..." name="search" ng-model="query">
                 </form>
             </div>
 
