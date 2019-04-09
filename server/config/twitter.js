@@ -8,6 +8,18 @@ var T=new Twit(config);
    count: 5
 
  }
+ 
+var myparams={
+	id: 2391279 // denver example
+}
+  
+T.get('trends/place',myparams)
+  .catch(function (err) {
+    console.log('caught error', err.stack)
+  })
+  .then(function (result) {
+    console.log('data', result.data);
+})
 
 T.get('search/tweets',params,gotData);
 //T.get('search/tweets', { q: 'UF', count: 5 }, function(err, data, response);
@@ -17,7 +29,7 @@ function gotData(err,data,response){
     console.log(tweets[i].text);
   }
 
-
+  
 // var app = angular.module('tweets', []);
 // app.controller('TopicsController', function($scope) {
 //   $scope.query  ;
