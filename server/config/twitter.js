@@ -23,7 +23,7 @@ function gotData(err,data,response){
     console.log(tweets[i].text);
   }
 
-  K.get('search/tweets',params,getData);
+K.get('search/tweets',params,getData);
 //T.get('search/tweets', { q: 'UF', count: 5 }, function(err, data, response);
 function getData(err,data,response){
     console.log(country);
