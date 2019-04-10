@@ -10,28 +10,33 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js" integrity="sha512-K1qjQ+NcF2TYO/eI3M6v8EiNYZfA95pQumfvcVrTHtwQVDG+aHRqLi/ETn2uB+1JqwYqVG3LIvdm9lj6imS/pQ==" crossorigin="anonymous"></script>
     <script src="https://code.angularjs.org/1.4.3/angular.js"></script>
     <script src="js/app.js"></script>
-    <script src="js/factories/listingFactory.js"></script>
-    <script src="js/controllers/listingController.js"></script>
+    <script src="js/services/TwitterService.js"></script>
+    <script src="js/controllers/TopicsController"></script>
+    <!-- <script src="js/factories/listingFactory.js"></script> Not necessary -->
+    <!-- <script src="js/controllers/listingController.js"></script> Not necessary-->
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
     <!--GeoData Scripts-->
-    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script> 
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
     <script src="//geodata.solutions/includes/countrystatecity.js"></script>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <!--Display dropdown information-->
+	<!--Load JSON scripts-->
+    <script type="text/javascript" src="woeid.json"></script>
+    <script type="text/javascript" src="loadjson.js"></script>
+  <!--Location script update-->
     <script>
-        function getState(that) {
-          var obj = document.getElementById("stateId");
-          document.getElementById("state").innerHTML = 
-          obj.options[obj.selectedIndex].text;
-        }
-        function getCity() {
-          var obj = document.getElementById("cityId");
-          document.getElementById("city").innerHTML = 
-          obj.options[obj.selectedIndex].text;
-        }
-    </script>
+      function getState(that) {
+        var obj = document.getElementById("stateId");
+        document.getElementById("state").innerHTML = 
+        obj.options[obj.selectedIndex].text;
+      }
+      function getCity() {
+        var obj = document.getElementById("cityId");
+        document.getElementById("city").innerHTML = 
+        obj.options[obj.selectedIndex].text;
+      }
+    </script> 
   </head>
 
   <body ng-app="directoryApp">
@@ -51,14 +56,14 @@
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
-              
+
             <div class="navbar-header">
               <h1>Dashboard</h1>
             </div>
 
           </nav>
       </div>
-    
+
       <!--SITE BODY-->
       <div class="row" ng-controller="TopicsController">
           <!--PROFILE CARD-->
@@ -93,57 +98,10 @@
 
             <!--SEARCH TRENDING TOPICS BUTTON-->
             <div>
-              <a href="" class="btn btn-primary btn-lg active" role="button" aria-pressed="true" ng-click="updateTrendList()">View Trending Topics</a>
+              <a onclick="loadjson()" class="btn btn-primary btn-lg active" role="button" aria-pressed="true" ng-click="updateTrendList()">View Trending Topics</a>
             </div>
+            
 
-            
-            <!--COMMENTED OUT PREVIOUS TOPIC TREND LIST PLACEHOLDER <div class = "topic-list">
-              <ul class="list-group">
-                  <li class="list-group-item">
-                      <div class="card" style="width: 100%;">
-                          <div class="card-body">
-                              <a href="#" class="card-link"><h5 class="card-title">Connor McGregor</h5></a>
-                            <h6 class="card-subtitle mb-2 text-muted">69.7K Tweets</h6>
-                            <p class="card-text">Connor McGregor arrested after assaulting fan's phone</p>
-                          </div>
-                        </div>
-                  </li>
-                  <li class="list-group-item">
-                      <div class="card" style="width: 100%;">
-                          <div class="card-body">
-                              <a href="#" class="card-link"><h5 class="card-title">#Cats</h5></a>
-                            <h6 class="card-subtitle mb-2 text-muted">69.7K Tweets</h6>
-                          </div>
-                        </div>
-                  </li>
-                  <li class="list-group-item">
-                      <div class="card" style="width: 100%;">
-                          <div class="card-body">
-                              <a href="#" class="card-link"><h5 class="card-title">#TheBachelorFinale</h5></a>
-                            <h6 class="card-subtitle mb-2 text-muted">38K Tweets</h6>
-                          </div>
-                        </div>
-                  </li>
-                  <li class="list-group-item">
-                      <div class="card" style="width: 100%;">
-                          <div class="card-body">
-                              <a href="#" class="card-link"><h5 class="card-title">#TrumpBudget</h5></a>
-                            <h6 class="card-subtitle mb-2 text-muted">45.4K Tweets</h6>
-                          </div>
-                        </div>
-                  </li>
-                  <li class="list-group-item">
-                      <div class="card" style="width: 100%;">
-                          <div class="card-body">
-                              <a href="#" class="card-link"><h5 class="card-title">Ibaka</h5></a>
-                            <h6 class="card-subtitle mb-2 text-muted">69.7K Tweets</h6>
-                            <p class="card-text">Serge Ibaka and Marquese Chriss ejected for fighting during Cavs-Raptors game</p>
-                          </div>
-                        </div>
-                  </li>
-              </ul>
-            </div> -->
-            
             <!--TRENDS LIST
                 needs get trends request-->
             <div>
@@ -152,7 +110,7 @@
                   <td>{{trend.name}}</td>
                 </tr>
               </table>
-            </div> 
+            </div>
 
           </div>
 
@@ -163,41 +121,19 @@
 
             <!--SEARCH BAR-->
             <div class="search-container">
-                <form id="searchForm">
-                  <input type="text" placeholder="Search.." name="dashSearch" ng-model="query">
+                <form>
+                  <input type="text" placeholder="Type Keyword Here..." name="search" ng-model="query">
                 </form>
+                <div>
+                    <a href="/topicmetrics.html"  class="btn btn-primary btn-lg active" role="button" aria-pressed="true" ng-click="searchQuery()">Search</a>
+               </div>
             </div>
 
-            <!--LOCATION FORM-->
-            <form class="location" style="width: 100%; float:center" >
-                <select name="country" class="countries order-alpha" id="countryId" ng-model="location.country">
-                  <option value="">Select Country</option>
-                </select>
-                <select onchange="getState(this);" name="state" class="states order-alpha" id="stateId" ng-model="location.state">
-                    <option value="">Select State</option>
-                </select>
-                <select onchange="getCity(this);" name="city" class="cities order-alpha" id="cityId" ng-model="location.city">
-                    <option value="">Select City</option>
-                </select>
-              </form>
-              
-              <!--LOCATION STATEMENT-->
-              <div>
-                <p></p>
-                <p style="display: inline-block">Trending Topics in</p> <p style="display: inline-block"id="city"></p>, <p style="display: inline-block" id="state"></p>
-              </div>
-
-            <!--SEARCH BUTTON-->
-            <div>
-                <a href="/topicmetrics.html"  form="searchForm" class="btn btn-primary btn-lg active" role="button" aria-pressed="true" ng-click="searchQuery()">Search</a>
-            </div>
 
           </div>
       </div>
 
     </div>
-      
-     
-    
+
   </body>
 </html>
