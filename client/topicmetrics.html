@@ -1,0 +1,261 @@
+<html>
+
+  <head>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    <link rel="stylesheet" href="styles/main.css">
+  </head>
+
+  <body ng-app="directoryApp">
+ <!--NAVBAR-->
+    <div class="container-fluid">
+    <div class="row">
+        <nav class="navbar navbar-expand-lg navbar-light" style="background-color: #e3f2fd;"">
+          <span class="sr-only">Toggle Navigation</span>
+          <!--NAVBAR BRAND-->
+          <a class="navbar-brand" href="/index.html">
+                <img src="/images/twitter_icon.png" width="30" height="30" class="d-inline-block align-top" alt="">
+                <b>Twitter Data</b>
+          </a>
+          <!--NAVBAR TOGGLE BUTTON-->
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+          </button>
+            
+          <div class="navbar-header">
+            <h1>Topic Metrics</h1>
+          </div>
+
+          <form class="form-inline my-2 my-lg-0">
+                <input class="form-control mr-sm-2" type="search" placeholder="Search Topic..." aria-label="Search" ng-model="query">
+                <button class="btn btn-outline-primary my-2 my-sm-0" type="submit">Search</button>
+            </form>
+
+        </nav>
+    </div>
+
+
+        <!--BREADCRUMBS-->
+        <div class ="row">
+                <nav aria-label="breadcrumb">
+                        <ol class="breadcrumb">
+                          <li class="breadcrumb-item"><a href="/index.html">Dashboard</a></li>
+                          <li class="breadcrumb-item active" aria-current="page">Topic Metrics</li>
+                        </ol>
+                </nav>
+        </div>
+
+        <!--QUERY-->
+        <div> 
+            <h1 style="display:inline">Query</h1> <p style="display:inline"></p><i> in {{location.city}} , {{location.state}} </i> </p>
+        </div>
+    
+      <!--SITE BODY-->
+      <div class="row">
+          
+          <div class="col">
+
+              <!--POPULAR USERS-->
+                <h2>Popular Users</h2>
+                <div ng-controller="UserController">
+                        <table class="table table-striped table-hover">
+                                <tr ng-repeat="user in users" ng-click="goToUserMetrics($index)">
+                                        <div class="twPc-div">
+                                                <a class="twPc-bg twPc-block"></a>
+                                            
+                                                <div>
+                                            
+                                                <a title="Mert S. Kaplan" href="https://twitter.com/mertskaplan" class="twPc-avatarLink">
+                                                    <img alt="Mert S. Kaplan" src="https://mertskaplan.com/wp-content/plugins/msk-twprofilecard/img/mertskaplan.jpg" class="twPc-avatarImg">
+                                                </a>
+                                            
+                                                <div class="twPc-divUser">
+                                                    <div class="twPc-divName">
+                                                    <a href="https://twitter.com/mertskaplan">Mert S. Kaplan</a>
+                                                    </div>
+                                                    <span>
+                                                    <a href="https://twitter.com/mertskaplan">@<span>mertskaplan</span></a>
+                                                    </span>
+                                                </div>
+                                            
+                                                <div class="twPc-divStats">
+                                                    <ul class="twPc-Arrange">
+                                                    <li class="twPc-ArrangeSizeFit">
+                                                        <span class="twPc-StatLabel twPc-block">Tweets</span>
+                                                        <span class="twPc-StatValue">{{user.statuses_count}}</span>
+                                                        </a>
+                                                    </li>
+                                                    <li class="twPc-ArrangeSizeFit">
+                                                        <span class="twPc-StatLabel twPc-block">Following</span>
+                                                        <span class="twPc-StatValue">{{user.friends_count}}</span>
+                                                        </a>
+                                                    </li>
+                                                    <li class="twPc-ArrangeSizeFit">
+                                                        <span class="twPc-StatLabel twPc-block">Followers</span>
+                                                        <span class="twPc-StatValue">{{user.followers_count}}</span>
+                                                        </a>
+                                                    </li>
+                                                    </ul>
+                                                </div>
+                                                </div>
+                                            </div>
+                                </tr>
+                        </table>
+                </div>
+          </div>
+
+
+          <!--CENTER SECTION-->
+          <div class="col-6">
+
+            <!--POPULAR TWEETS-->
+            <h2>Popular Tweets</h2>
+            
+            <div class = "topic-list" ng-controller="TweetController">
+                    <table class="table table-striped table-hover">
+                            <tr ng-repeat="status in statuses" ng-click="updateGraph($index)">
+                                    <!-- Add: {{status.user.profile_image_url}} for user profile image
+                                        Clicking profile image should redirect to User Metrics page and
+                                        send the user JSON data from the status JSON response-->
+                                    <a href="/usermetrics.html" >
+                                        <img src="/images/bugs.jpeg" width = 15% height = 12% class="mr-3" alt="" ng-click="sendUserData(status.user)">
+                                    </a>
+
+                                    <div class="media-body">
+                                      <h5 class="mt-0 mb-1" >{{status.user.name}}</h5>
+                                      <p>{{status.text}}</p>
+                                      <button type="button" class="btn btn-primary">
+                                              Likes <span class="badge badge-light">{{status.favorite_count}}</span>
+                                      </button>
+                                      <button type="button" class="btn btn-primary">
+                                              Retweets <span class="badge badge-light">{{status.retweet_count}}</span>
+                                      </button>
+                                    </div>
+                            </tr>
+                    </table>
+
+            </div>  
+             
+          </div>
+
+
+          <!--RIGHT SECTION-->
+          <div class="col">
+            <!--POPULAR TWEETS BAR GRAPH-->
+            <div>
+                    <h2>Top Posts</h2>
+                    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+                    <div id="barchart">
+                    </div>
+                    <script>
+                        google.charts.load('current', {packages: ['corechart', 'bar']});
+                        google.charts.setOnLoadCallback(drawBasic);
+
+                        function drawBasic() {
+
+                            var data = new google.visualization.DataTable();
+                            data.addColumn('timeofday', 'Time of Day');
+                            data.addColumn('number', 'Motivation Level');
+
+                            data.addRows([
+                                [{v: [8, 0, 0], f: '8 am'}, 1],
+                                [{v: [9, 0, 0], f: '9 am'}, 2],
+                                [{v: [10, 0, 0], f:'10 am'}, 3],
+                                [{v: [11, 0, 0], f: '11 am'}, 4],
+                                [{v: [12, 0, 0], f: '12 pm'}, 5],
+                                [{v: [13, 0, 0], f: '1 pm'}, 6],
+                                [{v: [14, 0, 0], f: '2 pm'}, 7],
+                                [{v: [15, 0, 0], f: '3 pm'}, 8],
+                                [{v: [16, 0, 0], f: '4 pm'}, 9],
+                                [{v: [17, 0, 0], f: '5 pm'}, 10],
+                            ]);
+
+                            var options = {
+                                title: 'Motivation Level Throughout the Day',
+                                hAxis: {
+                                title: 'Time of Day',
+                                format: 'h:mm a',
+                                viewWindow: {
+                                    min: [7, 30, 0],
+                                    max: [17, 30, 0]
+                                }
+                                },
+                                vAxis: {
+                                title: 'Rating (scale of 1-10)'
+                                }
+                            };
+
+                            var chart = new google.visualization.ColumnChart(
+                                document.getElementById('barchart'));
+
+                            chart.draw(data, options);
+                            }
+                    </script>
+            </div>
+
+            <!--TWITTER ACTIVITY LINE GRAPH-->
+            <div>
+                <h2>Tweet Freqeuncy</h2>
+                <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+                <div id="linechart_div">
+                </div>
+                <script>
+                    google.charts.load('current', {packages: ['corechart', 'line']});
+                    google.charts.setOnLoadCallback(drawBasic);
+
+                    function drawBasic() {
+
+                        var data = new google.visualization.DataTable();
+                        data.addColumn('number', 'X');
+                        data.addColumn('number', 'Dogs');
+
+                        data.addRows([
+                            [0, 0],   [1, 10],  [2, 23],  [3, 17],  [4, 18],  [5, 9],
+                            [6, 11],  [7, 27],  [8, 33],  [9, 40],  [10, 32], [11, 35],
+                            [12, 30], [13, 40], [14, 42], [15, 47], [16, 44], [17, 48],
+                            [18, 52], [19, 54], [20, 42], [21, 55], [22, 56], [23, 57],
+                            [24, 60], [25, 50], [26, 52], [27, 51], [28, 49], [29, 53],
+                            [30, 55], [31, 60], [32, 61], [33, 59], [34, 62], [35, 65],
+                            [36, 62], [37, 58], [38, 55], [39, 61], [40, 64], [41, 65],
+                            [42, 63], [43, 66], [44, 67], [45, 69], [46, 69], [47, 70],
+                            [48, 72], [49, 68], [50, 66], [51, 65], [52, 67], [53, 70],
+                            [54, 71], [55, 72], [56, 73], [57, 75], [58, 70], [59, 68],
+                            [60, 64], [61, 60], [62, 65], [63, 67], [64, 68], [65, 69],
+                            [66, 70], [67, 72], [68, 75], [69, 80]
+                        ]);
+
+                        var options = {
+                            hAxis: {
+                            title: 'Time'
+                            },
+                            width: '250',
+                            height: '300',
+                            vAxis: {
+                            title: 'Popularity'
+                            }
+                        };
+
+                        var chart = new google.visualization.LineChart(document.getElementById('linechart_div'));
+
+                        chart.draw(data, options);
+                        }
+                </script>
+            </div>
+          </div>
+      </div>
+
+    </div>
+      
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js" integrity="sha512-K1qjQ+NcF2TYO/eI3M6v8EiNYZfA95pQumfvcVrTHtwQVDG+aHRqLi/ETn2uB+1JqwYqVG3LIvdm9lj6imS/pQ==" crossorigin="anonymous"></script>
+    <script src="https://code.angularjs.org/1.4.3/angular.js"></script>
+    <script src="js/app.js"></script>
+    <script src="js/factories/listingFactory.js"></script>
+    <script src="js/controllers/listingController.js"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    
+</body>
+</html>
