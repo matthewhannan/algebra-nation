@@ -1,4 +1,4 @@
-angular.module('directoryApp', []).controller('TopicsController', ['$scope', 'TwitterAPI', function ($scope, TwitterAPI) {
+angular.module('directoryApp', []).controller('TopicsController', ['$scope', function ($scope, TwitterAPI) {
   
   $scope.location = {
     country: undefined,
