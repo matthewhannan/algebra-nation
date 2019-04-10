@@ -1,7 +1,13 @@
 require('dotenv').config()
+var loadJSON = require('../../client/loadjson')
 var Twit = require('twit');
 var config= require('./config');
 var T=new Twit(config);
+var K =new Twit(config);
+
+//loadjson variables
+var country = loadJSON.country;
+var city = loadJSON.city;
 
  var params={
    q:'Gators',
@@ -16,6 +22,14 @@ function gotData(err,data,response){
   for(var i =0;i<tweets.length;i++){
     console.log(tweets[i].text);
   }
+
+  K.get('search/tweets',params,getData);
+//T.get('search/tweets', { q: 'UF', count: 5 }, function(err, data, response);
+function getData(err,data,response){
+    console.log(country);
+    console.log(city);
+}
+  
 
 
 // var app = angular.module('tweets', []);

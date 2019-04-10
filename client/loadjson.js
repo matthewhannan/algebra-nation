@@ -7,8 +7,8 @@ function loadjson() {
 	var ci = document.getElementById("cityId");
 	var country = co.options[co.selectedIndex].value;
 	var city = ci.options[ci.selectedIndex].value;
-	console.log(country)
-	console.log(city)
+	
+
 //	boolean exists = false;
 	//var woeid;
 	
@@ -21,6 +21,9 @@ function loadjson() {
 			//exists = true;
 		}
 	}
+
+	exports.city = city
+	exports.country = country;
 	
 //	if(!exists){console.log("WOEID NOT FOUND")}
 //	else{
