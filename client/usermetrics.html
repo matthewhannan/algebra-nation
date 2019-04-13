@@ -58,38 +58,35 @@
                     <a class="twPc-bg twPc-block"></a>
                 
                   <div>
-                    <a title="Mert S. Kaplan" href="https://twitter.com/mertskaplan" class="twPc-avatarLink">
+                    <a title="Mert S. Kaplan" href="#" class="twPc-avatarLink">
                       <img alt="User Profile Image" src="https://mertskaplan.com/wp-content/plugins/msk-twprofilecard/img/mertskaplan.jpg" class="twPc-avatarImg">
                     </a>
                 
                     <div class="twPc-divUser">
                       <div class="twPc-divName">
-                        <a href="https://twitter.com/mertskaplan">{{user.name}}</a>
+                        <a href="#">{{user.name}}</a>
                       </div>
                       <span>
-                        <a href="https://twitter.com/mertskaplan">@<span>mertskaplan</span></a>
+                        <a href="#">@<span>mertskaplan</span></a>
                       </span>
                     </div>
                 
                     <div class="twPc-divStats" >
                       <ul class="twPc-Arrange" style="width: 10em; word-wrap: break-word;">
                         <li class="twPc-ArrangeSizeFit">
-                          <a href="https://twitter.com/mertskaplan" title="9.840 Tweet" >
                             <span class="twPc-StatLabel twPc-block" >Tweets</span>
                             <span class="twPc-StatValue" style=" overflow-y: hidden; width: 10em; word-wrap: break-word;">{{user.statuses_count}}</span>
-                          </a>
+                          
                         </li>
                         <li class="twPc-ArrangeSizeFit">
-                          <a href="https://twitter.com/mertskaplan/following" title="885 Following" >
                             <span class="twPc-StatLabel twPc-block">Following</span>
                             <span class="twPc-StatValue " style="overflow-y: hidden ;width: 10em; word-wrap: break-word;">{{user.friends_count}}</span>
-                          </a>
+                         
                         </li>
                         <li class="twPc-ArrangeSizeFit">
-                          <a href="https://twitter.com/mertskaplan/followers" title="1.810 Followers">
                             <span class="twPc-StatLabel twPc-block">Followers</span>
                             <span class="twPc-StatValue" style="overflow-y: hidden;width: 10em; word-wrap: break-word;">{{user.followers_count}}</span>
-                          </a>
+                          
                         </li>
                       </ul>
                     </div>
@@ -152,7 +149,10 @@
 
 
 
-              <!--5. USER ACTIVITY PIE CHART-->
+              <!--5. USER ACTIVITY PIE CHART
+                  INFO: displays percentage of user tweets and likes
+                  Doesn't require variables
+              -->
               <div class="col" style="padding-top: 50px;">
                 <h3 class="headingTitle">User Activity Breakdown</h3>
                 <div id="piechart" align='center'>
@@ -199,7 +199,15 @@
 
           <div> <!--Start of right column-->
 
-            <!--3.POST ENGAGEMENT BAR GRAPH-->
+            <!--3.LATEST POST ENGAGEMENT BAR GRAPH
+                INFO: Shows the engagement(likes and retweets) of the user's 5 latest posts
+
+                Requires call to: GET statuses / user_timeline
+                Post Date: {{?.created_at}} 
+                    -> returns: Sun Feb 25... but we just need 'Sun'or 'Feb 25' for the date
+                Engagement: {{?.favorite_count}} + {{?.retweet_count}}
+                    statuses is name of JSON response with all tweets
+            -->
             <div class="col">
                 <h3 class="headingTitle"> Latest Post Engagement</h3>
                 <div id="barchart" align='center'>
@@ -211,7 +219,7 @@
                     function drawBasic() {
 
                         var data = new google.visualization.DataTable();
-                        data.addColumn('string', 'Post Data');
+                        data.addColumn('string', 'Post Date');
                         data.addColumn('number', 'Engagement');
 
                         data.addRows([
@@ -245,7 +253,14 @@
        
 
 
-            <!--6.TWITTER ACTIVITY LINE GRAPH-->
+            <!--6.TWITTER ACTIVITY LINE GRAPH
+                INFO: Shows the number of posts the user has made in the past 7 days
+
+                Requires call to: GET statuses / user_timeline
+                Weekday: {{?.created_at}} 
+                    -> returns: Sun Feb 25... but we just need 'Sun'or 'Feb 25' for the date
+                Number of Posts: length of the array for the tweets for a specified day 
+            -->
             <div class="col">
                 <h3 class="headingTitle">User Tweet Activity</h3>
                 <div id="linechart_div" align='center'>

@@ -80,16 +80,16 @@
                                             
                                                 <div>
                                             
-                                                <a title="Mert S. Kaplan" href="https://twitter.com/mertskaplan" class="twPc-avatarLink">
+                                                <a title="Mert S. Kaplan" href="/usermetrics.html" class="twPc-avatarLink">
                                                     <img alt="Mert S. Kaplan" src="https://mertskaplan.com/wp-content/plugins/msk-twprofilecard/img/mertskaplan.jpg" class="twPc-avatarImg">
                                                 </a>
                                             
                                                 <div class="twPc-divUser">
                                                     <div class="twPc-divName">
-                                                    <a href="https://twitter.com/mertskaplan">{{user.name}}</a>
+                                                    <a href="/usermetrics.html">{{user.name}}</a>
                                                     </div>
                                                     <span>
-                                                    <a href="https://twitter.com/mertskaplan">@<span>mertskaplan</span></a>
+                                                    <a href="/usermetrics.html">@<span>mertskaplan</span></a>
                                                     </span>
                                                 </div>
                                             
@@ -98,17 +98,17 @@
                                                     <li class="twPc-ArrangeSizeFit">
                                                         <span class="twPc-StatLabel twPc-block">Tweets</span>
                                                         <span class="twPc-StatValue">{{user.statuses_count}}</span>
-                                                        </a>
+                                                        
                                                     </li>
                                                     <li class="twPc-ArrangeSizeFit">
                                                         <span class="twPc-StatLabel twPc-block">Following</span>
                                                         <span class="twPc-StatValue">{{user.friends_count}}</span>
-                                                        </a>
+                                                        
                                                     </li>
                                                     <li class="twPc-ArrangeSizeFit">
                                                         <span class="twPc-StatLabel twPc-block">Followers</span>
                                                         <span class="twPc-StatValue">{{user.followers_count}}</span>
-                                                        </a>
+                                                        
                                                     </li>
                                                     </ul>
                                                 </div>
@@ -159,7 +159,11 @@
           
 
 
-            <!--POPULAR USERS BAR GRAPH-->
+            <!--POPULAR USERS BAR GRAPH
+                INFO: displayes the users with the most followers related to this topic
+                User Name: {{user.name}}
+                Followers: {{user.followers_count}}
+            -->
             <div class="col">
                     <h2 class="headingTitle">Top Users</h2>
                     <div id="barchart" align='center'>
@@ -208,7 +212,13 @@
                     </script>
             </div>
 
-            <!--TWITTER FREQUENCY LINE GRAPH-->
+
+            <!--TWITTER FREQUENCY LINE GRAPH
+                Displays number of posts for the past 5 days
+                Weekday: {{statuses.created_at}} 
+                    -> returns: Sun Feb 25... but we just need 'Sun'or 'Feb 25' for the date
+                Number of Posts: length of the array for the tweets for a specified day
+            -->
             <div class="col">
                 <h2 class="headingTitle">Tweet Frequency</h2>
                 
