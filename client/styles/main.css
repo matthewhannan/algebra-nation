@@ -3,12 +3,13 @@
 }
 
 .bodyContent{
-  padding: 50px;
+  padding-left: 50px;
+  padding-right: 50px;
 }
 
 .headingTitle{
   text-align: center;
-  padding-bottom: 20px;
+  padding-bottom: 5px;
 }
 
 .anyClass {

@@ -43,190 +43,212 @@
                 </nav>
         </div>
     
-      <!--SITE BODY-->
-      <div class="row">
-          
-          <div class="col">
-              <!--PROFILE CARD-->
-              <div class="twPc-div">
-                  <a class="twPc-bg twPc-block"></a>
-              
-                <div>
-              
-                  <a title="Mert S. Kaplan" href="https://twitter.com/mertskaplan" class="twPc-avatarLink">
-                    <img alt="User Profile Image" src="https://mertskaplan.com/wp-content/plugins/msk-twprofilecard/img/mertskaplan.jpg" class="twPc-avatarImg">
-                  </a>
-              
-                  <div class="twPc-divUser">
-                    <div class="twPc-divName">
-                      <a href="https://twitter.com/mertskaplan">{{user.name}}</a>
+
+      <!--BODY MAIN CONTENT-->
+      <div class="bodyContent"> 
+
+      <div class="row"> <!--Start of body page row-->
+
+          <div class="col" style="padding-top: 110px;"> <!--Start of left column-->
+            
+            <div class="row"> <!--Start of left column inner row-->
+
+                <!--1. PROFILE CARD-->
+                <div class="col twPc-div">
+                    <a class="twPc-bg twPc-block"></a>
+                
+                  <div>
+                    <a title="Mert S. Kaplan" href="https://twitter.com/mertskaplan" class="twPc-avatarLink">
+                      <img alt="User Profile Image" src="https://mertskaplan.com/wp-content/plugins/msk-twprofilecard/img/mertskaplan.jpg" class="twPc-avatarImg">
+                    </a>
+                
+                    <div class="twPc-divUser">
+                      <div class="twPc-divName">
+                        <a href="https://twitter.com/mertskaplan">{{user.name}}</a>
+                      </div>
+                      <span>
+                        <a href="https://twitter.com/mertskaplan">@<span>mertskaplan</span></a>
+                      </span>
                     </div>
-                    <span>
-                      <a href="https://twitter.com/mertskaplan">@<span>mertskaplan</span></a>
-                    </span>
-                  </div>
-              
-                  <div class="twPc-divStats" >
-                    <ul class="twPc-Arrange" style="width: 10em; word-wrap: break-word;">
-                      <li class="twPc-ArrangeSizeFit">
-                        <a href="https://twitter.com/mertskaplan" title="9.840 Tweet" >
-                          <span class="twPc-StatLabel twPc-block" >Tweets</span>
-                          <span class="twPc-StatValue" style=" overflow-y: hidden; width: 10em; word-wrap: break-word;">{{user.statuses_count}}</span>
-                        </a>
-                      </li>
-                      <li class="twPc-ArrangeSizeFit">
-                        <a href="https://twitter.com/mertskaplan/following" title="885 Following" >
-                          <span class="twPc-StatLabel twPc-block">Following</span>
-                          <span class="twPc-StatValue " style="overflow-y: hidden ;width: 10em; word-wrap: break-word;">{{user.friends_count}}</span>
-                        </a>
-                      </li>
-                      <li class="twPc-ArrangeSizeFit">
-                        <a href="https://twitter.com/mertskaplan/followers" title="1.810 Followers">
-                          <span class="twPc-StatLabel twPc-block">Followers</span>
-                          <span class="twPc-StatValue" style="overflow-y: hidden;width: 10em; word-wrap: break-word;">{{user.followers_count}}</span>
-                        </a>
-                      </li>
-                    </ul>
+                
+                    <div class="twPc-divStats" >
+                      <ul class="twPc-Arrange" style="width: 10em; word-wrap: break-word;">
+                        <li class="twPc-ArrangeSizeFit">
+                          <a href="https://twitter.com/mertskaplan" title="9.840 Tweet" >
+                            <span class="twPc-StatLabel twPc-block" >Tweets</span>
+                            <span class="twPc-StatValue" style=" overflow-y: hidden; width: 10em; word-wrap: break-word;">{{user.statuses_count}}</span>
+                          </a>
+                        </li>
+                        <li class="twPc-ArrangeSizeFit">
+                          <a href="https://twitter.com/mertskaplan/following" title="885 Following" >
+                            <span class="twPc-StatLabel twPc-block">Following</span>
+                            <span class="twPc-StatValue " style="overflow-y: hidden ;width: 10em; word-wrap: break-word;">{{user.friends_count}}</span>
+                          </a>
+                        </li>
+                        <li class="twPc-ArrangeSizeFit">
+                          <a href="https://twitter.com/mertskaplan/followers" title="1.810 Followers">
+                            <span class="twPc-StatLabel twPc-block">Followers</span>
+                            <span class="twPc-StatValue" style="overflow-y: hidden;width: 10em; word-wrap: break-word;">{{user.followers_count}}</span>
+                          </a>
+                        </li>
+                      </ul>
+                    </div>
                   </div>
                 </div>
+
+
+
+              <!--2. FOLLOWERS/FRIENDS-->
+              <div class="col">
+                      <ul class="list-group">
+                              <li class="list-group-item d-flex justify-content-between align-items-center">
+                                Followers
+                                <span class="badge badge-primary badge-pill">{{user.followers_count}}</span>
+                              </li>
+                              <li class="list-group-item d-flex justify-content-between align-items-center">
+                                You don't follow back
+                                <span class="badge badge-primary badge-pill">1200</span>
+                              </li>
+                              <li class="list-group-item d-flex justify-content-between align-items-center">
+                                Friends
+                                <span class="badge badge-primary badge-pill">{{user.friends_count}}</span>
+                              </li>
+                              <li class="list-group-item d-flex justify-content-between align-items-center">
+                                  Don't follow you back
+                                  <span class="badge badge-primary badge-pill">450</span>
+                              </li>
+                      </ul>
               </div>
 
-              <!--STATS CARDS-->
-                <div>
-                    <div class="card text-center" style="width: 90%;">
-                        <div class="card-body">
-                        <h5 class="card-title">Tweets</h5>
-                        <p class="card-text">{{user.statuses_count}}</p>
-                        </div>
-                    </div>
-                    <div class="card text-center" style="width: 90%;">
-                            <div class="card-body">
-                            <h5 class="card-title">Posts Liked</h5>
-                            <p class="card-text">{{user.favourites_count}}</p>
-                            </div>
-                    </div>
-                    <div class="card text-center" style="width: 90%;">
-                            <div class="card-body">
-                            <h5 class="card-title">Posts Retweeted</h5>
-                            <p class="card-text">666</p>
-                            </div>
-                    </div>
-                    <div class="card text-center" style="width: 90%;">
-                            <div class="card-body">
-                            <h5 class="card-title">Replies</h5>
-                            <p class="card-text">9,000</p>
-                            </div>
-                    </div>
+              <div class="w-100"></div> <!--Splits left columns into another row-->
+
+              <!--4. STATS CARDS-->
+                  <div class="col" style="padding-top: 120px;">
+                      <div class="card text-center" style="width: 90%;">
+                          <div class="card-body">
+                          <h5 class="card-title">Tweets</h5>
+                          <p class="card-text">{{user.statuses_count}}</p>
+                          </div>
+                      </div>
+                      <div class="card text-center" style="width: 90%;">
+                              <div class="card-body">
+                              <h5 class="card-title">Posts Liked</h5>
+                              <p class="card-text">{{user.favourites_count}}</p>
+                              </div>
+                      </div>
+                      <div class="card text-center" style="width: 90%;">
+                              <div class="card-body">
+                              <h5 class="card-title">Posts Retweeted</h5>
+                              <p class="card-text">666</p>
+                              </div>
+                      </div>
+                      <div class="card text-center" style="width: 90%;">
+                              <div class="card-body">
+                              <h5 class="card-title">Replies</h5>
+                              <p class="card-text">9,000</p>
+                              </div>
+                      </div>
+                  </div>
+
+
+
+              <!--5. USER ACTIVITY PIE CHART-->
+              <div class="col" style="padding-top: 50px;">
+                <h3 class="headingTitle">User Activity Breakdown</h3>
+                <div id="piechart" align='center'>
                 </div>
-          </div>
+                <script type="text/javascript">
+                // Load google charts
+                google.charts.load('current', {'packages':['corechart']});
+                google.charts.setOnLoadCallback(drawChart);
+
+                // Draw the chart and set the chart values
+                function drawChart() {
+                  var data = google.visualization.arrayToDataTable([
+                  ['Activity', 'Frequency'],
+                  ['Tweets', 8],
+                  ['Likes', 2],
+                  ['Retweets', 4],
+                  ['Replies', 2]
+                ]);
+
+                  // Optional; add a title and set the width and height of the chart
+                  var options = {
+                    'titlePosition':'none',
+                    'width':500,
+                    'height':500
+                  };
+
+                  // Display the chart inside the <div> element with id="piechart"
+                  var chart = new google.visualization.PieChart(document.getElementById('piechart'));
+                  chart.draw(data, options);
+                }
+                </script>
+
+              </div>
+
+          </div> <!--End of left column inner row-->
 
 
-          <!--CENTER SECTION-->
-          <div class="col-6">
+          </div> <!--End of left column-->
 
-            <!--FOLLOWERS/FRIENDS-->
-            <div>
-                    <ul class="list-group">
-                            <li class="list-group-item d-flex justify-content-between align-items-center">
-                              Followers
-                              <span class="badge badge-primary badge-pill">{{user.followers_count}}</span>
-                            </li>
-                            <li class="list-group-item d-flex justify-content-between align-items-center">
-                              You don't follow back
-                              <span class="badge badge-primary badge-pill">1200</span>
-                            </li>
-                            <li class="list-group-item d-flex justify-content-between align-items-center">
-                              Friends
-                              <span class="badge badge-primary badge-pill">{{user.friends_count}}</span>
-                            </li>
-                            <li class="list-group-item d-flex justify-content-between align-items-center">
-                                Don't follow you back
-                                <span class="badge badge-primary badge-pill">450</span>
-                            </li>
-                    </ul>
+
+
+
+
+
+          <div> <!--Start of right column-->
+
+            <!--3.POST ENGAGEMENT BAR GRAPH-->
+            <div class="col">
+                <h3 class="headingTitle"> Latest Post Engagement</h3>
+                <div id="barchart" align='center'>
+                </div>
+                <script>
+                    google.charts.load('current', {packages: ['corechart', 'bar']});
+                    google.charts.setOnLoadCallback(drawBasic);
+
+                    function drawBasic() {
+
+                        var data = new google.visualization.DataTable();
+                        data.addColumn('string', 'Post Data');
+                        data.addColumn('number', 'Engagement');
+
+                        data.addRows([
+                            ['Date of Post', 7070],
+                            ['Date 2', 2907],
+                            ['Date 3', 3025],
+                            ['Date 4', 4000],
+                            ['Date 5', 5725]
+                        ]);
+
+                        var options = {
+                            titlePosition: 'none',
+                            width: '400',
+                            height: '300',
+                            hAxis: {
+                                title: 'Post'
+                            },
+
+                            vAxis: {
+                                title: 'Engagement (Likes + Retweets)'
+                            }
+                        };
+
+                        var chart = new google.visualization.ColumnChart(
+                            document.getElementById('barchart'));
+
+                        chart.draw(data, options);
+                        }
+                </script>
             </div>
-            
-
-            <!--USER ACTIVITY PIE CHART-->
-            <div id="piechart">
-                <h2>User Activity Breakdown</h2>
-            </div>
-            <script type="text/javascript">
-            // Load google charts
-            google.charts.load('current', {'packages':['corechart']});
-            google.charts.setOnLoadCallback(drawChart);
-
-            // Draw the chart and set the chart values
-            function drawChart() {
-              var data = google.visualization.arrayToDataTable([
-              ['Activity', 'Frequency'],
-              ['Tweets', 8],
-              ['Likes', 2],
-              ['Retweets', 4],
-              ['Replies', 2]
-            ]);
-
-              // Optional; add a title and set the width and height of the chart
-              var options = {'title':'User Activity Breakdown', 'width':550, 'height':400};
-
-              // Display the chart inside the <div> element with id="piechart"
-              var chart = new google.visualization.PieChart(document.getElementById('piechart'));
-              chart.draw(data, options);
-            }
-            </script>
-             
-          </div>
+       
 
 
-          <!--RIGHT SECTION-->
-          <div class="col">
-
-            <!--POPULAR TWEETS BAR GRAPH-->
-            <div id="chart_div">
-                <h2>Popular Tweets</h2>
-            </div>
-            <script type="text/javascript">
-              google.charts.load('current', {packages: ['corechart', 'bar']});
-              google.charts.setOnLoadCallback(drawBasic);
-
-              function drawBasic() {
-
-                    var data = google.visualization.arrayToDataTable([
-                      ['City', '2010 Population',],
-                      ['New York City, NY', 8175000],
-                      ['Los Angeles, CA', 3792000],
-                      ['Chicago, IL', 2695000],
-                      ['Houston, TX', 2099000],
-                      ['Philadelphia, PA', 1526000]
-                    ]);
-
-                    var options = {
-                      title: 'Population of Largest U.S. Cities',
-                      width:300, 
-                      height:200,
-                      hAxis: {
-                        title: 'Total Population',
-                        minValue: 0
-                      },
-                      vAxis: {
-                        title: 'City'
-                      }
-                    };
-
-                    var chart = new google.visualization.BarChart(document.getElementById('chart_div'));
-
-                    chart.draw(data, options);
-                  }
-            </script>
-
-
-
-
-            <!--TWITTER ACTIVITY LINE GRAPH-->
-            <div>
-                <h2>Tweet Freqeuncy</h2>
-                <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
-                <div id="linechart_div">
+            <!--6.TWITTER ACTIVITY LINE GRAPH-->
+            <div class="col">
+                <h3 class="headingTitle">User Tweet Activity</h3>
+                <div id="linechart_div" align='center'>
                 </div>
                 <script>
                     google.charts.load('current', {packages: ['corechart', 'line']});
@@ -235,32 +257,29 @@
                     function drawBasic() {
 
                         var data = new google.visualization.DataTable();
-                        data.addColumn('number', 'X');
-                        data.addColumn('number', 'Dogs');
+                        data.addColumn('string', 'Weekday');
+                        data.addColumn('number', 'Number of Posts');
 
                         data.addRows([
-                            [0, 0],   [1, 10],  [2, 23],  [3, 17],  [4, 18],  [5, 9],
-                            [6, 11],  [7, 27],  [8, 33],  [9, 40],  [10, 32], [11, 35],
-                            [12, 30], [13, 40], [14, 42], [15, 47], [16, 44], [17, 48],
-                            [18, 52], [19, 54], [20, 42], [21, 55], [22, 56], [23, 57],
-                            [24, 60], [25, 50], [26, 52], [27, 51], [28, 49], [29, 53],
-                            [30, 55], [31, 60], [32, 61], [33, 59], [34, 62], [35, 65],
-                            [36, 62], [37, 58], [38, 55], [39, 61], [40, 64], [41, 65],
-                            [42, 63], [43, 66], [44, 67], [45, 69], [46, 69], [47, 70],
-                            [48, 72], [49, 68], [50, 66], [51, 65], [52, 67], [53, 70],
-                            [54, 71], [55, 72], [56, 73], [57, 75], [58, 70], [59, 68],
-                            [60, 64], [61, 60], [62, 65], [63, 67], [64, 68], [65, 69],
-                            [66, 70], [67, 72], [68, 75], [69, 80]
+                                ['Sunday', 80],
+                                ['Monday', 2],
+                                ['Tuesday', 30],
+                                ['Wednesday', 4],
+                                ['Thursday', 15],
+                                ['Friday', 60],
+                                ['Saturday', 7]
                         ]);
 
                         var options = {
+                            titlePosition: 'none',
+                            width: '400',
+                            height: '400',
                             hAxis: {
-                            title: 'Time'
+                                title: 'Day of Week'
                             },
-                            width: '250',
-                            height: '300',
+                            
                             vAxis: {
-                            title: 'Popularity'
+                                title: 'Amount of Tweets'
                             }
                         };
 
@@ -270,10 +289,19 @@
                         }
                 </script>
             </div>
-          </div>
-      </div>
 
-    </div>
+          </div> <!--End of right column-->
+
+
+        </div> <!--End of Body Page Row-->
+
+
+
+
+        </div> <!--End of Body Main Content-->
+
+    </div> <!--End of Webpage-->
+      
       
     <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
