@@ -1,4 +1,4 @@
-function loadjson() { 
+function loadjson () { 
 	console.log("clicked")
 	var mydata = data;
 	//console.log(mydata[0])
@@ -22,8 +22,10 @@ function loadjson() {
 		}
 	}
 
+	/*
 	exports.city = city
 	exports.country = country;
+	*/
 	
 //	if(!exists){console.log("WOEID NOT FOUND")}
 //	else{

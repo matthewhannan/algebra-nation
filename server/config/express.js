@@ -27,12 +27,14 @@ module.exports.init = function() {
 
   /**TODO
   Use the listings router for requests to the api */
-  app.use('/api/listings', listingsRouter);
+  //app.use('/api/listings', listingsRouter);
+
+  app.use('/api/twitter', listingsRouter);
 
   /**TODO
   Go to homepage for all routes not specified */
   app.all('/*', function(req, res, next){
-    res.sendfile(path.resolve('client/index.html'));
+    res.sendFile(path.resolve('client/index.html'));
   });
 
   return app;
