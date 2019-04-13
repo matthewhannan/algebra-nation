@@ -60,20 +60,19 @@
     
         
         <div> 
-
             <h1 style="display:inline" id="searchQuery"></h1> <p style="display:inline"></p><i> in {{location.city}} , {{location.state}} </i> </p>
         </div>
 
     
       <!--SITE BODY-->
-      <div class="row">
+      <div class="row bodyContent">
           
-          <div class="col">
+          <div class="col anyClass">
 
               <!--POPULAR USERS-->
-                <h2>Popular Users</h2>
+                <h2 class="headingTitle">Popular Users</h2>
                 <div ng-controller="UserController">
-                        <table class="table table-striped table-hover anyClass">
+                        <table class="table table-striped table-hover">
 
                                 <tr ng-repeat="user in users" ng-click="goToUserMetrics($index)">
                                         <div class="twPc-div">
@@ -121,15 +120,14 @@
           </div>
 
 
-          <!--CENTER SECTION-->
-          <div class="col">
+          <!--POPULAR TWEETS-->
+          <div class="col anyClass">
 
-            <!--POPULAR TWEETS-->
-            <h2>Popular Tweets</h2>
+            <h2 class="headingTitle">Popular Tweets</h2>
             
             <div class = "topic-list" ng-controller="TweetController">
 
-                    <table class="table table-striped table-hover anyClass">
+                    <table class="table table-striped table-hover">
                             <tr ng-repeat="status in statuses" ng-click="updateGraph($index)">
                                     <!-- Add: {{status.user.profile_image_url}} for user profile image
                                         Clicking profile image should redirect to User Metrics page and
@@ -155,14 +153,16 @@
              
           </div>
 
-          <div class="w-100"></div>
 
-          <!--RIGHT SECTION-->
+
+          <div class="w-100"></div>
           
-            <!--POPULAR TWEETS BAR GRAPH-->
+
+
+            <!--POPULAR USERS BAR GRAPH-->
             <div class="col">
-                    <h2>Top Users</h2>
-                    <div id="barchart">
+                    <h2 class="headingTitle">Top Users</h2>
+                    <div id="barchart" align='center'>
                     </div>
                     <script>
                         google.charts.load('current', {packages: ['corechart', 'bar']});
@@ -208,11 +208,11 @@
                     </script>
             </div>
 
-            <!--TWITTER ACTIVITY LINE GRAPH-->
+            <!--TWITTER FREQUENCY LINE GRAPH-->
             <div class="col">
-                <h2>Tweet Frequency</h2>
+                <h2 class="headingTitle">Tweet Frequency</h2>
                 
-                <div id="linechart_div">
+                <div id="linechart_div" align='center'>
                 </div>
                 <script>
                     google.charts.load('current', {packages: ['corechart', 'line']});
