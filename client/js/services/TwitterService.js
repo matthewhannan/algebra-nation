@@ -1,4 +1,4 @@
-angular.module('directoryApp', []).service('TwitterAPI', ['$scope', function($scope) {
+angular.module('Twitter', []).service('TwitterAPI', ['$scope', function($scope) {
 
     var Twit = require('twit');
     var config = require('./config');
