@@ -8,24 +8,26 @@ angular.module('directoryApp', []).controller('TopicsController', ['$scope', '$h
   
   $scope.updateTrendList = function() {
 
-    var params = {
+    var ourData = {
       id: loadjson()
     };
 
-    console.log(params.id);
-    console.log("Deez Nutz");
+    //console.log("Deez Nutz");
+
+    var config = {
+      params: ourData
+    };
 
     var twitterData = undefined;
 
+    console.log($http.get('/api/twitter/trends/', config));
+
     //'http:localhost:8080/api/twitter'
-    $http.get('/api/twitter', params.id).then(function (response) {
-      console.log(JSON.stringify(response));
-      twitterData = JSON.parse(response);
-    });
+    twitterData = $http.get('/api/twitter/trends/', config);
 
     var tweets = twitterData.trends;
 
-    for(var i = 0; i < tweets.length; i++)
+    for (var i = 0; i < tweets.length; i++)
     {
        console.log(tweets[i].text);
     }

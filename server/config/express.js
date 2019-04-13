@@ -6,6 +6,8 @@ var path = require('path'),
     config = require('./config'),
     listingsRouter = require('../routes/listings.server.routes');
 
+var twitterapi = require('../config/twitter.js');
+
 module.exports.init = function() {
   //connect to database
   //mongoose.connect(config.db.uri);
@@ -29,7 +31,19 @@ module.exports.init = function() {
   Use the listings router for requests to the api */
   //app.use('/api/listings', listingsRouter);
 
-  app.use('/api/twitter', listingsRouter);
+  //app.use('/api/twitter', listingsRouter);
+
+  app.get('/api/twitter/trends', function (req, res) {
+
+    //console.log(req.query);
+
+    var twitterData = twitterapi.getTwitterDataByWoeID(req.query.id);
+
+    console.log(twitterData);
+
+    console.log('Yay, you found me!');
+    //res.send('UwU the route works');
+  });
 
   /**TODO
   Go to homepage for all routes not specified */

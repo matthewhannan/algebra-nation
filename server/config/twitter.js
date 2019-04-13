@@ -19,14 +19,12 @@ var myparams = {
 	id: 2391279 // denver example
 };
 
-exports.getTwitterDataByWoeID = function (req, res) {
+exports.getTwitterDataByWoeID = function (woeid) {
 
 console.log('Hi there!');
 
-console.log(req.body);
-
 var paramsDeezNutz = {
-  id: req.body
+  id: woeid
 };
 
 var ret = undefined;
