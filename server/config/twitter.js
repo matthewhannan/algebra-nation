@@ -19,25 +19,26 @@ var myparams = {
 	id: 2391279 // denver example
 };
 
-exports.getTwitterDataByWoeID = function (woeid) {
+exports.getTrendsByWoeID = async function (woeid) {
 
-console.log('Hi there!');
+//console.log('Hi there!');
 
+/*
 var paramsDeezNutz = {
   id: woeid
-};
+};*/
 
-var ret = undefined;
+var trends = undefined;
 
-T.get('trends/place',paramsDeezNutz)
-  .catch(function (err) {
-    console.log('Could not fetch Trends By WoeID', err.stack)
-  })
-  .then(function (result) {
-    ret = result;
-});
+await T.get('trends/place', { id: woeid })
+       .catch(function (err) {
+           console.log('Could not fetch Trends By WoeID', err.stack);
+       })
+       .then(function (result) {
+           trends = result.data[0].trends;
+       });
 
-return ret;
+return trends;
 
 };
 

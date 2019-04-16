@@ -32,7 +32,7 @@ router.route('/:listingId')
 */
 
 router.route('/api/twitter/:woeid')
-   .get(twitterapi.getTwitterDataByWoeID);
+   .get(twitterapi.getTrendsByWoeID);
 
 /*
   The 'router.param' method allows us to specify middleware we would like to use to handle 

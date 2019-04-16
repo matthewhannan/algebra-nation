@@ -3,8 +3,8 @@ var path = require('path'),
     mongoose = require('mongoose'),
     morgan = require('morgan'),
     bodyParser = require('body-parser'),
-    config = require('./config'),
-    listingsRouter = require('../routes/listings.server.routes');
+    config = require('./config');
+    //listingsRouter = require('../routes/listings.server.routes');
 
 var twitterapi = require('../config/twitter.js');
 
@@ -33,21 +33,36 @@ module.exports.init = function() {
 
   //app.use('/api/twitter', listingsRouter);
 
-  app.get('/api/twitter/trends', function (req, res) {
+  const asyncMiddleware = fn =>
+  (req, res, next) => {
+    Promise.resolve(fn(req, res, next)).catch(next);
+  };
 
-    //console.log(req.query);
-
-    var twitterData = twitterapi.getTwitterDataByWoeID(req.query.id);
+  var trendsRoute = async function (req, res, next) {
+    try
+    {
+    var twitterData = await twitterapi.getTrendsByWoeID(req.query.id);
+    }
+    catch (err)
+    {
+      next(err);
+    }
 
     console.log(twitterData);
 
     console.log('Yay, you found me!');
     //res.send('UwU the route works');
-  });
+
+    res.statusCode = 200;
+    res.json(twitterData);
+    next();
+  }
+
+  app.get('/api/twitter/trends', asyncMiddleware(trendsRoute));
 
   /**TODO
   Go to homepage for all routes not specified */
-  app.all('/*', function(req, res, next){
+  app.all('/*', function (req, res, next) {
     res.sendFile(path.resolve('client/index.html'));
   });
 
