@@ -22,18 +22,18 @@ angular.module('directoryApp', []).controller('TopicsController', ['$scope', '$h
 
 	console.log("http done");
 
-	console.log(twitterData)
+	console.log(JSON.stringify(twitterData));
 
-    var tweets = twitterData.trends;
-
-    for (var i = 0; i < tweets.length; i++)
-    {
-       console.log(tweets[i].text);
-    }
+    var tweets = twitterData.data[0].trends;
 
     $scope.trends = [];
 
+    for (var i = 0; i < tweets.length; i++)
+    {
+       $scope.trends.push(tweets[i]);
+    }
 
+    $scope.$apply();
 
     //var twitterData = JSON.parse($http.get('http:localhost'));
 

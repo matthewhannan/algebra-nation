@@ -96,9 +96,17 @@
               <p style="display: inline-block">Trending Topics in</p> <p style="display: inline-block"id="city"></p>, <p style="display: inline-block" id="state"></p>
             </div>
 
+            <script>
+            function lolWut()
+            {
+              loadjson();
+              updateTrendList();
+            }
+            </script>
+
             <!--SEARCH TRENDING TOPICS BUTTON-->
             <div>
-              <a onclick="loadjson()" class="btn btn-primary btn-lg active" role="button" aria-pressed="true" ng-click="updateTrendList()">View Trending Topics</a>
+              <a class="btn btn-primary btn-lg active" role="button" aria-pressed="true" ng-click="updateTrendList()">View Trending Topics</a>
             </div>
             
 
@@ -107,7 +115,7 @@
             <div>
               <table class="table table-striped table-hover">
                 <tr ng-repeat="trend in trends" ng-click="goToTopicMetrics($index)">
-                  <td>{{trend.name}}</td>
+                  <td><a ng-href="{{trend.url}}">{{trend.name}}</a></td>
                 </tr>
               </table>
             </div>
