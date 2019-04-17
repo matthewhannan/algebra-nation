@@ -25,7 +25,7 @@
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
-              
+
             <div class="navbar-header">
               <h1>User Metrics</h1>
             </div>
@@ -42,30 +42,31 @@
                         </ol>
                 </nav>
         </div>
-    
+
       <!--SITE BODY-->
       <div class="row">
-          
+
           <div class="col">
               <!--PROFILE CARD-->
               <div class="twPc-div">
                   <a class="twPc-bg twPc-block"></a>
-              
+
                 <div>
-              
-                  <a title="Mert S. Kaplan" href="https://twitter.com/mertskaplan" class="twPc-avatarLink">
-                    <img alt="User Profile Image" src="https://mertskaplan.com/wp-content/plugins/msk-twprofilecard/img/mertskaplan.jpg" class="twPc-avatarImg">
+
+                  <a title="Alejandro Pineda " href="https://twitter.com/alejosepineda" class="twPc-avatarLink">
+                    <img alt="User Profile Image" src="https://pbs.twimg.com/profile_images/1111729635610382336/_65QFl7B_400x400.png" class="twPc-avatarImg">
                   </a>
-              
+
                   <div class="twPc-divUser">
                     <div class="twPc-divName">
-                      <a href="https://twitter.com/mertskaplan">{{user.name}}</a>
+                      <a href="https://twitter.com/alejosepineda">{{name}}</a>
                     </div>
                     <span>
-                      <a href="https://twitter.com/mertskaplan">@<span>mertskaplan</span></a>
+                      <a href="https://twitter.com/alejosepineda">@<span>alejosepineda</span></a>
                     </span>
+
                   </div>
-              
+
                   <div class="twPc-divStats" >
                     <ul class="twPc-Arrange" style="width: 10em; word-wrap: break-word;">
                       <li class="twPc-ArrangeSizeFit">
@@ -108,7 +109,7 @@
                     <div class="card text-center" style="width: 90%;">
                             <div class="card-body">
                             <h5 class="card-title">Posts Retweeted</h5>
-                            <p class="card-text">666</p>
+                            <p class="card-text">600</p>
                             </div>
                     </div>
                     <div class="card text-center" style="width: 90%;">
@@ -145,7 +146,7 @@
                             </li>
                     </ul>
             </div>
-            
+
 
             <!--USER ACTIVITY PIE CHART-->
             <div id="piechart">
@@ -174,7 +175,7 @@
               chart.draw(data, options);
             }
             </script>
-             
+
           </div>
 
 
@@ -202,7 +203,7 @@
 
                     var options = {
                       title: 'Population of Largest U.S. Cities',
-                      width:300, 
+                      width:300,
                       height:200,
                       hAxis: {
                         title: 'Total Population',
@@ -224,7 +225,7 @@
 
             <!--TWITTER ACTIVITY LINE GRAPH-->
             <div>
-                <h2>Tweet Freqeuncy</h2>
+                <h2>Tweet Frequency</h2>
                 <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
                 <div id="linechart_div">
                 </div>
@@ -236,7 +237,7 @@
 
                         var data = new google.visualization.DataTable();
                         data.addColumn('number', 'X');
-                        data.addColumn('number', 'Dogs');
+                        data.addColumn('number', 'NumberOfTweets');
 
                         data.addRows([
                             [0, 0],   [1, 10],  [2, 23],  [3, 17],  [4, 18],  [5, 9],
@@ -260,7 +261,7 @@
                             width: '250',
                             height: '300',
                             vAxis: {
-                            title: 'Popularity'
+                            title: 'Number of Tweets'
                             }
                         };
 
@@ -274,7 +275,7 @@
       </div>
 
     </div>
-      
+
     <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js" integrity="sha512-K1qjQ+NcF2TYO/eI3M6v8EiNYZfA95pQumfvcVrTHtwQVDG+aHRqLi/ETn2uB+1JqwYqVG3LIvdm9lj6imS/pQ==" crossorigin="anonymous"></script>
