@@ -17,26 +17,10 @@
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-    <!--GeoData Scripts-->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-    <script src="https://geodata.solutions/includes/countrystatecity.js"></script>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
 	<!--Load JSON scripts-->
     <script type="text/javascript" src="woeid.json"></script>
     <script type="text/javascript" src="loadjson.js"></script>
   <!--Location script update-->
-    <script>
-      function getState(that) {
-        var obj = document.getElementById("stateId");
-        document.getElementById("state").innerHTML = 
-        obj.options[obj.selectedIndex].text;
-      }
-      function getCity() {
-        var obj = document.getElementById("cityId");
-        document.getElementById("city").innerHTML = 
-        obj.options[obj.selectedIndex].text;
-      }
-    </script> 
   </head>
 
   <body ng-app="directoryApp">
@@ -79,14 +63,11 @@
 
             <!--LOCATION FORM-->
             <form class="location" style="width: 100%; float:center">
-              <select name="country" class="countries order-alpha" id="countryId" ng-model="location.country">
+              <select name="Country" id="countryId" onchange="populateCities()" ng-model="location.country">
                 <option value="">Select Country</option>
               </select>
-              <select onchange="getState(this);" name="state" class="states order-alpha" id="stateId" ng-model="location.state">
-                  <option value="">Select State</option>
-              </select>
-              <select onchange="getCity(this);" name="city" class="cities order-alpha" id="cityId" ng-model="location.city">
-                  <option value="">Select City</option>
+              <select name="City" id="cityId" ng-model="location.city">
+                <option value="">Select City/Region</option>
               </select>
             </form>
             
@@ -142,6 +123,19 @@
       </div>
 
     </div>
-
+    <script src="options.js" type="text/javascript"></script>
+    <script>  
+      console.log("fuck");
+      var countrySel = document.getElementById('countryId');
+      var lastCountry = "";
+      for(var i = 0; i < countries.length; i++) {
+        if(lastCountry != countries[i]){
+          var countryOpt = document.createElement('option');
+          countryOpt.innerHTML = countries[i];
+          countrySel.appendChild(countryOpt);
+          lastCountry = countries[i];
+        }
+      }
+    </script>
   </body>
 </html>
