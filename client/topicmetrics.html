@@ -128,23 +128,24 @@
             <div class = "topic-list" ng-controller="TweetController">
 
                     <table class="table table-striped table-hover">
-                            <tr ng-repeat="status in statuses" ng-click="updateGraph($index)">
+                            <tr class="border border-primary" ng-repeat="status in statuses" ng-click="updateGraph($index)">
                                     <!-- Add: {{status.user.profile_image_url}} for user profile image
                                         Clicking profile image should redirect to User Metrics page and
                                         send the user JSON data from the status JSON response-->
                                     <a href="/usermetrics.html" >
-                                        <img src="/images/bugs.jpeg" width = 15% height = 12% class="mr-3" alt="" ng-click="sendUserData(status.user)">
+                                        <img src="/images/bugs.jpeg" width = 15% height = 15% class="mr-3" alt="" ng-click="sendUserData(status.user)">
                                     </a>
 
                                     <div class="media-body">
                                       <h5 class="mt-0 mb-1" >{{status.user.name}}</h5>
                                       <p>{{status.text}}</p>
+                                      <div class="engagementbuttons">
                                       <button type="button" class="btn btn-primary">
                                               Likes <span class="badge badge-light">{{status.favorite_count}}</span>
                                       </button>
                                       <button type="button" class="btn btn-primary">
                                               Retweets <span class="badge badge-light">{{status.retweet_count}}</span>
-                                      </button>
+                                      </button></div>
                                     </div>
                             </tr>
                     </table>

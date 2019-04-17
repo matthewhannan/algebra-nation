@@ -49,7 +49,7 @@
   border: 1px solid #e1e8ed;
   border-radius: 6px;
   height: 200px;
-  max-width: 340px; /* orginal twitter width: 290px;*/
+  max-width: 100%; /* orginal twitter width: 290px;*/
 }
 .twPc-bg {
   background-image: url("https://pbs.twimg.com/profile_banners/50988711/1384539792/600x200");
@@ -100,6 +100,7 @@
 .twPc-divStats {
   margin-left: 11px;
   padding: 10px 0;
+  overflow-x: wrap;
 }
 .twPc-Arrange {
   box-sizing: border-box;
@@ -124,7 +125,7 @@ ul.twPc-Arrange {
 }
 .twPc-StatValue {
   display: block;
-  font-size: 18px;
+  font-size: 15px;
   font-weight: 500;
   transition: color 0.15s ease-in-out 0s;
 }
@@ -135,6 +136,12 @@ ul.twPc-Arrange {
   overflow: hidden;
   text-transform: uppercase;
   transition: color 0.15s ease-in-out 0s;
+}
+.engagementbuttons{
+ 
+    display: flex;
+    justify-content: center;
+  
 }
 
 /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~FORM~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
