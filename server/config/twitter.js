@@ -4,45 +4,40 @@ var config= require('./config');
 var T=new Twit(config);
 var K =new Twit(config);
 
-/*
-//loadjson variables
-var country = loadJSON.country;
-var city = loadJSON.city;
-*/
+function getTwitterDataByWoeID(woeid) {
+	console.log('Our woeid', woeid);
 
+	var id = {
+	  id: woeid
+	};
+
+	var ret = undefined;
+
+	try{
+		console.log('PRE_CALL');
+		return new Promise(resolve => {
+			T.get('trends/place',id, function(err, data, response){
+				console.log('Result got!');
+				ret = data;
+				resolve(ret);
+			});
+		});
+		console.log("POST SHITE");
+	}
+	catch(e){
+		console.log("ERROR I GUESS");
+	}
+	return ret;
+}
+
+exports.getTwitterDataByWoeID = getTwitterDataByWoeID;
+
+/*
 var params = {
    q:'Trump',
    count: 5
 };
 
-var myparams = {
-	id: 2391279 // denver example
-};
-
-exports.getTrendsByWoeID = async function (woeid) {
-
-//console.log('Hi there!');
-
-/*
-var paramsDeezNutz = {
-  id: woeid
-};*/
-
-var trends = undefined;
-
-await T.get('trends/place', { id: woeid })
-       .catch(function (err) {
-           console.log('Could not fetch Trends By WoeID', err.stack);
-       })
-       .then(function (result) {
-           trends = result.data[0].trends;
-       });
-
-return trends;
-
-};
-
-/*
 T.get('trends/place',myparams)
   .catch(function (err) {
     console.log('caught error', err.stack)

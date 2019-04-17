@@ -33,32 +33,25 @@ module.exports.init = function() {
 
   //app.use('/api/twitter', listingsRouter);
 
-  const asyncMiddleware = fn =>
-  (req, res, next) => {
-    Promise.resolve(fn(req, res, next)).catch(next);
-  };
+  app.get('/api/twitter/trends', async function express_stuff(req, res)
+  {
+	var twitterData = undefined;
 
-  var trendsRoute = async function (req, res, next) {
-    try
-    {
-    var twitterData = await twitterapi.getTrendsByWoeID(req.query.id);
-    }
-    catch (err)
-    {
-      next(err);
-    }
-
+	console.log("found EXPRESS");
+	try{
+		console.log("PRE AWAIT");
+		twitterData = await (twitterapi.getTwitterDataByWoeID(req.query.id));
+		console.log("POST AWAIT");
+	}
+	catch(e){
+		console.log("EXPRESS CATCH");
+		console.log(e);
+	}
+	console.log("express after API call");
     console.log(twitterData);
 
-    console.log('Yay, you found me!');
-    //res.send('UwU the route works');
-
-    res.statusCode = 200;
-    res.json(twitterData);
-    next();
-  }
-
-  app.get('/api/twitter/trends', asyncMiddleware(trendsRoute));
+	res.send(JSON.stringify(twitterData));
+  });
 
   /**TODO
   Go to homepage for all routes not specified */

@@ -6,24 +6,23 @@ angular.module('directoryApp', []).controller('TopicsController', ['$scope', '$h
     city: '<City>'
   };
   
-  $scope.updateTrendList = function() {
+  $scope.updateTrendList = async function() {
 
     var ourData = {
       id: loadjson()
     };
-
-    //console.log("Deez Nutz");
-
+	
     var config = {
       params: ourData
     };
 
     var twitterData = undefined;
 
-    console.log($http.get('/api/twitter/trends/', config));
+    twitterData = await ($http.get('/api/twitter/trends', config));
 
-    //'http:localhost:8080/api/twitter'
-    twitterData = $http.get('/api/twitter/trends/', config);
+	console.log("http done");
+
+	console.log(twitterData)
 
     var tweets = twitterData.trends;
 
