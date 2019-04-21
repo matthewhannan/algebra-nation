@@ -1,8 +1,8 @@
 //require('dotenv').config()
 var Twit = require('twit');
 var config= require('./config');
-var T=new Twit(config);
-var K =new Twit(config);
+var T = new Twit(config);
+var K = new Twit(config);
 
 function getTwitterDataByWoeID(woeid) {
 	console.log('Our woeid', woeid);
@@ -22,7 +22,6 @@ function getTwitterDataByWoeID(woeid) {
 				resolve(ret);
 			});
 		});
-		console.log("POST SHITE");
 	}
 	catch(e){
 		console.log("ERROR I GUESS");
