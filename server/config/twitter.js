@@ -32,6 +32,35 @@ function getTwitterDataByWoeID(woeid) {
 
 exports.getTwitterDataByWoeID = getTwitterDataByWoeID;
 
+////////////////////Second API CALL ///////////////////////////////////////////////////////////////////////
+function getTweetsbyKeyword(keyword){
+	console.log('Our Word', keyword);
+
+	var keyword = {
+		word: keyword
+	};
+
+	var returnType = undefined;
+
+	try{
+		console.log('PRE_SECOND API CALL ');
+		return new Promise(resolve => {
+			K.get('search/tweets',keyword, function(err, data, response){
+				console.log('Result got!');
+				returnType = data;
+				resolve(returnType);
+			});
+		});
+	}
+	catch(e){
+		console.log("ERROR I GUESS");
+	}
+	return ret;
+
+}
+
+
+
 /*
 var params = {
    q:'Trump',
@@ -61,6 +90,6 @@ function gotData(err,data,response){
     //console.log(tweets[i].retweet_count)
     console.log(sortable[i].retweet_count);
   }
-  
+
 
 }*/

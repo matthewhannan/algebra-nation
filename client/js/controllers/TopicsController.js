@@ -1,17 +1,18 @@
 angular.module('directoryApp', []).controller('TopicsController', ['$scope', '$http', function ($scope, $http) {
-  
+
   $scope.location = {
     country: '<Country>',
     state: '<State>',
     city: '<City>'
   };
-  
+
   $scope.updateTrendList = async function() {
 
     var ourData = {
       id: loadjson()
+
     };
-	
+
     var config = {
       params: ourData
     };
@@ -33,13 +34,14 @@ angular.module('directoryApp', []).controller('TopicsController', ['$scope', '$h
        $scope.trends.push(tweets[i]);
     }
 
+
     $scope.$apply();
 
     //var twitterData = JSON.parse($http.get('http:localhost'));
 
     //Send request to server
-    
-    
+
+
   };
-  
+
 }]);
