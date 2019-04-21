@@ -22,7 +22,7 @@
     <script type="text/javascript" src="loadjson.js"></script>
   <!--Location script update-->
     <script>
-      function getState(that) {
+      function getCountry(that) {
         var obj = document.getElementById("countryId");
         document.getElementById("country").innerHTML = //writes to form statement
         obj.options[obj.selectedIndex].text;
@@ -75,10 +75,10 @@
 
             <!--LOCATION FORM-->
             <form class="location" style="width: 100%; float:center">
-              <select name="Country" id="countryId" onchange="populateCities()" ng-model="location.country">
+              <select name="Country" id="countryId" onchange="populateCities(); getCountry(this)" ng-model="location.country">
                 <option value="">Select Country</option>
               </select>
-              <select name="City" id="cityId" ng-model="location.city">
+              <select name="City" id="cityId" ng-model="location.city" onchange="getCity(this)"">
                 <option value="">Select City/Region</option>
               </select>
             </form>
