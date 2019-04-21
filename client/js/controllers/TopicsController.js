@@ -27,13 +27,13 @@ angular.module('directoryApp', []).controller('TopicsController', ['$scope', '$h
 
     //Update results function call here
   }
-  
+
   $scope.updateTrendList = async function() {
 
     var ourData = {
       id: loadjson()
     };
-	
+
     var config = {
       params: ourData
     };
@@ -73,5 +73,3 @@ angular.module('directoryApp', []).controller('TopicsController', ['$scope', '$h
     twitterData = await $http.get('api/twitter/keyword', config);
 
   };
-  
-}]);

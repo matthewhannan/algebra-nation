@@ -42,26 +42,26 @@
                         </ol>
                 </nav>
         </div>
-    
+
 
       <!--BODY MAIN CONTENT-->
-      <div class="bodyContent"> 
+      <div class="bodyContent">
 
       <div class="row"> <!--Start of body page row-->
 
           <div class="col" style="padding-top: 110px;"> <!--Start of left column-->
-            
+
             <div class="row"> <!--Start of left column inner row-->
 
                 <!--1. PROFILE CARD-->
                 <div class="col twPc-div">
                     <a class="twPc-bg twPc-block"></a>
-                
+
                   <div>
-                    <a title="Mert S. Kaplan" href="#" class="twPc-avatarLink">
-                      <img alt="User Profile Image" src="https://mertskaplan.com/wp-content/plugins/msk-twprofilecard/img/mertskaplan.jpg" class="twPc-avatarImg">
+                    <a title="username" href="#" class="twPc-avatarLink">
+                      <img alt="User Profile Image" src="pbs.twimg.com/profile_images/1111729635610382336/_65QFl7B_400x400.png" class="twPc-avatarImg">
                     </a>
-                
+
                     <div class="twPc-divUser">
                       <div class="twPc-divName">
                         <a href="#">{{user.name}}</a>
@@ -70,23 +70,23 @@
                         <a href="#">@<span>mertskaplan</span></a>
                       </span>
                     </div>
-                
+
                     <div class="twPc-divStats" >
                       <ul class="twPc-Arrange" style="width: 10em; word-wrap: break-word;">
                         <li class="twPc-ArrangeSizeFit">
                             <span class="twPc-StatLabel twPc-block" >Tweets</span>
                             <span class="twPc-StatValue" style=" overflow-y: hidden; width: 10em; word-wrap: break-word;">{{user.statuses_count}}</span>
-                          
+
                         </li>
                         <li class="twPc-ArrangeSizeFit">
                             <span class="twPc-StatLabel twPc-block">Following</span>
                             <span class="twPc-StatValue " style="overflow-y: hidden ;width: 10em; word-wrap: break-word;">{{user.friends_count}}</span>
-                         
+
                         </li>
                         <li class="twPc-ArrangeSizeFit">
                             <span class="twPc-StatLabel twPc-block">Followers</span>
                             <span class="twPc-StatValue" style="overflow-y: hidden;width: 10em; word-wrap: break-word;">{{user.followers_count}}</span>
-                          
+
                         </li>
                       </ul>
                     </div>
@@ -136,7 +136,7 @@
                       <div class="card text-center" style="width: 90%;">
                               <div class="card-body">
                               <h5 class="card-title">Posts Retweeted</h5>
-                              <p class="card-text">666</p>
+                              <p class="card-text">600</p>
                               </div>
                       </div>
                       <div class="card text-center" style="width: 90%;">
@@ -203,7 +203,7 @@
                 INFO: Shows the engagement(likes and retweets) of the user's 5 latest posts
 
                 Requires call to: GET statuses / user_timeline
-                Post Date: {{?.created_at}} 
+                Post Date: {{?.created_at}}
                     -> returns: Sun Feb 25... but we just need 'Sun'or 'Feb 25' for the date
                 Engagement: {{?.favorite_count}} + {{?.retweet_count}}
                     statuses is name of JSON response with all tweets
@@ -250,16 +250,16 @@
                         }
                 </script>
             </div>
-       
+
 
 
             <!--6.TWITTER ACTIVITY LINE GRAPH
                 INFO: Shows the number of posts the user has made in the past 7 days
 
                 Requires call to: GET statuses / user_timeline
-                Weekday: {{?.created_at}} 
+                Weekday: {{?.created_at}}
                     -> returns: Sun Feb 25... but we just need 'Sun'or 'Feb 25' for the date
-                Number of Posts: length of the array for the tweets for a specified day 
+                Number of Posts: length of the array for the tweets for a specified day
             -->
             <div class="col">
                 <h3 class="headingTitle">User Tweet Activity</h3>
@@ -292,7 +292,7 @@
                             hAxis: {
                                 title: 'Day of Week'
                             },
-                            
+
                             vAxis: {
                                 title: 'Amount of Tweets'
                             }
@@ -316,8 +316,8 @@
         </div> <!--End of Body Main Content-->
 
     </div> <!--End of Webpage-->
-      
-      
+
+
     <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js" integrity="sha512-K1qjQ+NcF2TYO/eI3M6v8EiNYZfA95pQumfvcVrTHtwQVDG+aHRqLi/ETn2uB+1JqwYqVG3LIvdm9lj6imS/pQ==" crossorigin="anonymous"></script>
