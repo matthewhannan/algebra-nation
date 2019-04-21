@@ -1,10 +1,32 @@
 angular.module('directoryApp', []).controller('TopicsController', ['$scope', '$http', function ($scope, $http) {
-  
+
+  $scope.query = sessionStorage.getItem('query');
+
   $scope.location = {
     country: '<Country>',
     state: '<State>',
     city: '<City>'
   };
+
+  $scope.$watch('query', function () {
+    sessionStorage.setItem('query', $scope.query);
+  });
+
+  console.log($scope.query);
+
+  if ($scope.query === 'null')
+  {
+      //$scope.query = 'Test Query';
+      //$scope.$apply();
+      //console.log("JA");
+  }
+  else
+  {
+    //Only called in /topicsmetrics.html
+    //Query is set, make the request for search/tweets to localhost
+
+    //Update results function call here
+  }
   
   $scope.updateTrendList = async function() {
 
