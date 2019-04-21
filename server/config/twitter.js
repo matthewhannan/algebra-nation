@@ -4,19 +4,39 @@ var config= require('./config');
 var T=new Twit(config);
 var K =new Twit(config);
 
-//loadjson variables
-var country = loadJSON.country;
-var city = loadJSON.city;
+function getTwitterDataByWoeID(woeid) {
+	console.log('Our woeid', woeid);
 
- var params={
+	var id = {
+	  id: woeid
+	};
+
+	var ret = undefined;
+
+	try{
+		console.log('PRE_CALL');
+		return new Promise(resolve => {
+			T.get('trends/place',id, function(err, data, response){
+				console.log('Result got!');
+				ret = data;
+				resolve(ret);
+			});
+		});
+		console.log("POST SHITE");
+	}
+	catch(e){
+		console.log("ERROR I GUESS");
+	}
+	return ret;
+}
+
+exports.getTwitterDataByWoeID = getTwitterDataByWoeID;
+
+/*
+var params = {
    q:'Trump',
    count: 5
-
- }
-
-var myparams={
-	id: 2391279 // denver example
-}
+};
 
 T.get('trends/place',myparams)
   .catch(function (err) {
@@ -41,14 +61,6 @@ function gotData(err,data,response){
     //console.log(tweets[i].retweet_count)
     console.log(sortable[i].retweet_count);
   }
+  
 
-
-// var app = angular.module('tweets', []);
-// app.controller('TopicsController', function($scope) {
-//   $scope.query  ;
-//   $scope.location.country ;
-//   $scope.location.state ;
-//   $scope.location.city;
-// });
-
-}
+}*/

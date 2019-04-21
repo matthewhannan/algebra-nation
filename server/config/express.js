@@ -3,8 +3,10 @@ var path = require('path'),
     mongoose = require('mongoose'),
     morgan = require('morgan'),
     bodyParser = require('body-parser'),
-    config = require('./config'),
-    listingsRouter = require('../routes/listings.server.routes');
+    config = require('./config');
+    //listingsRouter = require('../routes/listings.server.routes');
+
+var twitterapi = require('../config/twitter.js');
 
 module.exports.init = function() {
   //connect to database
@@ -27,12 +29,34 @@ module.exports.init = function() {
 
   /**TODO
   Use the listings router for requests to the api */
-  app.use('/api/listings', listingsRouter);
+  //app.use('/api/listings', listingsRouter);
+
+  //app.use('/api/twitter', listingsRouter);
+
+  app.get('/api/twitter/trends', async function express_stuff(req, res)
+  {
+	var twitterData = undefined;
+
+	console.log("found EXPRESS");
+	try{
+		console.log("PRE AWAIT");
+		twitterData = await (twitterapi.getTwitterDataByWoeID(req.query.id));
+		console.log("POST AWAIT");
+	}
+	catch(e){
+		console.log("EXPRESS CATCH");
+		console.log(e);
+	}
+	console.log("express after API call");
+    console.log(twitterData);
+
+	res.send(JSON.stringify(twitterData));
+  });
 
   /**TODO
   Go to homepage for all routes not specified */
-  app.all('/*', function(req, res, next){
-    res.sendfile(path.resolve('client/index.html'));
+  app.all('/*', function (req, res, next) {
+    res.sendFile(path.resolve('client/index.html'));
   });
 
   return app;

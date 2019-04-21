@@ -1,13 +1,45 @@
-angular.module('directoryApp', ['Twitter']).controller('TopicsController', ['$scope', 'TwitterAPI', function ($scope, TwitterAPI) {
+angular.module('directoryApp', []).controller('TopicsController', ['$scope', '$http', function ($scope, $http) {
   
   $scope.location = {
-    country: undefined,
-    state: undefined,
-    city: undefined
+    country: '<Country>',
+    state: '<State>',
+    city: '<City>'
   };
   
-  $scope.updateTrendList = function() {
-    //To be implemented...
+  $scope.updateTrendList = async function() {
+
+    var ourData = {
+      id: loadjson()
+    };
+	
+    var config = {
+      params: ourData
+    };
+
+    var twitterData = undefined;
+
+    twitterData = await ($http.get('/api/twitter/trends', config));
+
+	console.log("http done");
+
+	console.log(JSON.stringify(twitterData));
+
+    var tweets = twitterData.data[0].trends;
+
+    $scope.trends = [];
+
+    for (var i = 0; i < tweets.length; i++)
+    {
+       $scope.trends.push(tweets[i]);
+    }
+
+    $scope.$apply();
+
+    //var twitterData = JSON.parse($http.get('http:localhost'));
+
+    //Send request to server
+    
+    
   };
   
 }]);
