@@ -1,4 +1,7 @@
 var should = require('should');
+var Twit = require('twit');
+var config= require('../config/config');
+var T = new Twit(config);
 
 before(function(done) {
   // Anything needed before unit tests
@@ -12,9 +15,16 @@ describe('Saving to database', function() {
   
   // $ mocha unit_tests.js
 
-  it('First API call successful', function(done){
+  it('Call to trends/place API should be successful', function(done){
 	// should.exist(err);
 	// should.not.exist(err);
+	
+	var promise = new Promise(resolve => {
+		T.get('trends/place',1, function(err, data, response){
+			resolve(data);
+		});
+	});
+	should.exist(promise);
 	done();
   });
 	
