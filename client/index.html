@@ -21,10 +21,11 @@
     <script type="text/javascript" src="woeid.json"></script>
     <script type="text/javascript" src="loadjson.js"></script>
   <!--Location script update-->
+    <!--writes to statement under form-->
     <script>
       function getCountry(that) {
         var obj = document.getElementById("countryId");
-        document.getElementById("country").innerHTML = //writes to form statement
+        document.getElementById("country").innerHTML = 
         obj.options[obj.selectedIndex].text;
       }
       function getCity() {
@@ -64,6 +65,15 @@
       <div class="row" ng-controller="TopicsController">
           <!--PROFILE CARD-->
           <div class="col">
+              <div class="card border-info mb-3" style="max-width: 100%;">
+                  <div class="card-header headingTitle" ><h1>Welcome To Twitter Data</h1></div>
+                  <div class="card-body text-info">
+                    <h5 class="card-title">Search Trends by Location</h5>
+                    <p class="card-text">Select a location using the dropdown button to specify a country and city. This will display a list of trending topics in that area.</p>
+                    <h5 class="card-title">Search Trends by Keyword</h5>
+                    <p class="card-text">Type in a topic to see the top users and trending tweets related to your search.</p>
+                  </div>
+              </div>
               <a href="/usermetrics.html" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">GO TO User Metrics PAGE</a>
           </div>
 
