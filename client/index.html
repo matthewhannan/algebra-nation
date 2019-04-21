@@ -74,7 +74,7 @@
             <h2>Trending Topics</h2>
 
             <!--LOCATION FORM-->
-            <form class="location" style="width: 100%; float:center">
+            <form id="geolocation" class="location" style="width: 100%; float:center">
               <select name="Country" id="countryId" onchange="populateCities(); getCountry(this)" ng-model="location.country">
                 <option value="">Select Country</option>
               </select>
@@ -122,12 +122,12 @@
 
             <!--SEARCH BAR-->
             <div class="search-container">
-                <form>
+                <form id="searchWord" action="topicmetrics.html" method="GET">
                   <input type="text" placeholder="Type Keyword Here..." name="search" ng-model="query">
                 </form>
-                <div>
-                    <a href="/topicmetrics.html"  class="btn btn-primary btn-lg active" role="button" aria-pressed="true" ng-click="searchQuery()">Search</a>
-               </div>
+                
+                    <button href="/topicmetrics.html"  class="btn btn-primary btn-lg active" role="button" aria-pressed="true" form="searchWord" ng-click="searchQuery()">Search</button>
+               
             </div>
 
 
