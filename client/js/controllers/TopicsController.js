@@ -12,7 +12,7 @@ angular.module('directoryApp', []).controller('TopicsController', ['$scope', '$h
     sessionStorage.setItem('query', $scope.query);
   });
 
-  console.log($scope.query);
+  //console.log($scope.query);
 
   if ($scope.query === 'null')
   {
@@ -26,6 +26,7 @@ angular.module('directoryApp', []).controller('TopicsController', ['$scope', '$h
     //Query is set, make the request for search/tweets to localhost
 
     //Update results function call here
+    //$scope.searchByKeyword();
   }
 
   $scope.updateTrendList = async function() {
@@ -60,6 +61,8 @@ angular.module('directoryApp', []).controller('TopicsController', ['$scope', '$h
 
   $scope.searchByKeyword = async function () {
 
+    console.log("Deez Nutz");
+
     var ourData = {
       keyword: $scope.query
     };
@@ -72,6 +75,9 @@ angular.module('directoryApp', []).controller('TopicsController', ['$scope', '$h
 
     twitterData = await $http.get('api/twitter/keyword', config);
 
+    console.log("http done");
+
+	  console.log(JSON.stringify(twitterData));
   };
   
 }]);
