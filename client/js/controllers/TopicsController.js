@@ -42,9 +42,9 @@ angular.module('directoryApp', []).controller('TopicsController', ['$scope', '$h
 
     twitterData = await ($http.get('/api/twitter/trends', config));
 
-	console.log("http done");
+	  console.log("http done");
 
-	console.log(JSON.stringify(twitterData));
+	  console.log(JSON.stringify(twitterData));
 
     var tweets = twitterData.data[0].trends;
 
@@ -56,12 +56,22 @@ angular.module('directoryApp', []).controller('TopicsController', ['$scope', '$h
     }
 
     $scope.$apply();
+  };
 
-    //var twitterData = JSON.parse($http.get('http:localhost'));
+  $scope.searchByKeyword = async function () {
 
-    //Send request to server
-    
-    
+    var ourData = {
+      keyword: $scope.query
+    };
+
+    var config = {
+      params: ourData
+    };
+
+    var twitterData = undefined;
+
+    twitterData = await $http.get('api/twitter/keyword', config);
+
   };
   
 }]);
