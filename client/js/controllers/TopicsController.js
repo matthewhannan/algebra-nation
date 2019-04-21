@@ -71,6 +71,12 @@ angular.module('directoryApp', []).controller('TopicsController', ['$scope', '$h
     var twitterData = undefined;
 
     twitterData = await $http.get('api/twitter/keyword', config);
+
+    console.log("http done");
+
+	  console.log(JSON.stringify(twitterData));
+
+    console.log(twitterData);
   };
 
-  }]);
+}]);

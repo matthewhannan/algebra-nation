@@ -53,6 +53,28 @@ module.exports.init = function() {
 	res.send(JSON.stringify(twitterData));
   });
 
+  app.get('api/twitter/keyword', async function express_stuff_2(req, res) {
+    var twitterData = undefined;
+
+    console.log("found EXPRESS");
+    try {
+      console.log("PRE AWAIT");
+      twitterData = await 
+      console.log("POST AWAIT");
+
+    }
+    catch (e) {
+      console.log("EXPRESS CATCH");
+      console.log(e);
+    }
+
+    console.log("Express after api call");
+    console.log(twitterData);
+
+    res.send(JSON.stringify(twitterData));
+
+  });
+
   /**TODO
   Go to homepage for all routes not specified */
   app.all('/*', function (req, res, next) {
