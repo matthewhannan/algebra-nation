@@ -2,7 +2,7 @@
 <html>
 
   <head>
-    <title>Algebra Nation | Home Page</title>
+    <title>Twitta | Home Page</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
     <link rel="stylesheet" href="styles/main.css">
@@ -129,14 +129,19 @@
     <script src="options.js" type="text/javascript"></script>
     <script> 
       var countrySel = document.getElementById('countryId');
+      var countryArr = [];
       const visitedSet = new Set();
       for(var i = 0; i < countries.length; i++) {
         if(!visitedSet.has(countries[i])){
-          var countryOpt = document.createElement('option');
-          countryOpt.innerHTML = countries[i];
-          countrySel.appendChild(countryOpt);
+          countryArr.push(countries[i]);
           visitedSet.add(countries[i]);
         }
+      }
+      countryArr.sort();
+      for(var i = 0; i < countryArr.length; i++) {
+        var countryOpt = document.createElement('option');
+        countryOpt.innerHTML = countryArr[i];
+        countrySel.appendChild(countryOpt);
       }
     </script>
   </body>
