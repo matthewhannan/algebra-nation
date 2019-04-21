@@ -470,7 +470,7 @@ var cities = [
 ];
 
 var countries = [
-  "",
+  "Earth",
   "Canada",
   "Canada",
   "Canada",
