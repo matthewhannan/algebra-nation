@@ -73,3 +73,5 @@ angular.module('directoryApp', []).controller('TopicsController', ['$scope', '$h
     twitterData = await $http.get('api/twitter/keyword', config);
 
   };
+  
+}]);
