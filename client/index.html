@@ -76,10 +76,10 @@
             <!--LOCATION FORM-->
             <form class="location" style="width: 100%; float:center">
               <select name="Country" id="countryId" onchange="populateCities(); getCountry(this)" ng-model="location.country">
-                <option value="">Select Country</option>
+                <option disabled>Select Country</option>
               </select>
               <select name="City" id="cityId" ng-model="location.city" onchange="getCity(this)"">
-                <option value="">Select City/Region</option>
+                <option disabled>Select City</option>
               </select>
             </form>
             
@@ -88,14 +88,6 @@
               <p></p>
               <p style="display: inline-block">Trending Topics in</p> <p style="display: inline-block"id="city"></p>, <p style="display: inline-block" id="country"></p>
             </div>
-
-            <script>
-            function lolWut()
-            {
-              loadjson();
-              updateTrendList();
-            }
-            </script>
 
             <!--SEARCH TRENDING TOPICS BUTTON-->
             <div>
