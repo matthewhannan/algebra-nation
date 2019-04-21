@@ -53,13 +53,13 @@ module.exports.init = function() {
 	res.send(JSON.stringify(twitterData));
   });
 
-  app.get('api/twitter/keyword', async function express_stuff_2(req, res) {
+  app.get('/api/twitter/keyword', async function express_stuff_2(req, res) {
     var twitterData = undefined;
 
     console.log("found EXPRESS");
     try {
       console.log("PRE AWAIT");
-      twitterData = await 
+      twitterData = await twitterapi.getTweetsbyKeyword(req.query.keyword);
       console.log("POST AWAIT");
 
     }

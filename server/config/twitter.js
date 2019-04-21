@@ -29,14 +29,14 @@ function getTwitterDataByWoeID(woeid) {
 	return ret;
 }
 
-exports.getTwitterDataByWoeID = getTwitterDataByWoeID;
-
 ////////////////////Second API CALL ///////////////////////////////////////////////////////////////////////
 function getTweetsbyKeyword(keyword){
 	console.log('Our Word', keyword);
 
 	var keyword = {
-		word: keyword
+		q: keyword,
+		result_type: 'popular',
+		count: 5
 	};
 
 	var returnType = undefined;
@@ -46,7 +46,19 @@ function getTweetsbyKeyword(keyword){
 		return new Promise(resolve => {
 			K.get('search/tweets',keyword, function(err, data, response){
 				console.log('Result got!');
+				console.log(data.statuses);
 				returnType = data;
+
+				var sortable = data.statuses.slice(0);
+			  sortable.sort(function(a,b){
+			  return(a.retweet_count-b.retweet_count);
+			  });
+			  for(var i =0;i<data.length;i++){
+			    //console.log(data);
+			    console.log(sortable[i].text);
+			    //console.log(tweets[i].retweet_count)
+			    console.log(sortable[i].retweet_count);
+			  }
 				resolve(returnType);
 			});
 		});
@@ -54,9 +66,13 @@ function getTweetsbyKeyword(keyword){
 	catch(e){
 		console.log("ERROR I GUESS");
 	}
-	return ret;
-
+	return sortable;
 }
+
+//-------------------------EXPORTS------------------------------------
+
+exports.getTwitterDataByWoeID = getTwitterDataByWoeID;
+exports.getTweetsbyKeyword = getTweetsbyKeyword;
 
 
 
