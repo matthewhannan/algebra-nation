@@ -1,7 +1,9 @@
 #searchBar {
   margin: 15px 10px;
 }
-
+.chart{
+  overflow-x: scroll;
+}
 .bodyContent{
   padding-left: 50px;
   padding-right: 50px;
