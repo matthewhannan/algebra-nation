@@ -16,9 +16,6 @@ describe('Saving to database', function() {
   // $ mocha unit_tests.js
 
   it('Call to trends/place API should be successful', function(done){
-	// should.exist(err);
-	// should.not.exist(err);
-	
 	var promise = new Promise(resolve => {
 		T.get('trends/place',1, function(err, data, response){
 			resolve(data);
@@ -28,7 +25,13 @@ describe('Saving to database', function() {
 	done();
   });
 	
-  it('Second API call successful', function(done){
+  it('Call to search/tweets API should be successful', function(done){
+	var promise = new Promise(resolve => {
+	T.get('search/tweets',{q: 'Gators',result_type: 'popular',count: 1}, function(err, data, response){
+			
+		});
+	});
+	should.exist(promise);
 	done();
   });
   
