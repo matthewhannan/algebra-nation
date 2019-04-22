@@ -6,11 +6,28 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
     <link rel="stylesheet" href="styles/main.css">
     <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js" integrity="sha512-K1qjQ+NcF2TYO/eI3M6v8EiNYZfA95pQumfvcVrTHtwQVDG+aHRqLi/ETn2uB+1JqwYqVG3LIvdm9lj6imS/pQ==" crossorigin="anonymous"></script>
+    <script src="https://code.angularjs.org/1.4.3/angular.js"></script>
+    <script src="js/app.js"></script>
+    <script src="js/controllers/TopicsController.js"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
   </head>
 
   <body ng-app="directoryApp">
 
     <div class="container-fluid" ng-controller="TopicsController">
+
+            <script>
+                    window.onload = function ($scope) {
+                        console.log('Reloaded');
+                        $scope.statuses = [];
+                        var list = JSON.parse(sessionStorage.getItem('topicData')).data.statuses;
+                        console.log(list);
+                    }
+            </script>
 
         <!--NAVBAR-->
         <div class="row">
@@ -65,22 +82,22 @@
                 <h2 class="headingTitle">Popular Users</h2>
                 <div ng-controller="TopicsController">
                         <table class="table table-striped table-hover">
-                                <tr ng-repeat="user in users" ng-click="goToUserMetrics($index)">
-                                        <div class="twPc-div">
+                                <tr>
+                                            <div class="twPc-div">
                                                 <a class="twPc-bg twPc-block"></a>
 
                                                 <div>
 
-                                                <a title="Mert S. Kaplan" href="/usermetrics.html" class="twPc-avatarLink">
-                                                    <img alt="Mert S. Kaplan" src="https://mertskaplan.com/wp-content/plugins/msk-twprofilecard/img/mertskaplan.jpg" class="twPc-avatarImg">
+                                                <a title="{{statuses[0].user.name}}" href="/usermetrics.html" class="twPc-avatarLink">
+                                                    <img alt="{{statuses[0].user.name}}" src="{{statuses[0].user.profile_image_url}}" class="twPc-avatarImg">
                                                 </a>
 
                                                 <div class="twPc-divUser">
                                                     <div class="twPc-divName">
-                                                    <a href="/usermetrics.html">{{user.name}}</a>
+                                                    <a href="/usermetrics.html">{{statuses[0].user.name}}</a>
                                                     </div>
                                                     <span>
-                                                    <a href="/usermetrics.html">@<span>mertskaplan</span></a>
+                                                    <a href="/usermetrics.html">@<span>{{statuses[0].user.screen_name}}</span></a>
                                                     </span>
                                                 </div>
 
@@ -88,23 +105,179 @@
                                                     <ul class="twPc-Arrange">
                                                     <li class="twPc-ArrangeSizeFit">
                                                         <span class="twPc-StatLabel twPc-block">Tweets</span>
-                                                        <span class="twPc-StatValue">{{user.statuses_count}}</span>
+                                                        <span class="twPc-StatValue">{{statuses[0].user.statuses_count}}</span>
 
                                                     </li>
                                                     <li class="twPc-ArrangeSizeFit">
                                                         <span class="twPc-StatLabel twPc-block">Following</span>
-                                                        <span class="twPc-StatValue">{{user.friends_count}}</span>
+                                                        <span class="twPc-StatValue">{{statuses[0].user.friends_count}}</span>
 
                                                     </li>
                                                     <li class="twPc-ArrangeSizeFit">
                                                         <span class="twPc-StatLabel twPc-block">Followers</span>
-                                                        <span class="twPc-StatValue">{{user.followers_count}}</span>
+                                                        <span class="twPc-StatValue">{{statuses[0].user.followers_count}}</span>
 
                                                     </li>
                                                     </ul>
                                                 </div>
                                                 </div>
                                             </div>
+                                            <div class="twPc-div">
+                                                    <a class="twPc-bg twPc-block"></a>
+    
+                                                    <div>
+    
+                                                    <a title="{{statuses[1].user.name}}" href="/usermetrics.html" class="twPc-avatarLink">
+                                                        <img alt="{{statuses[1].user.name}}" src="{{statuses[1].user.profile_image_url}}" class="twPc-avatarImg">
+                                                    </a>
+    
+                                                    <div class="twPc-divUser">
+                                                        <div class="twPc-divName">
+                                                        <a href="/usermetrics.html">{{statuses[1].user.name}}</a>
+                                                        </div>
+                                                        <span>
+                                                        <a href="/usermetrics.html">@<span>{{statuses[1].user.screen_name}}</span></a>
+                                                        </span>
+                                                    </div>
+    
+                                                    <div class="twPc-divStats">
+                                                        <ul class="twPc-Arrange">
+                                                        <li class="twPc-ArrangeSizeFit">
+                                                            <span class="twPc-StatLabel twPc-block">Tweets</span>
+                                                            <span class="twPc-StatValue">{{statuses[1].user.statuses_count}}</span>
+    
+                                                        </li>
+                                                        <li class="twPc-ArrangeSizeFit">
+                                                            <span class="twPc-StatLabel twPc-block">Following</span>
+                                                            <span class="twPc-StatValue">{{statuses[1].user.friends_count}}</span>
+    
+                                                        </li>
+                                                        <li class="twPc-ArrangeSizeFit">
+                                                            <span class="twPc-StatLabel twPc-block">Followers</span>
+                                                            <span class="twPc-StatValue">{{statuses[1].user.followers_count}}</span>
+    
+                                                        </li>
+                                                        </ul>
+                                                    </div>
+                                                    </div>
+                                                </div>
+                                                <div class="twPc-div">
+                                                        <a class="twPc-bg twPc-block"></a>
+        
+                                                        <div>
+        
+                                                        <a title="{{statuses[2].user.name}}" href="/usermetrics.html" class="twPc-avatarLink">
+                                                            <img alt="{{statuses[2].user.name}}" src="{{statuses[2].user.profile_image_url}}" class="twPc-avatarImg">
+                                                        </a>
+        
+                                                        <div class="twPc-divUser">
+                                                            <div class="twPc-divName">
+                                                            <a href="/usermetrics.html">{{statuses[2].user.name}}</a>
+                                                            </div>
+                                                            <span>
+                                                            <a href="/usermetrics.html">@<span>{{statuses[2].user.screen_name}}</span></a>
+                                                            </span>
+                                                        </div>
+        
+                                                        <div class="twPc-divStats">
+                                                            <ul class="twPc-Arrange">
+                                                            <li class="twPc-ArrangeSizeFit">
+                                                                <span class="twPc-StatLabel twPc-block">Tweets</span>
+                                                                <span class="twPc-StatValue">{{statuses[2].user.statuses_count}}</span>
+        
+                                                            </li>
+                                                            <li class="twPc-ArrangeSizeFit">
+                                                                <span class="twPc-StatLabel twPc-block">Following</span>
+                                                                <span class="twPc-StatValue">{{statuses[2].user.friends_count}}</span>
+        
+                                                            </li>
+                                                            <li class="twPc-ArrangeSizeFit">
+                                                                <span class="twPc-StatLabel twPc-block">Followers</span>
+                                                                <span class="twPc-StatValue">{{statuses[2].user.followers_count}}</span>
+        
+                                                            </li>
+                                                            </ul>
+                                                        </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="twPc-div">
+                                                            <a class="twPc-bg twPc-block"></a>
+            
+                                                            <div>
+            
+                                                            <a title="{{statuses[3].user.name}}" href="/usermetrics.html" class="twPc-avatarLink">
+                                                                <img alt="{{statuses[3].user.name}}" src="{{statuses[3].user.profile_image_url}}" class="twPc-avatarImg">
+                                                            </a>
+            
+                                                            <div class="twPc-divUser">
+                                                                <div class="twPc-divName">
+                                                                <a href="/usermetrics.html">{{statuses[3].user.name}}</a>
+                                                                </div>
+                                                                <span>
+                                                                <a href="/usermetrics.html">@<span>{{statuses[3].user.screen_name}}</span></a>
+                                                                </span>
+                                                            </div>
+            
+                                                            <div class="twPc-divStats">
+                                                                <ul class="twPc-Arrange">
+                                                                <li class="twPc-ArrangeSizeFit">
+                                                                    <span class="twPc-StatLabel twPc-block">Tweets</span>
+                                                                    <span class="twPc-StatValue">{{statuses[3].user.statuses_count}}</span>
+            
+                                                                </li>
+                                                                <li class="twPc-ArrangeSizeFit">
+                                                                    <span class="twPc-StatLabel twPc-block">Following</span>
+                                                                    <span class="twPc-StatValue">{{statuses[3].user.friends_count}}</span>
+            
+                                                                </li>
+                                                                <li class="twPc-ArrangeSizeFit">
+                                                                    <span class="twPc-StatLabel twPc-block">Followers</span>
+                                                                    <span class="twPc-StatValue">{{statuses[3].user.followers_count}}</span>
+            
+                                                                </li>
+                                                                </ul>
+                                                            </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="twPc-div">
+                                                                <a class="twPc-bg twPc-block"></a>
+                
+                                                                <div>
+                
+                                                                <a title="{{statuses[4].user.name}}" href="/usermetrics.html" class="twPc-avatarLink">
+                                                                    <img alt="{{statuses[4].user.name}}" src="{{statuses[4].user.profile_image_url}}" class="twPc-avatarImg">
+                                                                </a>
+                
+                                                                <div class="twPc-divUser">
+                                                                    <div class="twPc-divName">
+                                                                    <a href="/usermetrics.html">{{statuses[4].user.name}}</a>
+                                                                    </div>
+                                                                    <span>
+                                                                    <a href="/usermetrics.html">@<span>{{statuses[4].user.screen_name}}</span></a>
+                                                                    </span>
+                                                                </div>
+                
+                                                                <div class="twPc-divStats">
+                                                                    <ul class="twPc-Arrange">
+                                                                    <li class="twPc-ArrangeSizeFit">
+                                                                        <span class="twPc-StatLabel twPc-block">Tweets</span>
+                                                                        <span class="twPc-StatValue">{{statuses[4].user.statuses_count}}</span>
+                
+                                                                    </li>
+                                                                    <li class="twPc-ArrangeSizeFit">
+                                                                        <span class="twPc-StatLabel twPc-block">Following</span>
+                                                                        <span class="twPc-StatValue">{{statuses[4].user.friends_count}}</span>
+                
+                                                                    </li>
+                                                                    <li class="twPc-ArrangeSizeFit">
+                                                                        <span class="twPc-StatLabel twPc-block">Followers</span>
+                                                                        <span class="twPc-StatValue">{{statuses[4].user.followers_count}}</span>
+                
+                                                                    </li>
+                                                                    </ul>
+                                                                </div>
+                                                                </div>
+                                                            </div>
                                 </tr>
                         </table>
                 </div>
@@ -124,7 +297,7 @@
                                         Clicking profile image should redirect to User Metrics page and
                                         send the user JSON data from the status JSON response-->
                                     <a href="/usermetrics.html" >
-                                        <img src="/images/bugs.jpeg" width = 15% height = 15% class="mr-3" alt="" ng-click="sendUserData(status.user)">
+                                        <img src="{{status.user.profile_image_url}}" width = 15% height = 15% class="mr-3" alt="" ng-click="sendUserData(status.user)">
                                     </a>
 
                                     <div class="media-body">
@@ -357,16 +530,6 @@
       </div>
 
     </div>
-
-    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js" integrity="sha512-K1qjQ+NcF2TYO/eI3M6v8EiNYZfA95pQumfvcVrTHtwQVDG+aHRqLi/ETn2uB+1JqwYqVG3LIvdm9lj6imS/pQ==" crossorigin="anonymous"></script>
-    <script src="https://code.angularjs.org/1.4.3/angular.js"></script>
-    <script src="js/app.js"></script>
-    <script src="js/controllers/TopicsController.js"></script>
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 
 </body>
 </html>
