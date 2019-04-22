@@ -1413,6 +1413,7 @@ var childLength = 0;
 function populateCities() {
     var citySel = document.getElementById('cityId');
     for(var f = 0; f < childLength; f++) citySel.remove(citySel[f]);
+    citySel.innerText = null;
     var selectedOption = document.getElementById('countryId');
     for(var i = 0; i < cities.length; i++) {
         if(countries[i] === selectedOption.value) {
