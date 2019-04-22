@@ -287,14 +287,52 @@
                         data.addColumn('string', 'Weekday');
                         data.addColumn('number', 'Number of Posts');
 
+
+                        var Sunday, Monday, Tuesday, Wednesday, Thursday, Friday, Saturday;
+
+                        if (sessionStorage.getItem('Sun') === 'null')
+                            Sunday = 0;
+                        else
+                            Sunday = parseInt(sessionStorage.getItem('Sun'));
+
+                        if (sessionStorage.getItem('Mon') === 'null')
+                            Monday = 0;
+                        else
+                            Monday = parseInt(sessionStorage.getItem('Mon'));
+
+                        if (sessionStorage.getItem('Tue') === 'null')
+                            Tuesday = 0;
+                        else
+                            Tuesday = parseInt(sessionStorage.getItem('Tue'));
+
+                        if (sessionStorage.getItem('Wed') === 'null')
+                            Wednesday = 0;
+                        else
+                            Wednesday = parseInt(sessionStorage.getItem('Wed'));
+
+                        if (sessionStorage.getItem('Thu') === 'null')
+                            Thursday = 0;
+                        else
+                            Thursday = parseInt(sessionStorage.getItem('Thu'));
+
+                        if (sessionStorage.getItem('Fri') === 'null')
+                            Friday = 0;
+                        else
+                            Friday = parseInt(sessionStorage.getItem('Fri'));
+
+                        if (sessionStorage.getItem('Sat') === 'null')
+                            Saturday = 0;
+                        else
+                            Saturday = parseInt(sessionStorage.getItem('Sat'));
+
                         data.addRows([
-                                ['Sunday', tweetFrequency[0]],
-                                ['Monday', tweetFrequency[1]],
-                                ['Tuesday', tweetFrequency[2]],
-                                ['Wednesday', tweetFrequency[3]],
-                                ['Thursday', tweetFrequency[4]],
-                                ['Friday', tweetFrequency[5]],
-                                ['Saturday', tweetFrequency[6]]
+                                ['Sunday', Sunday],
+                                ['Monday', Monday],
+                                ['Tuesday', Tuesday],
+                                ['Wednesday', Wednesday],
+                                ['Thursday', Thursday],
+                                ['Friday', Friday],
+                                ['Saturday', Saturday]
                         ]);
 
                         var options = {

@@ -11,16 +11,8 @@ angular.module('directoryApp', []).controller('TopicsController', ['$scope', '$h
   $scope.users = [];
   $scope.tweets = [];
 
-  $scope.names = '';
-  $scope.follow_count = '';
-  $scope.tweetFrequency = '';
-
   $scope.$watch('query', function () {
     sessionStorage.setItem('query', $scope.query);
-  });
-
-  $scope.$watch('names', function () {
-    sessionStorage.setItem('names', $scope.names);
   });
 
   //console.log($scope.query);
@@ -96,6 +88,8 @@ angular.module('directoryApp', []).controller('TopicsController', ['$scope', '$h
     
     $scope.tweets = [];
     $scope.users = [];
+    $scope.names = [];
+    $scope.follow_count = [];
 
     for (var i = 0; i < 5; i++) {
         $scope.tweets.push(twitterData.data.statuses[i]);
@@ -107,6 +101,36 @@ angular.module('directoryApp', []).controller('TopicsController', ['$scope', '$h
         sessionStorage.setItem('name' + i, $scope.names[i]);
         sessionStorage.setItem('fc' + i, $scope.follow_count[i]);
     }
+
+    for (var i = 0; i < twitterData.data.statuses.length; i++) {
+      var tweet = twitterData.data.statuses[i];
+      var created_at = tweet.created_at;
+
+      if (created_at.startsWith('Sun'))
+          tweetFrequency[0]++;
+      else if (created_at.startsWith('Mon'))
+          tweetFrequency[1]++;
+      else if (created_at.startsWith('Tue'))
+          tweetFrequency[2]++;
+      else if (created_at.startsWith('Wed'))
+          tweetFrequency[3]++;
+      else if (created_at.startsWith('Thu'))
+          tweetFrequency[4]++;
+      else if (created_at.startsWith('Fri'))
+          tweetFrequency[5]++;
+      else //Saturday
+          tweetFrequency[6]++;
+    }
+
+    sessionStorage.setItem('Sun', tweetFrequency[0]);
+    sessionStorage.setItem('Mon', tweetFrequency[1]);
+    sessionStorage.setItem('Tue', tweetFrequency[2]);
+    sessionStorage.setItem('Wed', tweetFrequency[3]);
+    sessionStorage.setItem('Thu', tweetFrequency[4]);
+    sessionStorage.setItem('Fri', tweetFrequency[5]);
+    sessionStorage.setItem('Sat', tweetFrequency[6]);
+
+    sessionStorage.setItem('count', twitterData.data.statuses.length);
 
     location.reload();
   };
