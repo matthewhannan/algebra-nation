@@ -8,6 +8,8 @@ angular.module('directoryApp', []).controller('TopicsController', ['$scope', '$h
     city: '<City>'
   };
 
+  $scope.users = [];
+
   $scope.names = '';
   $scope.follow_count = '';
   $scope.tweetFrequency = '';
@@ -71,9 +73,9 @@ angular.module('directoryApp', []).controller('TopicsController', ['$scope', '$h
 
     console.log("Deez Nutz");
 
-    $scope.names = [];
-    $scope.follow_count = [];
-    $scope.tweetFrequency = [0, 0, 0, 0, 0, 0, 0];
+    var names = [];
+    var follow_count = [];
+    var tweetFrequency = [0, 0, 0, 0, 0, 0, 0];
 
     var ourData = {
       keyword: $scope.query
@@ -93,7 +95,10 @@ angular.module('directoryApp', []).controller('TopicsController', ['$scope', '$h
     
     var tweets = twitterData.data.statuses;
 
+    $scope.users = [];
+
     for (var i = 0; i < 5; i++) {
+        $scope.users.push(tweets[i].user);
         $scope.names.push(tweets[i].user.name);
         $scope.follow_count.push(tweets[i].user.followers_count);
         console.log($scope.names[i] + " " + $scope.follow_count[i]);
