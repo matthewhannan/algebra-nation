@@ -1,7 +1,7 @@
 <html>
 
   <head>
-    <title>Algebra Nation | User Metrics</title>
+    <title>Twitter Data | User Metrics</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
     <link rel="stylesheet" href="styles/main.css">
@@ -25,22 +25,29 @@
 
     <div class="container-fluid" ng-controller="TopicsController">
 
-        <!--NAVBAR-->
+       <!--NAVBAR-->
       <div class="row">
           <nav class="navbar navbar-expand-lg navbar-light" style="background-color: #e3f2fd;"">
             <span class="sr-only">Toggle Navigation</span>
-            <!--NAVBAR BRAND-->
-            <a class="navbar-brand" href="/index.html">
-                  <img src="/images/twitter_icon.png" width="30" height="30" class="d-inline-block align-top" alt="Twitter Icon">
-                  <b>Twitter Data</b>
-            </a>
-            <!--NAVBAR TOGGLE BUTTON-->
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
+            
+            <div class="row navbar-header">
 
-            <div class="navbar-header">
-              <h1>User Metrics</h1>
+              <!--NAVBAR BRAND-->
+              <div class="col">
+                <a class="navbar-brand" href="#">
+                      <img src="images/twitter_icon.png" width="60" height="60" class="d-inline rounded-circle" alt="Twitter Icon">
+                      <h3 class="d-inline"style="vertical-align:middle;font-size: 2em;text-align: center;">Twitter Data</h3>
+                </a>
+                
+              </div>
+
+              <!--PAGE NAME-->
+              <div class="col"><h1 style="vertical-align:middle; font-size: 3em;text-align: center;">User Metrics</h1></div>
+                
+              
+              <!--BLANK-->
+                <div class="col ">
+                  </div>
             </div>
 
           </nav>

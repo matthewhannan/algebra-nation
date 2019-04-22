@@ -10,6 +10,10 @@
 .headingTitle{
   text-align: center;
   padding-bottom: 5px;
+  overflow-y: wrap;
+  border-radius: 50px;
+  background: #9acff5;
+
 }
 
 .anyClass {
@@ -34,14 +38,16 @@
 
 .navbar-brand
 {
-  float:left;
+  vertical-align: middle;
+  display:inline-block;
 }
 
 .navbar-header{
-  float: left;
+  display: d-inline;
   padding: 15px;
   text-align: center;
   width: 100%;
+  vertical-align: middle;
 }
 
 .twPc-div {
@@ -52,7 +58,6 @@
   max-width: 100%; /* orginal twitter width: 290px;*/
 }
 .twPc-bg {
-  background-image: url("https://pbs.twimg.com/profile_banners/50988711/1384539792/600x200");
   background-position: 0 50%;
   background-size: 100% auto;
   border-bottom: 1px solid #e1e8ed;
