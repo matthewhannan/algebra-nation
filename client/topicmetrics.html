@@ -30,24 +30,30 @@
             </script>
 
         <!--NAVBAR-->
-        <div class="row">
+      <div class="row">
             <nav class="navbar navbar-expand-lg navbar-light" style="background-color: #e3f2fd;"">
-            <span class="sr-only">Toggle Navigation</span>
-            <!--NAVBAR BRAND-->
-            <a class="navbar-brand" href="/index.html">
-                    <img src="/images/twitter_icon.png" width="30" height="30" class="d-inline-block align-top" alt="">
-                    <b>Twitter Data</b>
-            </a>
-            <!--NAVBAR TOGGLE BUTTON-->
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-
-            <div class="navbar-header">
-                <h1>Topic Metrics</h1>
-            </div>
-
-
+              <span class="sr-only">Toggle Navigation</span>
+              
+              <div class="row navbar-header">
+  
+                <!--NAVBAR BRAND-->
+                <div class="col">
+                  <a class="navbar-brand" href="#">
+                        <img src="images/twitter_icon.png" width="60" height="60" class="d-inline rounded-circle" alt="Twitter Icon">
+                        <h3 class="d-inline"style="vertical-align:middle;font-size: 2em;text-align: center;">Twitter Data</h3>
+                  </a>
+                  
+                </div>
+  
+                <!--PAGE NAME-->
+                <div class="col"><h1 style="vertical-align:middle; font-size: 3em;text-align: center;">Topic Metrics</h1></div>
+                  
+                
+                <!--BLANK-->
+                  <div class="col ">
+                    </div>
+              </div>
+  
             </nav>
         </div>
 
@@ -64,12 +70,14 @@
 
         <!--QUERY-->
 
-        <div>
+        <div >
             <form class="form-inline my-2 my-lg-0">
                 <input class="form-control mr-sm-2" type="search" placeholder="Search Topic..." aria-label="Search" ng-model="query">
                 <button class="btn btn-outline-primary my-2 my-sm-0" type="submit" ng-click="searchByKeyword()">Search</button>
             </form>
         </div>
+
+        <div class="w-100"> <p></p></div>
 
         <div style="width: 100%;height: 60px;text-align:center;  background-color: lightblue">
             <h1 style="display:inline; vertical-align:center;" id="searchQuery">{{query}}</h1> 

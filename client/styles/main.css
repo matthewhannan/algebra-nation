@@ -35,14 +35,16 @@
 
 .navbar-brand
 {
-  float:left;
+  vertical-align: middle;
+  display:inline-block;
 }
 
 .navbar-header{
-  float: left;
+  display: d-inline;
   padding: 15px;
   text-align: center;
   width: 100%;
+  vertical-align: middle;
 }
 
 .twPc-div {
