@@ -8,8 +8,16 @@ angular.module('directoryApp', []).controller('TopicsController', ['$scope', '$h
     city: '<City>'
   };
 
+  $scope.names = '';
+  $scope.follow_count = '';
+  $scope.tweetFrequency = '';
+
   $scope.$watch('query', function () {
     sessionStorage.setItem('query', $scope.query);
+  });
+
+  $scope.$watch('names', function () {
+    sessionStorage.setItem('names', $scope.names);
   });
 
   //console.log($scope.query);
@@ -63,6 +71,10 @@ angular.module('directoryApp', []).controller('TopicsController', ['$scope', '$h
 
     console.log("Deez Nutz");
 
+    $scope.names = [];
+    $scope.follow_count = [];
+    $scope.tweetFrequency = [0, 0, 0, 0, 0, 0, 0];
+
     var ourData = {
       keyword: $scope.query
     };
@@ -77,7 +89,20 @@ angular.module('directoryApp', []).controller('TopicsController', ['$scope', '$h
 
     console.log("http done");
 
-	  console.log(JSON.stringify(twitterData));
+    console.log(JSON.stringify(twitterData));
+    
+    var tweets = twitterData.data.statuses;
+
+    for (var i = 0; i < 5; i++) {
+        $scope.names.push(tweets[i].user.name);
+        $scope.follow_count.push(tweets[i].user.followers_count);
+        console.log($scope.names[i] + " " + $scope.follow_count[i]);
+
+        sessionStorage.setItem('name' + i, $scope.names[i]);
+        sessionStorage.setItem('fc' + i, $scope.follow_count[i]);
+    }
+
+    location.reload();
   };
   
 }]);
