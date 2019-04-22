@@ -1,12 +1,15 @@
 angular.module('directoryApp', []).controller('TopicsController', ['$scope', '$http', function ($scope, $http) {
 
   //LOAD USER
-  var userNum = parseInt(sessionStorage.getItem('userNum'));
-  var topicData = JSON.parse(sessionStorage.getItem('topicData'));
+  if (sessionStorage.getItem('topicData') !== null && sessionStorage.getItem('userNum') !== null)
+  {
+    var userNum = parseInt(sessionStorage.getItem('userNum'));
+    var topicData = JSON.parse(sessionStorage.getItem('topicData'));
 
-  $scope.user = topicData.data.statuses[userNum].user;
+    $scope.user = topicData.data.statuses[userNum].user;
 
-  console.log($scope.user);
+    console.log($scope.user);
+  }
   //END LOAD USER
 
   $scope.query = sessionStorage.getItem('query');
