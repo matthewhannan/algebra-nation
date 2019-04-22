@@ -314,16 +314,16 @@
             <div class = "topic-list" ng-controller="TopicsController">
 
                     <table class="table table-striped table-hover">
-                            <tr class="border border-primary">
+                            <tr class="row border border-primary">
                                     <!-- Add: {{status.user.profile_image_url}} for user profile image
                                         Clicking profile image should redirect to User Metrics page and
                                         send the user JSON data from the status JSON response-->
-                                    <a href="/usermetrics.html" >
-                                        <img src="{{statuses[0].user.profile_image_url}}" width = 15% height = 15% class="mr-3 rounded-circle" alt="" ng-click="sendUserData(status.user)">
-                                    </a>
-
-                                    <div class="media-body">
-                                      <h5 class="mt-0 mb-1" >{{statuses[0].user.name}}</h5>
+                                    <span class="col" >
+                                        <a href="/usermetrics.html"><img src="{{statuses[0].user.profile_image_url}}" width = 15% height = 15% class="d-inline mr-3 rounded-circle" alt="" ng-click="sendUserData(status.user)"></a>
+                                        <h5 class="d-inline mt-0 mb-1" >{{statuses[0].user.name}}</h5>
+                                    </span>
+                            
+                                    <div class="col media-body">
                                       <p>{{statuses[0].text}}</p>
                                       <div class="engagementbuttons">
                                       <button type="button" class="btn btn-info">
@@ -333,6 +333,9 @@
                                               Retweets <span class="badge badge-light">{{statuses[0].retweet_count}}</span>
                                       </button></div>
                                     </div>
+                            </tr>
+
+                            <tr class="border border-primary">
                                     <a href="/usermetrics.html" >
                                         <img src="{{statuses[1].user.profile_image_url}}" width = 15% height = 15% class="mr-3 rounded-circle" alt="" ng-click="sendUserData(status.user)">
                                     </a>
@@ -348,6 +351,9 @@
                                               Retweets <span class="badge badge-light">{{statuses[1].retweet_count}}</span>
                                       </button></div>
                                     </div>
+                            </tr>
+
+                            <tr class="border border-primary">
                                     <a href="/usermetrics.html" >
                                         <img src="{{statuses[2].user.profile_image_url}}" width = 15% height = 15% class="mr-3 rounded-circle" alt="" ng-click="sendUserData(status.user)">
                                     </a>
@@ -363,6 +369,9 @@
                                               Retweets <span class="badge badge-light">{{statuses[2].retweet_count}}</span>
                                       </button></div>
                                     </div>
+                            </tr>
+
+                            <tr class="border border-primary">
                                     <a href="/usermetrics.html" >
                                         <img src="{{statuses[3].user.profile_image_url}}" width = 15% height = 15% class="mr-3 rounded-circle" alt="" ng-click="sendUserData(status.user)">
                                     </a>
@@ -378,6 +387,9 @@
                                               Retweets <span class="badge badge-light">{{statuses[3].retweet_count}}</span>
                                       </button></div>
                                     </div>
+                            </tr>
+
+                            <tr class="border border-primary">
                                     <a href="/usermetrics.html" >
                                         <img src="{{statuses[4].user.profile_image_url}}" width = 15% height = 15% class="mr-3 rounded-circle" alt="" ng-click="sendUserData(status.user)">
                                     </a>
