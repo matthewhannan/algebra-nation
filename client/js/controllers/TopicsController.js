@@ -9,6 +9,7 @@ angular.module('directoryApp', []).controller('TopicsController', ['$scope', '$h
   };
 
   $scope.users = [];
+  $scope.tweets = [];
 
   $scope.names = '';
   $scope.follow_count = '';
@@ -93,14 +94,14 @@ angular.module('directoryApp', []).controller('TopicsController', ['$scope', '$h
 
     console.log(JSON.stringify(twitterData));
     
-    var tweets = twitterData.data.statuses;
-
+    $scope.tweets = [];
     $scope.users = [];
 
     for (var i = 0; i < 5; i++) {
-        $scope.users.push(tweets[i].user);
-        $scope.names.push(tweets[i].user.name);
-        $scope.follow_count.push(tweets[i].user.followers_count);
+        $scope.tweets.push(twitterData.data.statuses[i]);
+        $scope.users.push($scope.tweets[i].user);
+        $scope.names.push($scope.tweets[i].user.name);
+        $scope.follow_count.push($scope.tweets[i].user.followers_count);
         console.log($scope.names[i] + " " + $scope.follow_count[i]);
 
         sessionStorage.setItem('name' + i, $scope.names[i]);
