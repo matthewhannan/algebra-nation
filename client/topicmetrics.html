@@ -33,27 +33,27 @@
       <div class="row">
             <nav class="navbar navbar-expand-lg navbar-light" style="background-color: #e3f2fd;"">
               <span class="sr-only">Toggle Navigation</span>
-              
+
               <div class="row navbar-header">
-  
+
                 <!--NAVBAR BRAND-->
                 <div class="col">
                   <a class="navbar-brand" href="#">
                         <img src="images/twitter_icon.png" width="60" height="60" class="d-inline rounded-circle" alt="Twitter Icon">
                         <h3 class="d-inline"style="vertical-align:middle;font-size: 2em;text-align: center;">Twitter Data</h3>
                   </a>
-                  
+
                 </div>
-  
+
                 <!--PAGE NAME-->
                 <div class="col"><h1 style="vertical-align:middle; font-size: 3em;text-align: center;">Topic Metrics</h1></div>
-                  
-                
+
+
                 <!--BLANK-->
                   <div class="col ">
                     </div>
               </div>
-  
+
             </nav>
         </div>
         <!--BREADCRUMBS-->
@@ -74,9 +74,9 @@
         </div>
         <div class="w-100"> <p></p></div>
         <div style="width: 100%;height: 60px;text-align:center;  background-color: lightblue">
-            <h1 style="display:inline; vertical-align:center;" id="searchQuery">{{query}}</h1> 
+            <h1 style="display:inline; vertical-align:center;" id="searchQuery">{{query}}</h1>
         </div>
-       
+
       <!--SITE BODY-->
       <div class="row bodyContent">
             <div class="col"><h2 class="headingTitle">Popular Users</h2></div>
@@ -90,7 +90,7 @@
                 }
             </script>
               <!--POPULAR USERS-->
-                
+
                 <div ng-controller="TopicsController">
                         <table class="table table-striped table-hover">
                                 <tr>
@@ -260,7 +260,7 @@
           </div>
           <!--POPULAR TWEETS-->
           <div class="col anyClass">
-            
+
             <div class = "topic-list" ng-controller="TopicsController">
                     <table class="table table-striped table-hover">
                             <tr class="row border border-primary">
@@ -268,10 +268,10 @@
                                         Clicking profile image should redirect to User Metrics page and
                                         send the user JSON data from the status JSON response-->
                                     <span class="col" >
-                                        <a href="/usermetrics.html"><img src="{{statuses[0].user.profile_image_url}}" width = 15% height = 15% class="d-inline mr-3 rounded-circle" alt="" ng-click="sendUserData(status.user)"></a>
+                                        <a href="/usermetrics.html"><img src="{{statuses[0].user.profile_image_url}}" width = 12% height = 14% class="d-inline mr-3 rounded-circle" alt="" ng-click="sendUserData(status.user)"></a>
                                         <h5 class="d-inline mt-0 mb-1" >{{statuses[0].user.name}}</h5>
                                     </span>
-                            
+
                                     <div class="col media-body">
                                       <p>{{statuses[0].text}}</p>
                                       <div class="engagementbuttons">
@@ -285,7 +285,7 @@
                             </tr>
                             <tr class="border border-primary">
                                     <a href="/usermetrics.html" >
-                                        <img src="{{statuses[1].user.profile_image_url}}" width = 15% height = 15% class="mr-3 rounded-circle" alt="" ng-click="sendUserData(status.user)">
+                                        <img src="{{statuses[1].user.profile_image_url}}" width = 12% height = 14% class="mr-3 rounded-circle" alt="" ng-click="sendUserData(status.user)">
                                     </a>
                                     <div class="media-body">
                                       <h5 class="mt-0 mb-1" >{{statuses[1].user.name}}</h5>
@@ -301,7 +301,7 @@
                             </tr>
                             <tr class="border border-primary">
                                     <a href="/usermetrics.html" >
-                                        <img src="{{statuses[2].user.profile_image_url}}" width = 15% height = 15% class="mr-3 rounded-circle" alt="" ng-click="sendUserData(status.user)">
+                                        <img src="{{statuses[2].user.profile_image_url}}" width = 12% height = 14% class="mr-3 rounded-circle" alt="" ng-click="sendUserData(status.user)">
                                     </a>
                                     <div class="media-body">
                                       <h5 class="mt-0 mb-1" >{{statuses[2].user.name}}</h5>
@@ -317,7 +317,7 @@
                             </tr>
                             <tr class="border border-primary">
                                     <a href="/usermetrics.html" >
-                                        <img src="{{statuses[3].user.profile_image_url}}" width = 15% height = 15% class="mr-3 rounded-circle" alt="" ng-click="sendUserData(status.user)">
+                                        <img src="{{statuses[3].user.profile_image_url}}" width = 12% height = 14% class="mr-3 rounded-circle" alt="" ng-click="sendUserData(status.user)">
                                     </a>
                                     <div class="media-body">
                                       <h5 class="mt-0 mb-1" >{{statuses[3].user.name}}</h5>
@@ -333,7 +333,7 @@
                             </tr>
                             <tr class="border border-primary">
                                     <a href="/usermetrics.html" >
-                                        <img src="{{statuses[4].user.profile_image_url}}" width = 15% height = 15% class="mr-3 rounded-circle" alt="" ng-click="sendUserData(status.user)">
+                                        <img src="{{statuses[4].user.profile_image_url}}" width = 12% height = 14% class="mr-3 rounded-circle" alt="" ng-click="sendUserData(status.user)">
                                     </a>
                                     <div class="media-body">
                                       <h5 class="mt-0 mb-1" >{{statuses[4].user.name}}</h5>
@@ -417,11 +417,11 @@
                                 [name4, fc4]
                             ]);
                             var options = {
-                                title: 'Users with Largest Audience',
-                                width: '550',
+                                title: 'Users with Largest Number of Followers Tweeting About It',
+                                width: '660',
                                 height: '500',
                                 hAxis: {
-                                    title: 'User',
+                                    title: 'Username',
                                     format: 'h:mm a',
                                     viewWindow: {
                                         min: [7, 30, 0],
@@ -429,7 +429,7 @@
                                     }
                                 } ,
                                 vAxis: {
-                                    title: 'Followers'
+                                    title: 'Number of Followers'
                                 }
                             };
                             var chart = new google.visualization.ColumnChart(
@@ -484,23 +484,23 @@
                         else
                             Saturday = parseInt(sessionStorage.getItem('Sat'));
                         data.addRows([
-                                ['Sunday', Sunday],
-                                ['Monday', Monday],
-                                ['Tuesday', Tuesday],
-                                ['Wednesday', Wednesday],
-                                ['Thursday', Thursday],
-                                ['Friday', Friday],
-                                ['Saturday', Saturday]
+                                ['Sun', Sunday],
+                                ['Mon', Monday],
+                                ['Tues', Tuesday],
+                                ['Wed', Wednesday],
+                                ['Thurs', Thursday],
+                                ['Fri', Friday],
+                                ['Sat', Saturday]
                         ]);
                         var options = {
-                            title: 'Amount of Tweets on Topic During Week',
-                            width: '550',
+                            title: 'Amount of Tweets on Topic During This Week',
+                            width: '600',
                             height: '500',
                             hAxis: {
                                 title: 'Day of Week'
                             },
                             vAxis: {
-                                title: 'Amount of Tweets'
+                                title: 'Number of Tweets'
                             }
                         };
                         var chart = new google.visualization.LineChart(document.getElementById('linechart_div'));
