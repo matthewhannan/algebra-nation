@@ -22,10 +22,10 @@
 
             <script>
                     window.onload = function ($scope) {
-                        console.log('Reloaded');
+                        //console.log('Reloaded');
                         $scope.statuses = [];
                         var list = JSON.parse(sessionStorage.getItem('topicData')).data.statuses;
-                        console.log(list);
+                        //console.log(list);
                     }
             </script>
 
@@ -69,15 +69,23 @@
         <!--QUERY-->
 
 
+        <!--
         <div>
             <h1 style="display:inline" id="searchQuery"></h1> <p style="display:inline"></p><i> in {{location.city}} , {{location.state}} </i> </p>
         </div>
+        -->
 
       <!--SITE BODY-->
       <div class="row bodyContent">
 
           <div class="col anyClass">
 
+            <script>
+                function sendUserData(userNum) {
+                    sessionStorage.setItem('userNum', userNum);
+                    window.location = "/usermetrics.html";
+                }
+            </script>
               <!--POPULAR USERS-->
                 <h2 class="headingTitle">Popular Users</h2>
                 <div ng-controller="TopicsController">
@@ -88,16 +96,16 @@
 
                                                 <div>
 
-                                                <a title="{{statuses[0].user.name}}" href="/usermetrics.html" class="twPc-avatarLink">
+                                                <a title="{{statuses[0].user.name}}" onclick="sendUserData(0)" class="twPc-avatarLink">
                                                     <img alt="{{statuses[0].user.name}}" src="{{statuses[0].user.profile_image_url}}" class="twPc-avatarImg">
                                                 </a>
 
                                                 <div class="twPc-divUser">
                                                     <div class="twPc-divName">
-                                                    <a href="/usermetrics.html">{{statuses[0].user.name}}</a>
+                                                    <a onclick="sendUserData(0)">{{statuses[0].user.name}}</a>
                                                     </div>
                                                     <span>
-                                                    <a href="/usermetrics.html">@<span>{{statuses[0].user.screen_name}}</span></a>
+                                                    <a onclick="sendUserData(0)">@<span>{{statuses[0].user.screen_name}}</span></a>
                                                     </span>
                                                 </div>
 
@@ -127,16 +135,16 @@
     
                                                     <div>
     
-                                                    <a title="{{statuses[1].user.name}}" href="/usermetrics.html" class="twPc-avatarLink">
+                                                    <a title="{{statuses[1].user.name}}" onclick="sendUserData(1)" s.class="twPc-avatarLink">
                                                         <img alt="{{statuses[1].user.name}}" src="{{statuses[1].user.profile_image_url}}" class="twPc-avatarImg">
                                                     </a>
     
                                                     <div class="twPc-divUser">
                                                         <div class="twPc-divName">
-                                                        <a href="/usermetrics.html">{{statuses[1].user.name}}</a>
+                                                        <a onclick="sendUserData(1)">{{statuses[1].user.name}}</a>
                                                         </div>
                                                         <span>
-                                                        <a href="/usermetrics.html">@<span>{{statuses[1].user.screen_name}}</span></a>
+                                                        <a onclick="sendUserData(1)">@<span>{{statuses[1].user.screen_name}}</span></a>
                                                         </span>
                                                     </div>
     
@@ -166,16 +174,16 @@
         
                                                         <div>
         
-                                                        <a title="{{statuses[2].user.name}}" href="/usermetrics.html" class="twPc-avatarLink">
+                                                        <a title="{{statuses[2].user.name}}" onclick="sendUserData(2)" class="twPc-avatarLink">
                                                             <img alt="{{statuses[2].user.name}}" src="{{statuses[2].user.profile_image_url}}" class="twPc-avatarImg">
                                                         </a>
         
                                                         <div class="twPc-divUser">
                                                             <div class="twPc-divName">
-                                                            <a href="/usermetrics.html">{{statuses[2].user.name}}</a>
+                                                            <a onclick="sendUserData(2)">{{statuses[2].user.name}}</a>
                                                             </div>
                                                             <span>
-                                                            <a href="/usermetrics.html">@<span>{{statuses[2].user.screen_name}}</span></a>
+                                                            <a onclick="sendUserData(2)">@<span>{{statuses[2].user.screen_name}}</span></a>
                                                             </span>
                                                         </div>
         
@@ -205,16 +213,16 @@
             
                                                             <div>
             
-                                                            <a title="{{statuses[3].user.name}}" href="/usermetrics.html" class="twPc-avatarLink">
+                                                            <a title="{{statuses[3].user.name}}" onclick="sendUserData(3)" class="twPc-avatarLink">
                                                                 <img alt="{{statuses[3].user.name}}" src="{{statuses[3].user.profile_image_url}}" class="twPc-avatarImg">
                                                             </a>
             
                                                             <div class="twPc-divUser">
                                                                 <div class="twPc-divName">
-                                                                <a href="/usermetrics.html">{{statuses[3].user.name}}</a>
+                                                                <a onclick="sendUserData(3)">{{statuses[3].user.name}}</a>
                                                                 </div>
                                                                 <span>
-                                                                <a href="/usermetrics.html">@<span>{{statuses[3].user.screen_name}}</span></a>
+                                                                <a onclick="sendUserData(3)">@<span>{{statuses[3].user.screen_name}}</span></a>
                                                                 </span>
                                                             </div>
             
@@ -244,16 +252,16 @@
                 
                                                                 <div>
                 
-                                                                <a title="{{statuses[4].user.name}}" href="/usermetrics.html" class="twPc-avatarLink">
+                                                                <a title="{{statuses[4].user.name}}" onclick="sendUserData(4)" class="twPc-avatarLink">
                                                                     <img alt="{{statuses[4].user.name}}" src="{{statuses[4].user.profile_image_url}}" class="twPc-avatarImg">
                                                                 </a>
                 
                                                                 <div class="twPc-divUser">
                                                                     <div class="twPc-divName">
-                                                                    <a href="/usermetrics.html">{{statuses[4].user.name}}</a>
+                                                                    <a onclick="sendUserData(4)">{{statuses[4].user.name}}</a>
                                                                     </div>
                                                                     <span>
-                                                                    <a href="/usermetrics.html">@<span>{{statuses[4].user.screen_name}}</span></a>
+                                                                    <a onclick="sendUserData(4)">@<span>{{statuses[4].user.screen_name}}</span></a>
                                                                     </span>
                                                                 </div>
                 

@@ -1,5 +1,14 @@
 angular.module('directoryApp', []).controller('TopicsController', ['$scope', '$http', function ($scope, $http) {
 
+  //LOAD USER
+  var userNum = parseInt(sessionStorage.getItem('userNum'));
+  var topicData = JSON.parse(sessionStorage.getItem('topicData'));
+
+  $scope.user = topicData.data.statuses[userNum].user;
+
+  console.log($scope.user);
+  //END LOAD USER
+
   $scope.query = sessionStorage.getItem('query');
 
   $scope.location = {
@@ -17,12 +26,12 @@ angular.module('directoryApp', []).controller('TopicsController', ['$scope', '$h
     $scope.statuses = [];
 
     var list = JSON.parse(sessionStorage.getItem('topicData')).data.statuses;
-    console.log(list);
+    //console.log(list);
 
     for (var i = 0; i < list.length; i++)
         $scope.statuses.push(list[i]);
 
-    $scope.$apply();
+    //$scope.$apply();
   }
 
   $scope.$watch('query', function () {
