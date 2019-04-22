@@ -1,8 +1,9 @@
+
 <!DOCTYPE html>
 <html>
 
   <head>
-    <title>Twitta | Home Page</title>
+    <title>Twitter Data | Home Page</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
     <link rel="stylesheet" href="styles/main.css">
@@ -18,17 +19,19 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 	<!--Load JSON scripts-->
+    <script type="text/javascript" src="woeid.json"></script>
     <script type="text/javascript" src="loadjson.js"></script>
   <!--Location script update-->
+    <!--writes to statement under form-->
     <script>
       function getCountry(that) {
         var obj = document.getElementById("countryId");
-        document.getElementById("country").innerHTML = //writes to form statement
+        document.getElementById("country").innerHTML =
         obj.options[obj.selectedIndex].text;
       }
       function getCity() {
         var obj = document.getElementById("cityId");
-        document.getElementById("city").innerHTML = 
+        document.getElementById("city").innerHTML =
         obj.options[obj.selectedIndex].text;
       }
     </script>
@@ -40,7 +43,7 @@
 
       <!--NAVBAR-->
       <div class="row">
-          <nav class="navbar navbar-expand-lg navbar-light" style="background-color: #e3f2fd;">
+          <nav class="navbar navbar-expand-lg navbar-light" style="background-color: #e3f2fd;"">
             <span class="sr-only">Toggle Navigation</span>
             <!--NAVBAR BRAND-->
             <a class="navbar-brand" href="#">
@@ -51,27 +54,29 @@
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
-
             <div class="navbar-header">
               <h1>Dashboard</h1>
             </div>
-
           </nav>
       </div>
-
       <!--SITE BODY-->
       <div class="row" ng-controller="TopicsController">
           <!--PROFILE CARD-->
           <div class="col">
-              <a href="/usermetrics.html" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">GO TO User Metrics PAGE</a>
+              <div class="card border-info mb-3" style="max-width: 100%;">
+                  <div class="card-header headingTitle" ><h1>Welcome To Twitter Data</h1></div>
+                  <div class="card-body text-info">
+                    <h5 class="card-title">Search Trends by Location</h5>
+                    <p class="card-text">Select a location using the dropdown button to specify a country and city. This will display a list of trending topics in that area.</p>
+                    <h5 class="card-title">Search Trends by Keyword</h5>
+                    <p class="card-text">Go to the Topic Metrics page to see the top users and trending tweets related to your search.</p>
+                  </div>
+              </div>
           </div>
-
-
           <!--TRENDING TOPICS SECTION-->
           <div class="col" >
             <!--HEADER-->
             <h2>Search Trends by Location</h2>
-
             <!--LOCATION FORM-->
             <form class="location" style="width: 100%; float:center">
               <select name="Country" id="countryId" onchange="populateCities(); getCountry(this); getCity(this)" ng-model="location.country">
@@ -81,7 +86,7 @@
                 <option disabled selected="selected">Select City</option>
               </select>
             </form>
-            
+
             <!--LOCATION STATEMENT-->
             <div>
               <p></p>
@@ -92,7 +97,7 @@
             <div>
               <a class="btn btn-primary btn-lg active" role="button" aria-pressed="true" ng-click="updateTrendList()">View Trending Topics</a>
             </div>
-            
+
 
             <!--TRENDS LIST
                 needs get trends request-->
@@ -111,14 +116,9 @@
             <!--HEADER-->
             <h2>Search Trends by Keyword</h2>
 
-            <!--SEARCH BAR-->
+            <!--GO TO TOPIC METRICS TO SEARCH BY KEYWORD-->
             <div class="search-container">
-                <form>
-                  <input type="text" placeholder="Type Keyword Here..." name="search" ng-model="query">
-                </form>
-                <div>
-                    <a href="/topicmetrics.html"  class="btn btn-primary btn-lg active" role="button" aria-pressed="true" ng-click="searchQuery()">Search</a>
-               </div>
+                <a href="/topicmetrics.html" class="btn btn-primary btn-lg active" role="button" aria-pressed="true" ng-click="searchQuery()">Go To Topic Metrics</a>
             </div>
 
 
@@ -127,14 +127,12 @@
 
     </div>
     <script src="options.js" type="text/javascript"></script>
-    <script> 
+    <script>
       var countrySel = document.getElementById('countryId');
       var countryArr = [];
-
       var countryOption = document.createElement('option');
       countryOption.innerHTML = countries[0];
       countrySel.appendChild(countryOption);
-
       const visitedSet = new Set();
       for(var i = 1; i < countries.length; i++) {
         if(!visitedSet.has(countries[i])){
