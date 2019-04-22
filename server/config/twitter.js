@@ -2,7 +2,7 @@
 var Twit = require('twit');
 var config= require('./config');
 var T = new Twit(config);
-var K = new Twit(config);
+//var K = new Twit(config);
 
 function getTwitterDataByWoeID(woeid) {
 	console.log('Our woeid', woeid);
@@ -41,10 +41,10 @@ function getTweetsbyKeyword(keyword){
 
 	var returnType = undefined;
 
-	try{
+	try {
 		console.log('PRE_SECOND API CALL ');
 		return new Promise(resolve => {
-			K.get('search/tweets',keyword, function(err, data, response){
+			T.get('search/tweets',keyword, function(err, data, response){
 				console.log('Result got!');
 				console.log(data.statuses);
 				returnType = data;
@@ -69,10 +69,39 @@ function getTweetsbyKeyword(keyword){
 	return sortable;
 }
 
+////////////////////Third API CALL ///////////////////////////////////////////////////////////////////////
+
+function getTweetsbyUser (sn) {
+	console.log('Our screen_name', sn);
+
+	var params = {
+		screen_name: sn,
+		count: 200
+	};
+
+	var ret = undefined;
+
+	try{ 
+		console.log('PRE_CALL');
+		return new Promise(resolve => {
+			T.get('statuses/user_timeline', params, function(err, data, response) {
+				console.log('Result got!');
+				ret = data;
+				resolve(ret);
+			});
+		});
+	}
+	catch(e){
+		console.log("ERROR I GUESS");
+	}
+	return ret;
+}
+
 //-------------------------EXPORTS------------------------------------
 
 exports.getTwitterDataByWoeID = getTwitterDataByWoeID;
 exports.getTweetsbyKeyword = getTweetsbyKeyword;
+exports.getTweetsbyUser = getTweetsbyUser;
 
 
 
