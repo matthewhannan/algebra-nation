@@ -47,10 +47,6 @@
                 <h1>Topic Metrics</h1>
             </div>
 
-            <form class="form-inline my-2 my-lg-0">
-                    <input class="form-control mr-sm-2" type="search" placeholder="Search Topic..." aria-label="Search" ng-model="query">
-                    <button class="btn btn-outline-primary my-2 my-sm-0" type="submit" ng-click="searchByKeyword()">Search</button>
-                </form>
 
             </nav>
         </div>
@@ -68,16 +64,25 @@
 
         <!--QUERY-->
 
-
         <div>
-            <h1 style="display:inline" id="searchQuery">{{query}}</h1> <p style="display:inline"><i> in {{location.state}} , {{location.country}} </i> </p>
+            <form class="form-inline my-2 my-lg-0">
+                <input class="form-control mr-sm-2" type="search" placeholder="Search Topic..." aria-label="Search" ng-model="query">
+                <button class="btn btn-outline-primary my-2 my-sm-0" type="submit" ng-click="searchByKeyword()">Search</button>
+            </form>
+        </div>
+
+        <div style="width: 100%;height: 60px;text-align:center;  background-color: lightblue">
+            <h1 style="display:inline; vertical-align:center;" id="searchQuery">{{query}}</h1> 
         </div>
 
       <!--SITE BODY-->
       <div class="row bodyContent">
-            <h2 class="headingTitle">Popular Users</h2>
-            <h2 class="headingTitle">Popular Tweets</h2>
+
+            <div class="col"><h2 class="headingTitle">Popular Users</h2></div>
+            <div class="col"><h2 class="headingTitle">Popular Tweets</h2></div>
+
             <div class="w-100"></div>
+
           <div class="col anyClass">
 
               <!--POPULAR USERS-->
@@ -306,10 +311,10 @@
                                       <h5 class="mt-0 mb-1" >{{statuses[0].user.name}}</h5>
                                       <p>{{statuses[0].text}}</p>
                                       <div class="engagementbuttons">
-                                      <button type="button" class="btn btn-primary">
+                                      <button type="button" class="btn btn-info">
                                               Likes <span class="badge badge-light">{{statuses[0].favorite_count}}</span>
                                       </button>
-                                      <button type="button" class="btn btn-primary">
+                                      <button type="button" class="btn btn-info">
                                               Retweets <span class="badge badge-light">{{statuses[0].retweet_count}}</span>
                                       </button></div>
                                     </div>
@@ -391,8 +396,12 @@
                 User Name: {{user.name}}
                 Followers: {{user.followers_count}}
             -->
+            <div class="col"><h2 class="headingTitle">Top Users</h2></div>
+            <div class="col"><h2 class="headingTitle">Tweet Frequency</h2></div>
+
+            <div class="w-100"></div>
+
             <div class="col">
-                    <h2 class="headingTitle">Top Users</h2>
                     <div id="barchart" align='center'>
                     </div>
                     <script>
@@ -476,8 +485,8 @@
 
                             var options = {
                                 title: 'Users with Largest Audience',
-                                width: '400',
-                                height: '400',
+                                width: '500',
+                                height: '600',
                                 hAxis: {
                                     title: 'User',
                                     format: 'h:mm a',
@@ -508,7 +517,6 @@
                 Number of Posts: length of the array for the tweets for a specified day
             -->
             <div class="col">
-                <h2 class="headingTitle">Tweet Frequency</h2>
 
                 <div id="linechart_div" align='center'>
                 </div>
@@ -572,8 +580,8 @@
 
                         var options = {
                             title: 'Amount of Tweets on Topic During Week',
-                            width: '400',
-                            height: '400',
+                            width: '500',
+                            height: '600',
                             hAxis: {
                                 title: 'Day of Week'
                             },
