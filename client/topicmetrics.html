@@ -1,7 +1,7 @@
 <html>
 
   <head>
-    <title>Algebra Nation | Topic Metrics</title>
+        <title>Twitter Data | Topic Metrics</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
     <link rel="stylesheet" href="styles/main.css">
@@ -30,8 +30,9 @@
             </script>
 
         <!--NAVBAR-->
-        <div class="row">
+      <div class="row">
             <nav class="navbar navbar-expand-lg navbar-light" style="background-color: #e3f2fd;"">
+<<<<<<< HEAD
             <span class="sr-only">Toggle Navigation</span>
             <!--NAVBAR BRAND-->
             <a class="navbar-brand" href="/index.html">
@@ -52,6 +53,30 @@
                     <button class="btn btn-outline-primary my-2 my-sm-0" type="submit" ng-click="searchByKeyword()">Search</button>
                 </form>
 
+=======
+              <span class="sr-only">Toggle Navigation</span>
+
+              <div class="row navbar-header">
+
+                <!--NAVBAR BRAND-->
+                <div class="col">
+                  <a class="navbar-brand" href="#">
+                        <img src="images/twitter_icon.png" width="60" height="60" class="d-inline rounded-circle" alt="Twitter Icon">
+                        <h3 class="d-inline"style="vertical-align:middle;font-size: 2em;text-align: center;">Twitter Data</h3>
+                  </a>
+
+                </div>
+
+                <!--PAGE NAME-->
+                <div class="col"><h1 style="vertical-align:middle; font-size: 3em;text-align: center;">Topic Metrics</h1></div>
+
+
+                <!--BLANK-->
+                  <div class="col ">
+                    </div>
+              </div>
+
+>>>>>>> 9678c64eb547c3f493dcd862bffb8cd19fc7b001
             </nav>
         </div>
 
@@ -68,15 +93,27 @@
 
         <!--QUERY-->
 
-
-        <!--
-        <div>
-            <h1 style="display:inline" id="searchQuery"></h1> <p style="display:inline"></p><i> in {{location.city}} , {{location.state}} </i> </p>
+        <div >
+            <form class="form-inline my-2 my-lg-0">
+                <input class="form-control mr-sm-2" type="search" placeholder="Search Topic..." aria-label="Search" ng-model="query">
+                <button class="btn btn-outline-primary my-2 my-sm-0" type="submit" ng-click="searchByKeyword()">Search</button>
+            </form>
         </div>
-        -->
+
+        <div class="w-100"> <p></p></div>
+
+        <div style="width: 100%;height: 60px;text-align:center;  background-color: lightblue">
+            <h1 style="display:inline; vertical-align:center;" id="searchQuery">{{query}}</h1>
+        </div>
+
 
       <!--SITE BODY-->
       <div class="row bodyContent">
+
+            <div class="col"><h2 class="headingTitle">Popular Users</h2></div>
+            <div class="col"><h2 class="headingTitle">Popular Tweets</h2></div>
+
+            <div class="w-100"></div>
 
           <div class="col anyClass">
 
@@ -87,7 +124,7 @@
                 }
             </script>
               <!--POPULAR USERS-->
-                <h2 class="headingTitle">Popular Users</h2>
+
                 <div ng-controller="TopicsController">
                         <table class="table table-striped table-hover">
                                 <tr>
@@ -295,7 +332,7 @@
           <!--POPULAR TWEETS-->
           <div class="col anyClass">
 
-            <h2 class="headingTitle">Popular Tweets</h2>
+
 
             <div class = "topic-list" ng-controller="TopicsController">
 
@@ -305,32 +342,40 @@
                                         Clicking profile image should redirect to User Metrics page and
                                         send the user JSON data from the status JSON response-->
                                     <a href="/usermetrics.html" >
+<<<<<<< HEAD
                                         <img src="{{statuses[0].user.profile_image_url}}" width = 12% height = 14% class="mr-3" alt="" ng-click="sendUserData(status.user)">
+=======
+                                        <img src="{{statuses[0].user.profile_image_url}}" width = 15% height = 15% class="mr-3 rounded-circle" alt="" ng-click="sendUserData(status.user)">
+>>>>>>> 9678c64eb547c3f493dcd862bffb8cd19fc7b001
                                     </a>
 
                                     <div class="media-body">
                                       <h5 class="mt-0 mb-1" >{{statuses[0].user.name}}</h5>
                                       <p>{{statuses[0].text}}</p>
                                       <div class="engagementbuttons">
-                                      <button type="button" class="btn btn-primary">
+                                      <button type="button" class="btn btn-info">
                                               Likes <span class="badge badge-light">{{statuses[0].favorite_count}}</span>
                                       </button>
-                                      <button type="button" class="btn btn-primary">
+                                      <button type="button" class="btn btn-info">
                                               Retweets <span class="badge badge-light">{{statuses[0].retweet_count}}</span>
                                       </button></div>
                                     </div>
                                     <a href="/usermetrics.html" >
+<<<<<<< HEAD
                                         <img src="{{statuses[1].user.profile_image_url}}" width = 12% height = 14% class="mr-3" alt="" ng-click="sendUserData(status.user)">
+=======
+                                        <img src="{{statuses[1].user.profile_image_url}}" width = 15% height = 15% class="mr-3 rounded-circle" alt="" ng-click="sendUserData(status.user)">
+>>>>>>> 9678c64eb547c3f493dcd862bffb8cd19fc7b001
                                     </a>
 
                                     <div class="media-body">
                                       <h5 class="mt-0 mb-1" >{{statuses[1].user.name}}</h5>
                                       <p>{{statuses[1].text}}</p>
                                       <div class="engagementbuttons">
-                                      <button type="button" class="btn btn-primary">
+                                      <button type="button" class="btn btn-info">
                                               Likes <span class="badge badge-light">{{statuses[1].favorite_count}}</span>
                                       </button>
-                                      <button type="button" class="btn btn-primary">
+                                      <button type="button" class="btn btn-info">
                                               Retweets <span class="badge badge-light">{{statuses[1].retweet_count}}</span>
                                       </button></div>
                                     </div>
@@ -342,10 +387,10 @@
                                       <h5 class="mt-0 mb-1" >{{statuses[2].user.name}}</h5>
                                       <p>{{statuses[2].text}}</p>
                                       <div class="engagementbuttons">
-                                      <button type="button" class="btn btn-primary">
+                                      <button type="button" class="btn btn-info">
                                               Likes <span class="badge badge-light">{{statuses[2].favorite_count}}</span>
                                       </button>
-                                      <button type="button" class="btn btn-primary">
+                                      <button type="button" class="btn btn-info">
                                               Retweets <span class="badge badge-light">{{statuses[2].retweet_count}}</span>
                                       </button></div>
                                     </div>
@@ -357,10 +402,10 @@
                                       <h5 class="mt-0 mb-1" >{{statuses[3].user.name}}</h5>
                                       <p>{{statuses[3].text}}</p>
                                       <div class="engagementbuttons">
-                                      <button type="button" class="btn btn-primary">
+                                      <button type="button" class="btn btn-info">
                                               Likes <span class="badge badge-light">{{statuses[3].favorite_count}}</span>
                                       </button>
-                                      <button type="button" class="btn btn-primary">
+                                      <button type="button" class="btn btn-info">
                                               Retweets <span class="badge badge-light">{{statuses[3].retweet_count}}</span>
                                       </button></div>
                                     </div>
@@ -372,10 +417,10 @@
                                       <h5 class="mt-0 mb-1" >{{statuses[4].user.name}}</h5>
                                       <p>{{statuses[4].text}}</p>
                                       <div class="engagementbuttons">
-                                      <button type="button" class="btn btn-primary">
+                                      <button type="button" class="btn btn-info">
                                               Likes <span class="badge badge-light">{{statuses[4].favorite_count}}</span>
                                       </button>
-                                      <button type="button" class="btn btn-primary">
+                                      <button type="button" class="btn btn-info">
                                               Retweets <span class="badge badge-light">{{statuses[4].retweet_count}}</span>
                                       </button></div>
                                     </div>
@@ -397,8 +442,12 @@
                 User Name: {{user.name}}
                 Followers: {{user.followers_count}}
             -->
+            <div class="col"><h2 class="headingTitle">Top Users</h2></div>
+            <div class="col"><h2 class="headingTitle">Tweet Frequency</h2></div>
+
+            <div class="w-100"></div>
+
             <div class="col">
-                    <h2 class="headingTitle">Top Users</h2>
                     <div id="barchart" align='center'>
                     </div>
                     <script>
@@ -514,7 +563,6 @@
                 Number of Posts: length of the array for the tweets for a specified day
             -->
             <div class="col">
-                <h2 class="headingTitle">Tweet Frequency</h2>
 
                 <div id="linechart_div" align='center'>
                 </div>
