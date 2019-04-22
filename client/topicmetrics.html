@@ -35,7 +35,7 @@
             <span class="sr-only">Toggle Navigation</span>
             <!--NAVBAR BRAND-->
             <a class="navbar-brand" href="/index.html">
-                    <img src="/images/twitter_icon.png" width="60" height="60" class="d-inline-block align-top" alt="">
+                    <img src="/images/twitter_icon.png" width="30" height="30" class="d-inline-block align-top" alt="">
                     <b>Twitter Data</b>
             </a>
             <!--NAVBAR TOGGLE BUTTON-->
@@ -305,7 +305,7 @@
                                         Clicking profile image should redirect to User Metrics page and
                                         send the user JSON data from the status JSON response-->
                                     <a href="/usermetrics.html" >
-                                        <img src="{{statuses[0].user.profile_image_url}}" width = 15% height = 15% class="mr-3" alt="" ng-click="sendUserData(status.user)">
+                                        <img src="{{statuses[0].user.profile_image_url}}" width = 12% height = 14% class="mr-3" alt="" ng-click="sendUserData(status.user)">
                                     </a>
 
                                     <div class="media-body">
@@ -320,7 +320,7 @@
                                       </button></div>
                                     </div>
                                     <a href="/usermetrics.html" >
-                                        <img src="{{statuses[1].user.profile_image_url}}" width = 15% height = 15% class="mr-3" alt="" ng-click="sendUserData(status.user)">
+                                        <img src="{{statuses[1].user.profile_image_url}}" width = 12% height = 14% class="mr-3" alt="" ng-click="sendUserData(status.user)">
                                     </a>
 
                                     <div class="media-body">
@@ -335,7 +335,7 @@
                                       </button></div>
                                     </div>
                                     <a href="/usermetrics.html" >
-                                        <img src="{{statuses[2].user.profile_image_url}}" width = 15% height = 15% class="mr-3" alt="" ng-click="sendUserData(status.user)">
+                                        <img src="{{statuses[2].user.profile_image_url}}" width = 12% height = 14% class="mr-3" alt="" ng-click="sendUserData(status.user)">
                                     </a>
 
                                     <div class="media-body">
@@ -350,7 +350,7 @@
                                       </button></div>
                                     </div>
                                     <a href="/usermetrics.html" >
-                                        <img src="{{statuses[3].user.profile_image_url}}" width = 15% height = 15% class="mr-3" alt="" ng-click="sendUserData(status.user)">
+                                        <img src="{{statuses[3].user.profile_image_url}}" width = 12% height = 14% class="mr-3" alt="" ng-click="sendUserData(status.user)">
                                     </a>
 
                                     <div class="media-body">
@@ -365,7 +365,7 @@
                                       </button></div>
                                     </div>
                                     <a href="/usermetrics.html" >
-                                        <img src="{{statuses[4].user.profile_image_url}}" width = 15% height = 15% class="mr-3" alt="" ng-click="sendUserData(status.user)">
+                                        <img src="{{statuses[4].user.profile_image_url}}" width = 12% height = 14% class="mr-3" alt="" ng-click="sendUserData(status.user)">
                                     </a>
 
                                     <div class="media-body">
@@ -481,11 +481,11 @@
                             ]);
 
                             var options = {
-                                title: 'Users with Largest Audience',
-                                width: '550',
+                                title: 'Users with Largest Number of Followers Tweeting About This',
+                                width: '665',
                                 height: '500',
                                 hAxis: {
-                                    title: 'User',
+                                    title: 'Username',
                                     format: 'h:mm a',
                                     viewWindow: {
                                         min: [7, 30, 0],
@@ -494,7 +494,7 @@
                                 } ,
 
                                 vAxis: {
-                                    title: 'Followers'
+                                    title: 'Number of Followers'
                                 }
                             };
 
@@ -567,25 +567,25 @@
                             Saturday = parseInt(sessionStorage.getItem('Sat'));
 
                         data.addRows([
-                                ['Sunday', Sunday],
-                                ['Monday', Monday],
-                                ['Tuesday', Tuesday],
-                                ['Wednesday', Wednesday],
-                                ['Thursday', Thursday],
-                                ['Friday', Friday],
-                                ['Saturday', Saturday]
+                                ['Sun', Sunday],
+                                ['Mon', Monday],
+                                ['Tues', Tuesday],
+                                ['Wed', Wednesday],
+                                ['Thurs', Thursday],
+                                ['Fri', Friday],
+                                ['Sat', Saturday]
                         ]);
 
                         var options = {
-                            title: 'Amount of Tweets on Topic During Week',
-                            width: '550',
+                            title: 'Amount of Tweets About Topic During The Week',
+                            width: '600',
                             height: '500',
                             hAxis: {
                                 title: 'Day of Week'
                             },
 
                             vAxis: {
-                                title: 'Amount of Tweets'
+                                title: 'Number of Tweets'
                             }
                         };
 
