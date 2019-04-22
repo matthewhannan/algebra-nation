@@ -86,10 +86,10 @@
             <!--LOCATION FORM-->
             <form id="geolocation" class="location" style="width: 100%; float:center">
               <select name="Country" id="countryId" onchange="populateCities(); getCountry(this)" ng-model="location.country">
-                <option disabled>Select Country</option>
+                <option disabled selected="selected">Select Country</option>
               </select>
-              <select name="City" id="cityId" ng-model="location.city" onchange="getCity(this)">
-                <option disabled>Select City</option>
+              <select name="City" id="cityId" ng-model="location.city" onchange="getCity(this)"">
+                <option disabled selected="selected">Select City</option>
               </select>
             </form>
             
@@ -141,8 +141,13 @@
     <script> 
       var countrySel = document.getElementById('countryId');
       var countryArr = [];
+
+      var countryOption = document.createElement('option');
+      countryOption.innerHTML = countries[0];
+      countrySel.appendChild(countryOption);
+
       const visitedSet = new Set();
-      for(var i = 0; i < countries.length; i++) {
+      for(var i = 1; i < countries.length; i++) {
         if(!visitedSet.has(countries[i])){
           countryArr.push(countries[i]);
           visitedSet.add(countries[i]);

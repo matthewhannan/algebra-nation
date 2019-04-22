@@ -36,7 +36,7 @@ function getTweetsbyKeyword(keyword){
 	var keyword = {
 		q: keyword,
 		result_type: 'popular',
-		count: 5
+		count: 100
 	};
 
 	var returnType = undefined;

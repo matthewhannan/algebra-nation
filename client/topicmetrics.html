@@ -162,20 +162,81 @@
                     </div>
                     <script>
                         google.charts.load('current', {packages: ['corechart', 'bar']});
-                        google.charts.setOnLoadCallback(drawBasic);
+                        google.charts.setOnLoadCallback(drawBasic1);
 
-                        function drawBasic() {
+                        function drawBasic1() {
 
                             var data = new google.visualization.DataTable();
                             data.addColumn('string', 'User Name');
                             data.addColumn('number', 'Followers');
 
+
+                            var name0 = sessionStorage.getItem('name0');
+
+                            if (name0 === 'null')
+                                name0 = 'Obama';
+
+                            var fc0; //follow count 0
+
+                            if (sessionStorage.getItem('fc0') === 'null')
+                                fc0 = 0;
+                            else
+                                fc0 = parseInt(sessionStorage.getItem('fc0'));
+
+                            var name1 = sessionStorage.getItem('name1');
+
+                            if (name1 === 'null')
+                                name1 = 'Rhonda';
+
+                            var fc1; //follow count 1
+
+                            if (sessionStorage.getItem('fc1') === 'null')
+                                fc1 = 1;
+                            else
+                                fc1 = parseInt(sessionStorage.getItem('fc1'));
+
+                            var name2 = sessionStorage.getItem('name2');
+
+                            if (name2 === 'null')
+                                name2 = 'Louis';
+
+                            var fc2; //follow count 2
+
+                            if (sessionStorage.getItem('fc2') === 'null')
+                                fc2 = 2;
+                            else
+                                fc2 = parseInt(sessionStorage.getItem('fc2'));
+
+                            var name3 = sessionStorage.getItem('name3');
+
+                            if (name3 === 'null')
+                                name3 = 'Bill';
+                            
+                            var fc3; //follow count 3
+
+                            if (sessionStorage.getItem('fc3') === 'null')
+                                fc3 = 3;
+                            else
+                                fc3 = parseInt(sessionStorage.getItem('fc3'));
+                            
+                            var name4 = sessionStorage.getItem('name4');
+
+                            if (name4 === 'null')
+                                name4 = 'Chris';
+
+                            var fc4; //follow count 4
+
+                            if (sessionStorage.getItem('fc4') === 'null')
+                                fc4 = 4;
+                            else
+                                fc4 = parseInt(sessionStorage.getItem('fc4'));
+
                             data.addRows([
-                                ['Barack Obama', 7070],
-                                ['Hilary Clinton', 2907],
-                                ['Hussein Bolt', 3025],
-                                ['Muhammad Ali', 4000],
-                                ['Hugh Jackman', 5725]
+                                [name0, fc0],
+                                [name1, fc1],
+                                [name2, fc2],
+                                [name3, fc3],
+                                [name4, fc4]
                             ]);
 
                             var options = {
@@ -218,22 +279,60 @@
                 </div>
                 <script>
                     google.charts.load('current', {packages: ['corechart', 'line']});
-                    google.charts.setOnLoadCallback(drawBasic);
+                    google.charts.setOnLoadCallback(drawBasic2);
 
-                    function drawBasic() {
+                    function drawBasic2() {
 
                         var data = new google.visualization.DataTable();
                         data.addColumn('string', 'Weekday');
                         data.addColumn('number', 'Number of Posts');
 
+
+                        var Sunday, Monday, Tuesday, Wednesday, Thursday, Friday, Saturday;
+
+                        if (sessionStorage.getItem('Sun') === 'null')
+                            Sunday = 0;
+                        else
+                            Sunday = parseInt(sessionStorage.getItem('Sun'));
+
+                        if (sessionStorage.getItem('Mon') === 'null')
+                            Monday = 0;
+                        else
+                            Monday = parseInt(sessionStorage.getItem('Mon'));
+
+                        if (sessionStorage.getItem('Tue') === 'null')
+                            Tuesday = 0;
+                        else
+                            Tuesday = parseInt(sessionStorage.getItem('Tue'));
+
+                        if (sessionStorage.getItem('Wed') === 'null')
+                            Wednesday = 0;
+                        else
+                            Wednesday = parseInt(sessionStorage.getItem('Wed'));
+
+                        if (sessionStorage.getItem('Thu') === 'null')
+                            Thursday = 0;
+                        else
+                            Thursday = parseInt(sessionStorage.getItem('Thu'));
+
+                        if (sessionStorage.getItem('Fri') === 'null')
+                            Friday = 0;
+                        else
+                            Friday = parseInt(sessionStorage.getItem('Fri'));
+
+                        if (sessionStorage.getItem('Sat') === 'null')
+                            Saturday = 0;
+                        else
+                            Saturday = parseInt(sessionStorage.getItem('Sat'));
+
                         data.addRows([
-                                ['Sunday', 80],
-                                ['Monday', 2],
-                                ['Tuesday', 30],
-                                ['Wednesday', 4],
-                                ['Thursday', 15],
-                                ['Friday', 60],
-                                ['Saturday', 7]
+                                ['Sunday', Sunday],
+                                ['Monday', Monday],
+                                ['Tuesday', Tuesday],
+                                ['Wednesday', Wednesday],
+                                ['Thursday', Thursday],
+                                ['Friday', Friday],
+                                ['Saturday', Saturday]
                         ]);
 
                         var options = {
