@@ -57,7 +57,7 @@
             </nav>
         </div>
         <!--BREADCRUMBS-->
-        <div class ="row">
+        <div >
                 <nav aria-label="breadcrumb">
                         <ol class="breadcrumb">
                           <li class="breadcrumb-item"><a href="/index.html">Dashboard</a></li>
@@ -73,8 +73,9 @@
             </form>
         </div>
         <div class="w-100"> <p></p></div>
-        <div style="width: 100%;height: 60px;text-align:center;  background-color: lightblue">
-            <h1 style="display:inline; vertical-align:center;" id="searchQuery">{{query}}</h1>
+
+        <div  style="width: 100%;height: 5em;text-align: center;  background-color: #94ddf0">
+            <h1  style="vertical-align: middle; font-size: 3em;" id="searchQuery">{{query}}</h1> 
         </div>
 
       <!--SITE BODY-->
@@ -95,7 +96,8 @@
                         <table class="table table-striped table-hover">
                                 <tr>
                                             <div class="twPc-div">
-                                                <a class="twPc-bg twPc-block"></a>
+                                                <a class="twPc-bg twPc-block" style="background-image: url({{statuses[0].user.profile_banner_url}})"></a>
+
                                                 <div>
                                                 <a title="{{statuses[0].user.name}}" onclick="sendUserData(0)" class="twPc-avatarLink">
                                                     <img alt="{{statuses[0].user.name}}" src="{{statuses[0].user.profile_image_url}}" class="twPc-avatarImg">
@@ -127,7 +129,8 @@
                                                 </div>
                                             </div>
                                             <div class="twPc-div">
-                                                    <a class="twPc-bg twPc-block"></a>
+                                                    <a class="twPc-bg twPc-block" style="background-image: url({{statuses[1].user.profile_banner_url}})"></a>
+
                                                     <div>
                                                     <a title="{{statuses[1].user.name}}" onclick="sendUserData(1)" class="twPc-avatarLink">
                                                         <img alt="{{statuses[1].user.name}}" src="{{statuses[1].user.profile_image_url}}" class="twPc-avatarImg">
@@ -159,7 +162,8 @@
                                                     </div>
                                                 </div>
                                                 <div class="twPc-div">
-                                                        <a class="twPc-bg twPc-block"></a>
+                                                        <a class="twPc-bg twPc-block" style="background-image: url({{statuses[2].user.profile_banner_url}})"></a>
+
                                                         <div>
                                                         <a title="{{statuses[2].user.name}}" onclick="sendUserData(2)" class="twPc-avatarLink">
                                                             <img alt="{{statuses[2].user.name}}" src="{{statuses[2].user.profile_image_url}}" class="twPc-avatarImg">
@@ -191,7 +195,8 @@
                                                         </div>
                                                     </div>
                                                     <div class="twPc-div">
-                                                            <a class="twPc-bg twPc-block"></a>
+                                                            <a class="twPc-bg twPc-block" style="background-image: url({{statuses[3].user.profile_banner_url}})"></a>
+
                                                             <div>
                                                             <a title="{{statuses[3].user.name}}" onclick="sendUserData(3)" class="twPc-avatarLink">
                                                                 <img alt="{{statuses[3].user.name}}" src="{{statuses[3].user.profile_image_url}}" class="twPc-avatarImg">
@@ -220,10 +225,12 @@
                                                                 </li>
                                                                 </ul>
                                                             </div>
+
                                                             </div>
                                                         </div>
                                                         <div class="twPc-div">
-                                                                <a class="twPc-bg twPc-block"></a>
+                                                                <a class="twPc-bg twPc-block" style="background-image: url({{statuses[4].user.profile_banner_url}})"></a>
+
                                                                 <div>
                                                                 <a title="{{statuses[4].user.name}}" onclick="sendUserData(4)" class="twPc-avatarLink">
                                                                     <img alt="{{statuses[4].user.name}}" src="{{statuses[4].user.profile_image_url}}" class="twPc-avatarImg">
@@ -356,8 +363,9 @@
                 User Name: {{user.name}}
                 Followers: {{user.followers_count}}
             -->
-            <div class="col"><h2 class="headingTitle">Top Users</h2></div>
-            <div class="col"><h2 class="headingTitle">Tweet Frequency</h2></div>
+            <div class="col" style ="padding-top: 50px"><h2 class="headingTitle">Top Users</h2></div>
+            <div class="col" style ="padding-top: 50px"><h2 class="headingTitle">Tweet Frequency</h2></div>
+
             <div class="w-100"></div>
             <div class="col">
                     <div id="barchart" align='center'>
