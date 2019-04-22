@@ -74,10 +74,10 @@
 
             <!--LOCATION FORM-->
             <form class="location" style="width: 100%; float:center">
-              <select name="Country" id="countryId" onchange="populateCities(); getCountry(this)" ng-model="location.country">
+              <select name="Country" id="countryId" onchange="populateCities(); getCountry(this); getCity(this)" ng-model="location.country">
                 <option disabled selected="selected">Select Country</option>
               </select>
-              <select name="City" id="cityId" ng-model="location.city" onchange="getCity(this)"">
+              <select name="City" id="cityId" ng-model="location.city" onchange="getCity(this)">
                 <option disabled selected="selected">Select City</option>
               </select>
             </form>
