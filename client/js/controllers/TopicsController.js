@@ -10,6 +10,20 @@ angular.module('directoryApp', []).controller('TopicsController', ['$scope', '$h
 
   $scope.users = [];
   $scope.tweets = [];
+  $scope.statuses = [];
+
+  if (sessionStorage.getItem('topicData') !== null)
+  {
+    $scope.statuses = [];
+
+    var list = JSON.parse(sessionStorage.getItem('topicData')).data.statuses;
+    console.log(list);
+
+    for (var i = 0; i < list.length; i++)
+        $scope.statuses.push(list[i]);
+
+    $scope.$apply();
+  }
 
   $scope.$watch('query', function () {
     sessionStorage.setItem('query', $scope.query);
@@ -64,8 +78,6 @@ angular.module('directoryApp', []).controller('TopicsController', ['$scope', '$h
 
   $scope.searchByKeyword = async function () {
 
-    console.log("Deez Nutz");
-
     var names = [];
     var follow_count = [];
     var tweetFrequency = [0, 0, 0, 0, 0, 0, 0];
@@ -86,6 +98,8 @@ angular.module('directoryApp', []).controller('TopicsController', ['$scope', '$h
 
     console.log(JSON.stringify(twitterData));
     
+    await sessionStorage.setItem('topicData', JSON.stringify(twitterData));
+
     $scope.tweets = [];
     $scope.users = [];
     $scope.names = [];
@@ -130,9 +144,21 @@ angular.module('directoryApp', []).controller('TopicsController', ['$scope', '$h
     sessionStorage.setItem('Fri', tweetFrequency[5]);
     sessionStorage.setItem('Sat', tweetFrequency[6]);
 
-    sessionStorage.setItem('count', twitterData.data.statuses.length);
-
     location.reload();
   };
+
+  $scope.getTweets = function () {
+
+    var str = sessionStorage.getItem('tweets');
+
+    if (str === 'null')
+        return [];
+    else
+    {
+      var tweets = JSON.parse(str);
+      return tweets;
+    }
+
+  }
   
 }]);
