@@ -75,6 +75,27 @@ module.exports.init = function() {
 
   });
 
+  app.get('/api/twitter/user', async function express_stuff_3(req, res) {
+    var twitterData = undefined;
+
+    console.log("found EXPRESS");
+    try {
+      console.log("PRE AWAIT");
+      twitterData = await twitterapi.getTweetsbyUser(req.query.screen_name);
+      console.log("POST AWAIT");
+
+    }
+    catch (e) {
+      console.log("EXPRESS CATCH");
+      console.log(e);
+    }
+
+    console.log("Express after api call");
+    console.log(twitterData);
+
+    res.send(JSON.stringify(twitterData));
+  });
+
   /**TODO
   Go to homepage for all routes not specified */
   app.all('/*', function (req, res, next) {
