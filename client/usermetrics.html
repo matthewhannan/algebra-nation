@@ -10,18 +10,11 @@
 
   <body ng-app="directoryApp">
 
-    <!--
     <script>
         window.onload = function ($scope) {
-            var userNum = parseInt(sessionStorage.getItem('userNum'));
-            var topicData = JSON.parse(sessionStorage.getItem('topicData'));
 
-            $scope.user = topicData.data.statuses[userNum].user;
-
-            //console.log($scope.user);
         }
     </script>
-    -->
 
     <div class="container-fluid" ng-controller="TopicsController">
 
@@ -233,12 +226,17 @@
 
                 // Draw the chart and set the chart values
                 function drawChart() {
+
+                  var tweet_count = parseInt(sessionStorage.getItem('user_tweet_count'));
+                  var retweet_count = parseInt(sessionStorage.getItem('user_retweet_count'));
+                  var likes = parseInt(sessionStorage.getItem('user_likes'));
+                  var reply_count = parseInt(sessionStorage.getItem('user_reply_count'));
+        
                   var data = google.visualization.arrayToDataTable([
                   ['Activity', 'Frequency'],
-                  ['Tweets', 8],
-                  ['Likes', 2],
-                  ['Retweets', 4],
-                  ['Replies', 2]
+                  ['Original Tweets', tweet_count],
+                  ['Retweets', retweet_count],
+                  ['Replies', reply_count]
                 ]);
 
                   // Optional; add a title and set the width and height of the chart
@@ -251,6 +249,7 @@
                   // Display the chart inside the <div> element with id="piechart"
                   var chart = new google.visualization.PieChart(document.getElementById('piechart'));
                   chart.draw(data, options);
+                  setTimeout(function () {drawChart();}, 1000);
                 }
                 </script>
 
@@ -281,14 +280,22 @@
                         data.addColumn('string', 'Weekday');
                         data.addColumn('number', 'Number of Posts');
 
+                        var Sunday = parseInt(sessionStorage.getItem('utf0'));
+                        var Monday = parseInt(sessionStorage.getItem('utf1'));
+                        var Tuesday = parseInt(sessionStorage.getItem('utf2'));
+                        var Wednesday = parseInt(sessionStorage.getItem('utf3'));
+                        var Thursday = parseInt(sessionStorage.getItem('utf4'));
+                        var Friday = parseInt(sessionStorage.getItem('utf5'));
+                        var Saturday = parseInt(sessionStorage.getItem('utf6'));
+
                         data.addRows([
-                                ['Sunday', 80],
-                                ['Monday', 2],
-                                ['Tuesday', 30],
-                                ['Wednesday', 4],
-                                ['Thursday', 15],
-                                ['Friday', 60],
-                                ['Saturday', 7]
+                                ['Sunday', Sunday],
+                                ['Monday', Monday],
+                                ['Tuesday', Tuesday],
+                                ['Wednesday', Wednesday],
+                                ['Thursday', Thursday],
+                                ['Friday', Friday],
+                                ['Saturday', Saturday]
                         ]);
 
                         var options = {
@@ -307,6 +314,8 @@
                         var chart = new google.visualization.LineChart(document.getElementById('linechart_div'));
 
                         chart.draw(data, options);
+
+                        setTimeout(function () {drawBasic();}, 1000);
                         }
                 </script>
             </div>
@@ -321,7 +330,6 @@
     </div> <!--End of Webpage-->
 
 
-    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js" integrity="sha512-K1qjQ+NcF2TYO/eI3M6v8EiNYZfA95pQumfvcVrTHtwQVDG+aHRqLi/ETn2uB+1JqwYqVG3LIvdm9lj6imS/pQ==" crossorigin="anonymous"></script>
     <script src="https://code.angularjs.org/1.4.3/angular.js"></script>
