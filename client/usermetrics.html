@@ -27,7 +27,7 @@
 
               <!--NAVBAR BRAND-->
               <div class="col">
-                <a class="navbar-brand" href="#">
+                <a class="navbar-brand" href="index.html">
                       <img src="images/twitter_icon.png" width="60" height="60" class="d-inline rounded-circle" alt="Twitter Icon">
                       <h3 class="d-inline"style="vertical-align:middle;font-size: 2em;text-align: center;">Twitter Data</h3>
                 </a>
@@ -35,9 +35,9 @@
               </div>
 
               <!--PAGE NAME-->
-              <div class="col"><h1 style="vertical-align:middle; font-size: 3em;text-align: center;">User Metrics</h1></div>
-
-
+              <div class="col"><h1 style="vertical-align:middle; font-size: 3em;text-align: center;color:black;">User Metrics</h1></div>
+                
+              
               <!--BLANK-->
                 <div class="col ">
                   </div>
@@ -68,19 +68,19 @@
 
                 <!--1. PROFILE CARD-->
                 <div class="col twPc-div">
-                    <a class="twPc-bg twPc-block"></a>
+                    <a class="twPc-bg twPc-block" style="background-image: url({{user.profile_banner_url}})"></a>
 
                   <div>
-                    <a title="username" href="#" class="twPc-avatarLink">
+                    <span title="username" href="#" class="twPc-avatarLink">
                       <img alt="User Profile Image" src="{{user.profile_image_url}}" class="twPc-avatarImg">
-                    </a>
+                    </span>
 
                     <div class="twPc-divUser">
                       <div class="twPc-divName">
-                        <a href="#">{{user.name}}</a>
+                        <span >{{user.name}}</span>
                       </div>
                       <span>
-                        <a href="#">@<span>{{user.screen_name}}</span></a>
+                        <a href="{{user.url}}">@<span>{{user.screen_name}}</span></a>
                       </span>
                     </div>
 

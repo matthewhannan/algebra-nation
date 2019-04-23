@@ -2,6 +2,14 @@
   margin: 15px 10px;
 }
 
+
+.searchbar {
+  font-size:10pt;
+  height: 2.5em;
+}
+.chart{
+  overflow-x: scroll;
+}
 .bodyContent{
   padding-left: 50px;
   padding-right: 50px;
@@ -146,7 +154,6 @@ ul.twPc-Arrange {
  
     display: flex;
     justify-content: center;
-  
 }
 
 /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~FORM~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
