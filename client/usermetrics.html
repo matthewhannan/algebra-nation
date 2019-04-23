@@ -207,6 +207,20 @@
                               <p class="card-text">{{user.favourites_count}}</p>
                               </div>
                       </div>
+                      <div class="card text-center" style="width: 90%;">
+                          <div class="card-body">
+                          <h5 class="card-title">Retweets</h5>
+                          <p class="card-text" id="retweets_count"></p>
+                          <script>
+                              // Check browser support
+                              if (typeof(Storage) !== "undefined") {
+                                
+                                // Retrieve
+                                document.getElementById("retweets_count").innerHTML = sessionStorage.getItem("user_retweet_count");
+                              } 
+                              </script>
+                          </div>
+                  </div>
                   </div>
 
 
