@@ -34,7 +34,7 @@
         document.getElementById("city").innerHTML =
         obj.options[obj.selectedIndex].text;
       }
-    </script> 
+    </script>
   </head>
 
   <body ng-app="directoryApp">
@@ -45,7 +45,7 @@
       <div class="row">
           <nav class="navbar navbar-expand-lg navbar-light" style="background-color: #e3f2fd;"">
             <span class="sr-only">Toggle Navigation</span>
-            
+
             <div class="row navbar-header">
 
               <!--NAVBAR BRAND-->
@@ -54,13 +54,13 @@
                       <img src="images/twitter_icon.png" width="60" height="60" class="d-inline rounded-circle" alt="Twitter Icon">
                       <h3 class="d-inline"style="vertical-align:middle;font-size: 2em;text-align: center;">Twitter Data</h3>
                 </a>
-                
+
               </div>
 
               <!--PAGE NAME-->
               <div class="col"><h1 style="vertical-align:middle; font-size: 3em;text-align: center;">Dashboard</h1></div>
-                
-              
+
+
               <!--BLANK-->
                 <div class="col ">
                   </div>
@@ -68,7 +68,7 @@
           </nav>
       </div>
 
-      
+
       <!--SITE BODY-->
       <div class="row" ng-controller="TopicsController">
           <!--PROFILE CARD-->
@@ -113,8 +113,8 @@
                 needs get trends request-->
             <div>
               <table class="table table-striped table-hover">
-                <tr ng-repeat="trend in trends" ng-click="goToTopicMetrics($index)">
-                  <td><a ng-href="{{trend.url}}">{{trend.name}}</a></td>
+                <tr ng-repeat="trend in trends"  ng-click="sendLocationTrend(trend.name)">
+                  <td><a>{{trend.name}}</a></td>
                 </tr>
               </table>
             </div>

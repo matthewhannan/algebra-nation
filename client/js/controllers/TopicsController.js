@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 angular.module('directoryApp', []).controller('TopicsController', ['$scope', '$http', '$location', function ($scope, $http, $location) {
 
   $scope.getUserTweetsSync = function () {
@@ -89,6 +90,9 @@ angular.module('directoryApp', []).controller('TopicsController', ['$scope', '$h
 
     return 'Resolved!';
   }
+=======
+angular.module('directoryApp', []).controller('TopicsController',['$scope','$window', '$http', function ($scope,$window, $http) {
+>>>>>>> origin/master
 
   //LOAD USER
   if (sessionStorage.getItem('topicData') !== null && sessionStorage.getItem('userNum') !== null)
@@ -179,10 +183,13 @@ angular.module('directoryApp', []).controller('TopicsController', ['$scope', '$h
     {
        $scope.trends.push(tweets[i]);
     }
-
     $scope.$apply();
   };
 
+$scope.sendLocationTrend = async function(q) {
+  $scope.query=q;
+  $window.location = "/topicmetrics.html";
+};
   $scope.searchByKeyword = async function () {
 
     var names = [];
@@ -204,7 +211,7 @@ angular.module('directoryApp', []).controller('TopicsController', ['$scope', '$h
     console.log("http done");
 
     console.log(JSON.stringify(twitterData));
-    
+
     await sessionStorage.setItem('topicData', JSON.stringify(twitterData));
 
     $scope.tweets = [];
@@ -253,5 +260,23 @@ angular.module('directoryApp', []).controller('TopicsController', ['$scope', '$h
 
     location.reload();
   };
+<<<<<<< HEAD
   
+=======
+
+  $scope.getTweets = function () {
+
+    var str = sessionStorage.getItem('tweets');
+
+    if (str === 'null')
+        return [];
+    else
+    {
+      var tweets = JSON.parse(str);
+      return tweets;
+    }
+
+  }
+
+>>>>>>> origin/master
 }]);
