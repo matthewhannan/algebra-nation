@@ -56,6 +56,8 @@
 
             </nav>
         </div>
+
+
         <!--BREADCRUMBS-->
         <div >
                 <nav aria-label="breadcrumb">
@@ -65,11 +67,13 @@
                         </ol>
                 </nav>
         </div>
+
+
         <!--QUERY-->
         <div >
-            <form class="form-inline my-2 my-lg-0">
-                <input class="form-control mr-sm-2" type="search" placeholder="Search Topic..." aria-label="Search" ng-model="query">
-                <button class="btn btn-outline-primary my-2 my-sm-0" type="submit" ng-click="searchByKeyword()">Search</button>
+            <form class="form-inline my-2 my-lg-0 ">
+                <input class="form-control mr-sm-2 searchbar" type="search" placeholder="Search Topic..." aria-label="Search" ng-model="query">
+                <button class="btn btn-outline-primary my-2 my-sm-0 searchbar" type="submit" ng-click="searchByKeyword()">Search</button>
             </form>
         </div>
         <div class="w-100"> <p></p></div>
@@ -77,6 +81,7 @@
         <div  style="width: 100%;height: 5em;text-align: center;  background-color: #94ddf0">
             <h1  style="vertical-align: middle; font-size: 3em;" id="searchQuery">{{query}}</h1> 
         </div>
+
 
       <!--SITE BODY-->
       <div class="row bodyContent">
@@ -94,7 +99,7 @@
 
                 <div ng-controller="TopicsController">
                         <table class="table table-striped table-hover">
-                                <tr>
+                                    <tr >
                                             <div class="twPc-div">
                                                 <a class="twPc-bg twPc-block" style="background-image: url({{statuses[0].user.profile_banner_url}})"></a>
 
@@ -128,6 +133,8 @@
                                                 </div>
                                                 </div>
                                             </div>
+                                    </tr>
+                                    <tr>
                                             <div class="twPc-div">
                                                     <a class="twPc-bg twPc-block" style="background-image: url({{statuses[1].user.profile_banner_url}})"></a>
 
@@ -140,7 +147,7 @@
                                                         <a onclick="sendUserData(1)">{{statuses[1].user.name}}</a>
                                                         </div>
                                                         <span>
-                                                        <a onclick="sendUserData(1)">@<span>{{statuses[1].user.screen_name}}</span></a>
+                                                        <a  onclick="sendUserData(1)">@<span>{{statuses[1].user.screen_name}}</span></a>
                                                         </span>
                                                     </div>
                                                     <div class="twPc-divStats">
@@ -161,6 +168,8 @@
                                                     </div>
                                                     </div>
                                                 </div>
+                                    </tr>
+                                    <tr>
                                                 <div class="twPc-div">
                                                         <a class="twPc-bg twPc-block" style="background-image: url({{statuses[2].user.profile_banner_url}})"></a>
 
@@ -194,6 +203,8 @@
                                                         </div>
                                                         </div>
                                                     </div>
+                                        </tr>
+                                        <tr>
                                                     <div class="twPc-div">
                                                             <a class="twPc-bg twPc-block" style="background-image: url({{statuses[3].user.profile_banner_url}})"></a>
 
@@ -228,6 +239,8 @@
 
                                                             </div>
                                                         </div>
+                                            </tr> 
+                                            <tr>
                                                         <div class="twPc-div">
                                                                 <a class="twPc-bg twPc-block" style="background-image: url({{statuses[4].user.profile_banner_url}})"></a>
 
@@ -261,10 +274,14 @@
                                                                 </div>
                                                                 </div>
                                                             </div>
-                                </tr>
+                                            </tr>
                         </table>
                 </div>
           </div>
+
+
+
+
           <!--POPULAR TWEETS-->
           <div class="col anyClass">
 
@@ -282,76 +299,80 @@
                                     <div class="col media-body">
                                       <p>{{statuses[0].text}}</p>
                                       <div class="engagementbuttons">
-                                      <button type="button" class="btn btn-info">
-                                              Likes <span class="badge badge-light">{{statuses[0].favorite_count}}</span>
-                                      </button>
-                                      <button type="button" class="btn btn-info">
+                                      <a href="{{statuses[0].entities.urls[0].url}}"><button type="button" class="btn btn-info">
+                                              Likes <span class="button badge badge-light">{{statuses[0].favorite_count}}</span>
+                                      </button></a>
+                                      <a href="{{statuses[0].entities.urls[0].url}}"><button type="button" class="btn btn-info">
                                               Retweets <span class="badge badge-light">{{statuses[0].retweet_count}}</span>
-                                      </button></div>
+                                      </button></a></div>
                                     </div>
                             </tr>
-                            <tr class="border border-primary">
-                                    <a href="/usermetrics.html" >
-                                        <img src="{{statuses[1].user.profile_image_url}}" width = 12% height = 14% class="mr-3 rounded-circle" alt="" ng-click="sendUserData(status.user)">
-                                    </a>
-                                    <div class="media-body">
-                                      <h5 class="mt-0 mb-1" >{{statuses[1].user.name}}</h5>
+                            <tr class="row border border-primary">
+                                    <span class="col" >
+                                            <a href="/usermetrics.html"><img src="{{statuses[1].user.profile_image_url}}" width = 12% height = 14% class="d-inline mr-3 rounded-circle" alt="" ng-click="sendUserData(status.user)"></a>
+                                            <h5 class="d-inline mt-0 mb-1" >{{statuses[1].user.name}}</h5>
+                                    </span>
+    
+                                    <div class="col media-body">
                                       <p>{{statuses[1].text}}</p>
                                       <div class="engagementbuttons">
-                                      <button type="button" class="btn btn-info">
-                                              Likes <span class="badge badge-light">{{statuses[1].favorite_count}}</span>
-                                      </button>
-                                      <button type="button" class="btn btn-info">
+                                      <a href="{{statuses[1].entities.urls[0].url}}"><button type="button" class="btn btn-info">
+                                              Likes <span class="button badge badge-light">{{statuses[1].favorite_count}}</span>
+                                      </button></a>
+                                      <a href="{{statuses[1].entities.urls[0].url}}"><button type="button" class="btn btn-info">
                                               Retweets <span class="badge badge-light">{{statuses[1].retweet_count}}</span>
-                                      </button></div>
+                                      </button></a></div>
                                     </div>
                             </tr>
-                            <tr class="border border-primary">
-                                    <a href="/usermetrics.html" >
-                                        <img src="{{statuses[2].user.profile_image_url}}" width = 12% height = 14% class="mr-3 rounded-circle" alt="" ng-click="sendUserData(status.user)">
-                                    </a>
-                                    <div class="media-body">
-                                      <h5 class="mt-0 mb-1" >{{statuses[2].user.name}}</h5>
+                            <tr class="row border border-primary">
+                                    <span class="col" >
+                                            <a href="/usermetrics.html"><img src="{{statuses[2].user.profile_image_url}}" width = 12% height = 14% class="d-inline mr-3 rounded-circle" alt="" ng-click="sendUserData(status.user)"></a>
+                                            <h5 class="d-inline mt-0 mb-1" >{{statuses[2].user.name}}</h5>
+                                    </span>
+    
+                                    <div class="col media-body">
                                       <p>{{statuses[2].text}}</p>
                                       <div class="engagementbuttons">
-                                      <button type="button" class="btn btn-info">
+                                      <a href="{{statuses[2].entities.urls[0].url}}"><button type="button" class="btn btn-info">
                                               Likes <span class="badge badge-light">{{statuses[2].favorite_count}}</span>
-                                      </button>
-                                      <button type="button" class="btn btn-info">
+                                      </button></a>
+                                      <a href="{{statuses[2].entities.urls[0].url}}"><button type="button" class="btn btn-info">
                                               Retweets <span class="badge badge-light">{{statuses[2].retweet_count}}</span>
-                                      </button></div>
+                                      </button></a></div>
                                     </div>
                             </tr>
-                            <tr class="border border-primary">
-                                    <a href="/usermetrics.html" >
-                                        <img src="{{statuses[3].user.profile_image_url}}" width = 12% height = 14% class="mr-3 rounded-circle" alt="" ng-click="sendUserData(status.user)">
-                                    </a>
-                                    <div class="media-body">
-                                      <h5 class="mt-0 mb-1" >{{statuses[3].user.name}}</h5>
+                            <tr class="row border border-primary">
+                                    <span class="col" >
+                                            <a href="/usermetrics.html"><img src="{{statuses[3].user.profile_image_url}}" width = 12% height = 14% class="d-inline mr-3 rounded-circle" alt="" ng-click="sendUserData(status.user)"></a>
+                                            <h5 class="d-inline mt-0 mb-1" >{{statuses[3].user.name}}</h5>
+                                    </span>
+    
+                                    <div class="col media-body">
                                       <p>{{statuses[3].text}}</p>
                                       <div class="engagementbuttons">
-                                      <button type="button" class="btn btn-info">
+                                      <a href="{{statuses[3].entities.urls[0].url}}"><button type="button" class="btn btn-info">
                                               Likes <span class="badge badge-light">{{statuses[3].favorite_count}}</span>
-                                      </button>
-                                      <button type="button" class="btn btn-info">
+                                      </button></a>
+                                      <a href="{{statuses[3].entities.urls[0].url}}"><button type="button" class="btn btn-info">
                                               Retweets <span class="badge badge-light">{{statuses[3].retweet_count}}</span>
-                                      </button></div>
+                                      </button></a></div>
                                     </div>
                             </tr>
-                            <tr class="border border-primary">
-                                    <a href="/usermetrics.html" >
-                                        <img src="{{statuses[4].user.profile_image_url}}" width = 12% height = 14% class="mr-3 rounded-circle" alt="" ng-click="sendUserData(status.user)">
-                                    </a>
-                                    <div class="media-body">
-                                      <h5 class="mt-0 mb-1" >{{statuses[4].user.name}}</h5>
+                            <tr class="row border border-primary">
+                                    <span class="col" >
+                                            <a href="/usermetrics.html"><img src="{{statuses[4].user.profile_image_url}}" width = 12% height = 14% class="d-inline mr-3 rounded-circle" alt="" ng-click="sendUserData(status.user)"></a>
+                                            <h5 class="d-inline mt-0 mb-1" >{{statuses[4].user.name}}</h5>
+                                    </span>
+    
+                                    <div class="col media-body">
                                       <p>{{statuses[4].text}}</p>
                                       <div class="engagementbuttons">
-                                      <button type="button" class="btn btn-info">
+                                      <a href="{{statuses[4].entities.urls[0].url}}"><button type="button" class="btn btn-info">
                                               Likes <span class="badge badge-light">{{statuses[4].favorite_count}}</span>
-                                      </button>
-                                      <button type="button" class="btn btn-info">
+                                      </button></a>
+                                      <a href="{{statuses[4].entities.urls[0].url}}"><button type="button" class="btn btn-info">
                                               Retweets <span class="badge badge-light">{{statuses[4].retweet_count}}</span>
-                                      </button></div>
+                                      </button></a></div>
                                     </div>
                             </tr>
 
@@ -359,6 +380,10 @@
             </div>
           </div>
           <div class="w-100"></div>
+
+
+
+
             <!--POPULAR USERS BAR GRAPH
                 INFO: displayes the users with the most followers related to this topic
                 User Name: {{user.name}}
@@ -447,6 +472,9 @@
                             }
                     </script>
             </div>
+
+
+
             <!--TWITTER FREQUENCY LINE GRAPH
                 Displays number of posts for the past 5 days
                 Weekday: {{statuses.created_at}}
