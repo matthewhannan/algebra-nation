@@ -1,5 +1,4 @@
 # twitter-app
-Software Engineering Class Project for Algebra Nation
 
 Alright team, based on today's meeting, here's the gist of our situation:
 
@@ -33,14 +32,6 @@ Scrum Master: Matthew Hannan<br>
 UX Designer: Irene Polo<br>
 UI Frontend: Kyler Ferrell-Clegg <br>
 Full Stack: Andres Pineda<br>
-
-Contact Information:<br>
-Andres - (954) 670-7795 - andrespineda97@ufl.edu<br>
-Alejandro - (954) 670-7793 - alepineda97@ufl.edu<br>
-Christopher - (561) 685-5625 - cjoneill@ufl.edu<br>
-Irene - (786) 461-3641 - ipolo1969@ufl.edu<br>
-Kyler - (407) 868-1596 - kferrellclegg@ufl.edu<br>
-Matthew - (727) 415-1027 - matthewh2@ufl.edu<br>
 
 Weekly Meeting Session:<br>
 Tuesdays (11:15am - 11:45am) in Marston Science Library Basement - Directly before our weekly discussion/lab period
