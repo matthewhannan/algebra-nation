@@ -1,5 +1,4 @@
-<<<<<<< HEAD
-angular.module('directoryApp', []).controller('TopicsController', ['$scope', '$http', '$location', function ($scope, $http, $location) {
+angular.module('directoryApp', []).controller('TopicsController', ['$scope', '$http', '$location', '$window', function ($scope, $http, $location, $window) {
 
   $scope.getUserTweetsSync = function () {
     var user_tweets;
@@ -90,9 +89,6 @@ angular.module('directoryApp', []).controller('TopicsController', ['$scope', '$h
 
     return 'Resolved!';
   }
-=======
-angular.module('directoryApp', []).controller('TopicsController',['$scope','$window', '$http', function ($scope,$window, $http) {
->>>>>>> origin/master
 
   //LOAD USER
   if (sessionStorage.getItem('topicData') !== null && sessionStorage.getItem('userNum') !== null)
@@ -260,23 +256,5 @@ $scope.sendLocationTrend = async function(q) {
 
     location.reload();
   };
-<<<<<<< HEAD
   
-=======
-
-  $scope.getTweets = function () {
-
-    var str = sessionStorage.getItem('tweets');
-
-    if (str === 'null')
-        return [];
-    else
-    {
-      var tweets = JSON.parse(str);
-      return tweets;
-    }
-
-  }
-
->>>>>>> origin/master
 }]);
