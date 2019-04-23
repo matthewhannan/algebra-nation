@@ -28,9 +28,14 @@ angular.module('directoryApp', []).controller('TopicsController', ['$scope', '$h
     var retweets = 0, replies = 0, tweets = 0;
     var user_tweet_frequency = [0, 0, 0, 0, 0, 0, 0];
 
+    var top5tweets = [];
+
     for (var i = 0; i < $scope.user_tweet_data.data.length; i++) {
       var user_tweet = $scope.user_tweet_data.data[i];
       console.log(user_tweet);
+
+      if (i < 5)
+        top5tweets.push(user_tweet);
 
       var created_at = user_tweet.created_at;
 
@@ -61,6 +66,10 @@ angular.module('directoryApp', []).controller('TopicsController', ['$scope', '$h
           retweets++;
 
     }
+
+    console.log('Top 5 Tweets');
+    console.log(top5tweets);
+    sessionStorage.setItem('top5tweets', JSON.stringify(top5tweets));
 
     sessionStorage.setItem('user_tweet_count', tweets);
     console.log('User Tweet Count: ' + tweets);
