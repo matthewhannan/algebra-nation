@@ -96,6 +96,8 @@ angular.module('directoryApp', []).controller('TopicsController', ['$scope', '$h
     sessionStorage.setItem('utf6', user_tweet_frequency[6]);
     console.log('Saturday: ' + user_tweet_frequency[6]);
 
+    sessionStorage.setItem('reload', 'doit');
+
     return 'Resolved!';
   }
 
@@ -264,6 +266,65 @@ $scope.sendLocationTrend = async function(q) {
     sessionStorage.setItem('Sat', tweetFrequency[6]);
 
     location.reload();
+  };
+
+  $scope.initGetTop5Async = async function (sn) {
+    var ourData = {
+      screen_name: sn
+    };
+
+    var config = {
+      params: ourData
+    };
+
+    $scope.user_tweet_data = await $http.get('/api/twitter/user', config);
+
+    $scope.top5tweets = [];
+
+    for (var i = 0; i < 5; i++) {
+      $scope.top5tweets.push($scope.user_tweet_data.data[i]);
+    }
+
+    console.log('TOP 5 >>>');
+    console.log($scope.top5tweets);
+    sessionStorage.setItem('top5tweets', JSON.stringify($scope.top5tweets));
+
+    return 'Resolved!';
+  };
+
+  $scope.initGetTop5 = function (sn) {
+
+    var user_tweets;
+    return new Promise (resolve => {
+      user_tweets = $scope.initGetTop5Async(sn);
+      resolve(user_tweets);
+    });
+    return user_tweets;
+
+  };
+
+  $scope.initTop5Tweets = function () {
+
+    if (sessionStorage.getItem('reload') === 'doit')
+    {
+      sessionStorage.setItem('reload', 'null');
+      setTimeout(function () { console.log('Waiting'); }, 2000);
+      location.reload();
+    }
+
+    var userNum = parseInt(sessionStorage.getItem('userNum'));
+    var topicData = JSON.parse(sessionStorage.getItem('topicData'));
+
+    $scope.user = topicData.data.statuses[userNum].user;
+
+    console.log('INIT');
+    console.log($scope.user.screen_name);
+
+    $scope.initGetTop5($scope.user.screen_name);
+    $scope.top5tweets = JSON.parse(sessionStorage.getItem('top5tweets'));
+
+    console.log('TOP 5 :>');
+    console.log($scope.top5tweets);
   };
   
 }]);

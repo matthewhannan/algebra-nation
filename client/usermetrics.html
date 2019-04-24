@@ -12,7 +12,11 @@
 
     <script>
         window.onload = function ($scope) {
-
+          if (sessionStorage.getItem('reload') === 'doit') {
+              console.log('doit');
+              sessionStorage.setItem('reload', 'null');
+              setTimeout(function () { location.reload(); }, 3000);
+          }
         }
     </script>
 
@@ -106,20 +110,23 @@
               <!--2. FOLLOWERS/FRIENDS-->
               <div class="col anyClass2">
                   <div class = "topic-list" ng-controller="TopicsController">
-                      <table class="table table-striped table-hover">
+                      <table class="table table-striped table-hover" ng-init="initTop5Tweets()">
                               <tr class="col border">
                                       <!-- Add: {{status.user.profile_image_url}} for user profile image
                                           Clicking profile image should redirect to User Metrics page and
                                           send the user JSON data from the status JSON response-->
+                                          <script>
+                                            console.log('UwU ' + top5Tweets[0].text);
+                                            </script>
   
                                       <div class="col media-body">
-                                        <p>{{statuses[0].text}}</p>
+                                        <p>{{top5tweets[0].text}}</p>
                                         <div class="engagementbuttons">
-                                        <a href="{{statuses[0].entities.urls[0].url}}"><button type="button" class="btn btn-info">
-                                                Likes <span class="button badge badge-light">{{statuses[0].favorite_count}}</span>
+                                        <a href="{{top5tweets[0].entities.urls[0].url}}"><button type="button" class="btn btn-info">
+                                                Likes <span class="button badge badge-light">{{top5tweets[0].favorite_count}}</span>
                                         </button></a>
-                                        <a href="{{statuses[0].entities.urls[0].url}}"><button type="button" class="btn btn-info">
-                                                Retweets <span class="badge badge-light">{{statuses[0].retweet_count}}</span>
+                                        <a href="{{top5tweets[0].entities.urls[0].url}}"><button type="button" class="btn btn-info">
+                                                Retweets <span class="badge badge-light">{{top5tweets[0].retweet_count}}</span>
                                         </button></a></div>
                                       </div>
                               </tr>
@@ -128,13 +135,13 @@
                               <tr class="col border ">
       
                                       <div class="col media-body">
-                                              <p>{{statuses[1].text}}</p>
+                                              <p>{{top5tweets[1].text}}</p>
                                               <div class="engagementbuttons">
-                                              <a href="{{statuses[1].entities.urls[0].url}}"><button type="button" class="btn btn-info">
-                                                      Likes <span class="button badge badge-light">{{statuses[1].favorite_count}}</span>
+                                              <a href="{{top5tweets[1].entities.urls[0].url}}"><button type="button" class="btn btn-info">
+                                                      Likes <span class="button badge badge-light">{{top5tweets[1].favorite_count}}</span>
                                               </button></a>
-                                              <a href="{{statuses[1].entities.urls[0].url}}"><button type="button" class="btn btn-info">
-                                                      Retweets <span class="badge badge-light">{{statuses[1].retweet_count}}</span>
+                                              <a href="{{top5tweets[1].entities.urls[0].url}}"><button type="button" class="btn btn-info">
+                                                      Retweets <span class="badge badge-light">{{top5tweets[1].retweet_count}}</span>
                                               </button></a></div>
                                       </div>
                               </tr>
@@ -143,13 +150,13 @@
                               <tr class="col border ">
                                       
                                       <div class="col media-body">
-                                        <p>{{statuses[2].text}}</p>
+                                        <p>{{top5tweets[2].text}}</p>
                                         <div class="engagementbuttons">
-                                        <a href="{{statuses[2].entities.urls[0].url}}"><button type="button" class="btn btn-info">
-                                                Likes <span class="badge badge-light">{{statuses[2].favorite_count}}</span>
+                                        <a href="{{top5tweets[2].entities.urls[0].url}}"><button type="button" class="btn btn-info">
+                                                Likes <span class="badge badge-light">{{top5tweets[2].favorite_count}}</span>
                                         </button></a>
-                                        <a href="{{statuses[2].entities.urls[0].url}}"><button type="button" class="btn btn-info">
-                                                Retweets <span class="badge badge-light">{{statuses[2].retweet_count}}</span>
+                                        <a href="{{top5tweets[2].entities.urls[0].url}}"><button type="button" class="btn btn-info">
+                                                Retweets <span class="badge badge-light">{{top5tweets[2].retweet_count}}</span>
                                         </button></a></div>
                                       </div>
                               </tr>
@@ -158,13 +165,13 @@
                               <tr class="col border ">
                                      
                                       <div class="col media-body">
-                                        <p>{{statuses[3].text}}</p>
+                                        <p>{{top5tweets[3].text}}</p>
                                         <div class="engagementbuttons">
-                                        <a href="{{statuses[3].entities.urls[0].url}}"><button type="button" class="btn btn-info">
-                                                Likes <span class="badge badge-light">{{statuses[3].favorite_count}}</span>
+                                        <a href="{{top5tweets[3].entities.urls[0].url}}"><button type="button" class="btn btn-info">
+                                                Likes <span class="badge badge-light">{{top5tweets[3].favorite_count}}</span>
                                         </button></a>
-                                        <a href="{{statuses[3].entities.urls[0].url}}"><button type="button" class="btn btn-info">
-                                                Retweets <span class="badge badge-light">{{statuses[3].retweet_count}}</span>
+                                        <a href="{{top5tweets[3].entities.urls[0].url}}"><button type="button" class="btn btn-info">
+                                                Retweets <span class="badge badge-light">{{top5tweets[3].retweet_count}}</span>
                                         </button></a></div>
                                       </div>
                               </tr>
@@ -173,13 +180,13 @@
                               <tr class="col border ">
                                    
                                       <div class="col media-body">
-                                        <p>{{statuses[4].text}}</p>
+                                        <p>{{top5tweets[4].text}}</p>
                                         <div class="engagementbuttons">
-                                        <a href="{{statuses[4].entities.urls[0].url}}"><button type="button" class="btn btn-info">
-                                                Likes <span class="badge badge-light">{{statuses[4].favorite_count}}</span>
+                                        <a href="{{top5tweets[4].entities.urls[0].url}}"><button type="button" class="btn btn-info">
+                                                Likes <span class="badge badge-light">{{top5tweets[4].favorite_count}}</span>
                                         </button></a>
-                                        <a href="{{statuses[4].entities.urls[0].url}}"><button type="button" class="btn btn-info">
-                                                Retweets <span class="badge badge-light">{{statuses[4].retweet_count}}</span>
+                                        <a href="{{top5tweets[4].entities.urls[0].url}}"><button type="button" class="btn btn-info">
+                                                Retweets <span class="badge badge-light">{{top5tweets[4].retweet_count}}</span>
                                         </button></a></div>
                                       </div>
                               </tr>
