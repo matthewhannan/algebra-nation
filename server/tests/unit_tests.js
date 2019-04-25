@@ -1,6 +1,8 @@
 var should = require('should');
 var Twit = require('twit');
+var app = require('../config/express.js');
 var config= require('../config/config');
+var twitter= require('../config/twitter.js');
 var T = new Twit(config);
 
 before(function(done) {
@@ -10,6 +12,7 @@ before(function(done) {
 })
 	
 describe('Saving to database', function() {
+
 
   this.timeout(10000);
   
@@ -52,6 +55,31 @@ describe('Saving to database', function() {
 		});
 	});
 	done();
-  });  
+  });
+
+  it('Test of function getTweetsbyUser() in twitter.js should be successful', function(done){
+	var func_call = twitter.getTweetsbyUser("Tesla");
+	should.exist(func_call);
+	done();
+  });
+  
+  it('Test of function getTweetsbyKeyword() in twitter.js should be successful', function(done){
+	var func_call = twitter.getTweetsbyKeyword("Gators");
+	should.exist(func_call);
+	done();
+  });
+  
+  it('Test of function getTweetsbyKeyword() in twitter.js should NOT be successful', function(done){
+	try{
+		var func_call = twitter.getTweetsbyKeyword("");
+	}
+	catch(error){
+	    should.not.exist(func_call);
+	}
+	done();
+  });
+  
+  
+  
   
 });
