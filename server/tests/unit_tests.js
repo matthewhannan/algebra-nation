@@ -79,6 +79,31 @@ describe('Saving to database', function() {
 	done();
   });
   
+  it('Call to trends/place API should be successful', function(done){
+	var promise = new Promise(resolve => {
+		T.get('trends/place',2388929, function(err, data, response){
+			resolve(data);
+		});
+	});
+	should.exist(promise);
+	done();
+  });
+  
+  it('Call to search/tweets API should be successful', function(done){
+	var promise = new Promise(resolve => {
+	T.get('search/tweets',{q: 'Football',result_type: 'popular',count: 15}, function(err, data, response){
+			resolve(data);
+		});
+	});
+	should.exist(promise);
+	done();
+  });
+  
+  it('Test of function getTweetsbyUser() in twitter.js should be successful', function(done){
+	var func_call = twitter.getTweetsbyUser("NBA");
+	should.exist(func_call);
+	done();
+  });
   
   
   
