@@ -1,0 +1,349 @@
+<html>
+
+  <head>
+    <title>Twitter Data | User Metrics</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    <link rel="stylesheet" href="styles/main.css">
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+  </head>
+
+  <body ng-app="directoryApp">
+
+    <script>
+        window.onload = function ($scope) {
+          if (sessionStorage.getItem('reload') === 'doit') {
+              console.log('doit');
+              sessionStorage.setItem('reload', 'null');
+              setTimeout(function () { location.reload(); }, 3000);
+          }
+        }
+    </script>
+
+    <div class="container-fluid" ng-controller="TopicsController">
+
+       <!--NAVBAR-->
+      <div class="row">
+          <nav class="navbar navbar-expand-lg navbar-light" style="background-color: #e3f2fd;"">
+            <span class="sr-only">Toggle Navigation</span>
+
+            <div class="row navbar-header">
+
+              <!--NAVBAR BRAND-->
+              <div class="col">
+                <a class="navbar-brand" href="index.html">
+                      <img src="images/twitter_icon.png" width="60" height="60" class="d-inline rounded-circle" alt="Twitter Icon">
+                      <h3 class="d-inline"style="vertical-align:middle;font-size: 2em;text-align: center;">Twitter Data</h3>
+                </a>
+
+              </div>
+
+              <!--PAGE NAME-->
+              <div class="col"><h1 style="vertical-align:middle; font-size: 3em;text-align: center;color:black;">User Metrics</h1></div>
+                
+              
+              <!--BLANK-->
+                <div class="col ">
+                  </div>
+            </div>
+
+          </nav>
+      </div>
+
+        <!--BREADCRUMBS-->
+        <div class="row">
+                <nav aria-label="breadcrumb">
+                        <ol class="breadcrumb">
+                          <li class="breadcrumb-item"><a href="/index.html">Dashboard</a></li>
+                          <li class="breadcrumb-item active" aria-current="page">User Metrics</li>
+                        </ol>
+                </nav>
+        </div>
+
+
+      <!--BODY MAIN CONTENT-->
+      <div class="bodyContent">
+
+      <div class="row"> <!--Start of top row-->
+                <!--1. PROFILE CARD-->
+                <div class="col twPc-div">
+                    <a class="twPc-bg twPc-block" style="background-image: url({{user.profile_banner_url}})"></a>
+
+                  <div>
+                    <span title="username" href="#" class="twPc-avatarLink">
+                      <img alt="User Profile Image" src="{{user.profile_image_url}}" class="twPc-avatarImg">
+                    </span>
+
+                    <div class="twPc-divUser">
+                      <div class="twPc-divName">
+                        <span >{{user.name}}</span>
+                      </div>
+                      <span>
+                        <a href="{{user.url}}">@<span>{{user.screen_name}}</span></a>
+                      </span>
+                    </div>
+
+                    <div class="twPc-divStats" >
+                      <ul class="twPc-Arrange" style="width: 10em; word-wrap: break-word;">
+                        <li class="twPc-ArrangeSizeFit">
+                            <span class="twPc-StatLabel twPc-block" >Tweets</span>
+                            <span class="twPc-StatValue" style=" overflow-y: hidden; width: 10em; word-wrap: break-word;">{{user.statuses_count}}</span>
+
+                        </li>
+                        <li class="twPc-ArrangeSizeFit">
+                            <span class="twPc-StatLabel twPc-block">Following</span>
+                            <span class="twPc-StatValue " style="overflow-y: hidden ;width: 10em; word-wrap: break-word;">{{user.friends_count}}</span>
+
+                        </li>
+                        <li class="twPc-ArrangeSizeFit">
+                            <span class="twPc-StatLabel twPc-block">Followers</span>
+                            <span class="twPc-StatValue" style="overflow-y: hidden;width: 10em; word-wrap: break-word;">{{user.followers_count}}</span>
+
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+
+
+
+              <!--2. FOLLOWERS/FRIENDS-->
+              <div class="col anyClass2">
+                  <div class = "topic-list" ng-controller="TopicsController">
+                      <table class="table table-striped table-hover" ng-init="initTop5Tweets()">
+                              <tr class="col border">
+                                      <!-- Add: {{status.user.profile_image_url}} for user profile image
+                                          Clicking profile image should redirect to User Metrics page and
+                                          send the user JSON data from the status JSON response-->
+                                          <script>
+                                            console.log('UwU ' + top5Tweets[0].text);
+                                            </script>
+  
+                                      <div class="col media-body">
+                                        <p>{{top5tweets[0].text}}</p>
+                                        <div class="engagementbuttons">
+                                        <a href="{{top5tweets[0].entities.urls[0].url}}"><button type="button" class="btn btn-info">
+                                                Likes <span class="button badge badge-light">{{top5tweets[0].favorite_count}}</span>
+                                        </button></a>
+                                        <a href="{{top5tweets[0].entities.urls[0].url}}"><button type="button" class="btn btn-info">
+                                                Retweets <span class="badge badge-light">{{top5tweets[0].retweet_count}}</span>
+                                        </button></a></div>
+                                      </div>
+                              </tr>
+                              <div class="w-100"></div>
+                              <hr></hr>
+                              <tr class="col border ">
+      
+                                      <div class="col media-body">
+                                              <p>{{top5tweets[1].text}}</p>
+                                              <div class="engagementbuttons">
+                                              <a href="{{top5tweets[1].entities.urls[0].url}}"><button type="button" class="btn btn-info">
+                                                      Likes <span class="button badge badge-light">{{top5tweets[1].favorite_count}}</span>
+                                              </button></a>
+                                              <a href="{{top5tweets[1].entities.urls[0].url}}"><button type="button" class="btn btn-info">
+                                                      Retweets <span class="badge badge-light">{{top5tweets[1].retweet_count}}</span>
+                                              </button></a></div>
+                                      </div>
+                              </tr>
+                              <div class="w-100"></div>
+                              <hr></hr>
+                              <tr class="col border ">
+                                      
+                                      <div class="col media-body">
+                                        <p>{{top5tweets[2].text}}</p>
+                                        <div class="engagementbuttons">
+                                        <a href="{{top5tweets[2].entities.urls[0].url}}"><button type="button" class="btn btn-info">
+                                                Likes <span class="badge badge-light">{{top5tweets[2].favorite_count}}</span>
+                                        </button></a>
+                                        <a href="{{top5tweets[2].entities.urls[0].url}}"><button type="button" class="btn btn-info">
+                                                Retweets <span class="badge badge-light">{{top5tweets[2].retweet_count}}</span>
+                                        </button></a></div>
+                                      </div>
+                              </tr>
+                              <div class="w-100"></div>
+                              <hr></hr>
+                              <tr class="col border ">
+                                     
+                                      <div class="col media-body">
+                                        <p>{{top5tweets[3].text}}</p>
+                                        <div class="engagementbuttons">
+                                        <a href="{{top5tweets[3].entities.urls[0].url}}"><button type="button" class="btn btn-info">
+                                                Likes <span class="badge badge-light">{{top5tweets[3].favorite_count}}</span>
+                                        </button></a>
+                                        <a href="{{top5tweets[3].entities.urls[0].url}}"><button type="button" class="btn btn-info">
+                                                Retweets <span class="badge badge-light">{{top5tweets[3].retweet_count}}</span>
+                                        </button></a></div>
+                                      </div>
+                              </tr>
+                              <div class="w-100"></div>
+                              <hr></hr>
+                              <tr class="col border ">
+                                   
+                                      <div class="col media-body">
+                                        <p>{{top5tweets[4].text}}</p>
+                                        <div class="engagementbuttons">
+                                        <a href="{{top5tweets[4].entities.urls[0].url}}"><button type="button" class="btn btn-info">
+                                                Likes <span class="badge badge-light">{{top5tweets[4].favorite_count}}</span>
+                                        </button></a>
+                                        <a href="{{top5tweets[4].entities.urls[0].url}}"><button type="button" class="btn btn-info">
+                                                Retweets <span class="badge badge-light">{{top5tweets[4].retweet_count}}</span>
+                                        </button></a></div>
+                                      </div>
+                              </tr>
+  
+                      </table>
+              </div>
+              </div>
+
+
+          </div> <!--End of top row-->
+
+          <div class="row"> <!--Start of bottom row-->
+
+              <!--4. STATS CARDS-->
+                  <div class="col" style="padding-top: 120px;">
+                      <div class="card text-center" style="width: 90%;">
+                          <div class="card-body">
+                          <h5 class="card-title">Tweets</h5>
+                          <p class="card-text">{{user.statuses_count}}</p>
+                          </div>
+                      </div>
+                      <div class="card text-center" style="width: 90%;">
+                              <div class="card-body">
+                              <h5 class="card-title">Posts Liked</h5>
+                              <p class="card-text">{{user.favourites_count}}</p>
+                              </div>
+                      </div>
+                  </div>
+
+
+
+              <!--5. USER ACTIVITY PIE CHART
+                  INFO: displays percentage of user tweets and likes
+                  Doesn't require variables
+              -->
+              <div class="col">
+                <h3 class="headingTitle">User Activity Breakdown</h3>
+                <div id="piechart" align='center'>
+                </div>
+                <script type="text/javascript">
+                // Load google charts
+                google.charts.load('current', {'packages':['corechart']});
+                google.charts.setOnLoadCallback(drawChart);
+
+                // Draw the chart and set the chart values
+                function drawChart() {
+
+                  var tweet_count = parseInt(sessionStorage.getItem('user_tweet_count'));
+                  var retweet_count = parseInt(sessionStorage.getItem('user_retweet_count'));
+                  var likes = parseInt(sessionStorage.getItem('user_likes'));
+                  var reply_count = parseInt(sessionStorage.getItem('user_reply_count'));
+        
+                  var data = google.visualization.arrayToDataTable([
+                  ['Activity', 'Frequency'],
+                  ['Original Tweets', tweet_count],
+                  ['Retweets', retweet_count],
+                  ['Replies', reply_count]
+                ]);
+
+                  // Optional; add a title and set the width and height of the chart
+                  var options = {
+                    'titlePosition':'none',
+                    'width':500,
+                    'height':500
+                  };
+
+                  // Display the chart inside the <div> element with id="piechart"
+                  var chart = new google.visualization.PieChart(document.getElementById('piechart'));
+                  chart.draw(data, options);
+                  setTimeout(function () {drawChart();}, 1000);
+                }
+                </script>
+
+              </div>
+
+
+
+
+            <!--6.TWITTER ACTIVITY LINE GRAPH
+                INFO: Shows the number of posts the user has made in the past 7 days
+
+                Requires call to: GET statuses / user_timeline
+                Weekday: {{?.created_at}}
+                    -> returns: Sun Feb 25... but we just need 'Sun'or 'Feb 25' for the date
+                Number of Posts: length of the array for the tweets for a specified day
+            -->
+            <div class="col">
+                <h3 class="headingTitle">User Tweet Activity</h3>
+                <div id="linechart_div" align='center'>
+                </div>
+                <script>
+                    google.charts.load('current', {packages: ['corechart', 'line']});
+                    google.charts.setOnLoadCallback(drawBasic);
+
+                    function drawBasic() {
+
+                        var data = new google.visualization.DataTable();
+                        data.addColumn('string', 'Weekday');
+                        data.addColumn('number', 'Number of Posts');
+
+                        var Sunday = parseInt(sessionStorage.getItem('utf0'));
+                        var Monday = parseInt(sessionStorage.getItem('utf1'));
+                        var Tuesday = parseInt(sessionStorage.getItem('utf2'));
+                        var Wednesday = parseInt(sessionStorage.getItem('utf3'));
+                        var Thursday = parseInt(sessionStorage.getItem('utf4'));
+                        var Friday = parseInt(sessionStorage.getItem('utf5'));
+                        var Saturday = parseInt(sessionStorage.getItem('utf6'));
+
+                        data.addRows([
+                                ['Sunday', Sunday],
+                                ['Monday', Monday],
+                                ['Tuesday', Tuesday],
+                                ['Wednesday', Wednesday],
+                                ['Thursday', Thursday],
+                                ['Friday', Friday],
+                                ['Saturday', Saturday]
+                        ]);
+
+                        var options = {
+                            titlePosition: 'none',
+                            width: '400',
+                            height: '400',
+                            hAxis: {
+                                title: 'Day of Week'
+                            },
+
+                            vAxis: {
+                                title: 'Amount of Tweets'
+                            }
+                        };
+
+                        var chart = new google.visualization.LineChart(document.getElementById('linechart_div'));
+
+                        chart.draw(data, options);
+
+                        setTimeout(function () {drawBasic();}, 1000);
+                        }
+                </script>
+            </div>
+
+        </div> <!--End of Bottom Page Row-->
+
+
+
+
+        </div> <!--End of Body Main Content-->
+
+    </div> <!--End of Webpage-->
+
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js" integrity="sha512-K1qjQ+NcF2TYO/eI3M6v8EiNYZfA95pQumfvcVrTHtwQVDG+aHRqLi/ETn2uB+1JqwYqVG3LIvdm9lj6imS/pQ==" crossorigin="anonymous"></script>
+    <script src="https://code.angularjs.org/1.4.3/angular.js"></script>
+    <script src="js/app.js"></script>
+    <script src="js/controllers/TopicsController.js"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+  </body>
+</html>
